@@ -1,0 +1,10 @@
+<nav class="rail" aria-hidden="true">
+  <div class="rail__frame">FRAME <span>{{ currentFrameLabel() }}</span> / 07</div>
+  <div class="rail__track">
+    <div
+      *ngFor="let holeIndex of holes"
+      class="rail__hole"
+      [class.is-active]="isHoleActive(holeIndex)"
+    ></div>
+  </div>
+</nav>

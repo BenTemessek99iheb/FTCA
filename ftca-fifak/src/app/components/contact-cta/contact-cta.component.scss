@@ -1,0 +1,20 @@
+/* ============================================================
+   CONTACT CTA
+   ============================================================ */
+
+.contact-cta {
+  padding: 130px 0;
+  text-align: center;
+  border-top: 1px solid var(--ligne);
+
+  h2 {
+    font-size: clamp(32px, 5.4vw, 64px);
+    max-width: 820px;
+    margin: 20px auto 0;
+    line-height: 1.1;
+  }
+
+  .btn {
+    margin-top: 40px;
+  }
+}

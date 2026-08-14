@@ -1,0 +1,36 @@
+<section class="hero" id="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__wash"></div>
+
+  <div class="hero__sprockets">
+    <span *ngFor="let i of sprockets"></span>
+  </div>
+
+  <div class="wrap hero__content">
+    <div class="hero__kicker">
+      <span class="dot"></span>
+      <span>{{ content.eyebrowText }}</span>
+    </div>
+
+    <h1>
+      {{ content.mainTitle }}<em>{{ content.italicPart }} </em>Amateurs
+    </h1>
+
+    <p class="hero__sub">{{ content.subtitle }}</p>
+
+    <div class="hero__bottom">
+      <div class="hero__actions">
+        <a href="#fifak2026" class="btn btn--solid">Découvrir FIFAK 2026</a>
+        <a href="#ftca" class="btn btn--ghost-light">Notre histoire</a>
+      </div>
+      <div class="hero__badge">
+        <b>{{ content.badgeNumber }}</b>
+        <div>{{ content.badgeText }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span class="line"></span>Scroll
+  </div>
+</section>

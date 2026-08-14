@@ -1,0 +1,26 @@
+<section class="sec-articles" id="articles">
+  <div class="wrap">
+    <div class="shead reveal" appRevealOnScroll>
+      <span class="eyebrow">Actualités</span>
+      <h2>Derniers articles</h2>
+      <p>Les dernières nouvelles de la FTCA, du FIFAK et du cinéma amateur tunisien.</p>
+    </div>
+
+    <div class="articles-grid reveal" appRevealOnScroll>
+      <article class="article-card" *ngFor="let card of articleCards$; let i = index" [style.--i]="i">
+        <div class="article-card__img">
+          <span class="article-card__cat">{{ card.category }}</span>
+          <img [src]="card.image" [alt]="card.title" />
+        </div>
+        <span class="article-card__date">{{ card.date }}</span>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.excerpt }}</p>
+        <a [href]="card.link" class="article-card__link">Lire l'article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+
+    <div class="articles-more reveal" appRevealOnScroll>
+      <a href="#" class="btn btn--ghost-light">Voir tous les articles</a>
+    </div>
+  </div>
+</section>

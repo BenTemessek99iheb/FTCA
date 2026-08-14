@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FTCA — Fédération Tunisienne des Cinéastes Amateurs</title>
+<meta name="description" content="FTCA — Fédération Tunisienne des Cinéastes Amateurs. Organisatrice du FIFAK, Festival International des Films Amateurs de Kélibia.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --noir:            #0a0908;
+  --noir-2:          #131110;
+  --panneau:         #1a1715;
+  --panneau-2:       #211d1a;
+  --rouge:           #b31022;
+  --rouge-vif:       #e8153c;
+  --rouge-sombre:    #6e0b17;
+  --blanc:           #f4efe6;
+  --gris:            #948d84;
+  --gris-fonce:      #4a453f;
+  --ligne:           rgba(244,239,230,0.12);
+
+  --display: 'Fraunces', serif;
+  --impact:  'Anton', sans-serif;
+  --corps:   'Archivo', sans-serif;
+
+  --wrap: 1240px;
+  --ease: cubic-bezier(.16,.84,.32,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+body{
+  background:var(--noir);
+  color:var(--blanc);
+  font-family:var(--corps);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; background:none; border:none; color:inherit; }
+
+::selection{ background:var(--rouge-vif); color:var(--blanc); }
+
+:focus-visible{
+  outline:2px solid var(--rouge-vif);
+  outline-offset:3px;
+}
+
+.wrap{ max-width:var(--wrap); margin:0 auto; padding:0 40px; }
+@media (max-width:768px){ .wrap{ padding:0 22px; } }
+
+.eyebrow{
+  font-family:var(--corps);
+  font-weight:700;
+  font-size:12.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--rouge-vif);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:22px; height:1px;
+  background:var(--rouge-vif);
+}
+
+h1,h2,h3,h4{ font-family:var(--display); font-weight:500; letter-spacing:-.01em; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 30px;
+  font-family:var(--corps);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border:1px solid var(--blanc);
+  color:var(--blanc);
+  position:relative;
+  overflow:hidden;
+  transition:color .45s var(--ease), border-color .45s var(--ease);
+}
+.btn::before{
+  content:"";
+  position:absolute; inset:0;
+  background:var(--blanc);
+  transform:translateX(-101%);
+  transition:transform .45s var(--ease);
+  z-index:-1;
+}
+.btn:hover{ color:var(--noir); }
+.btn:hover::before{ transform:translateX(0); }
+
+.btn--solid{
+  background:var(--rouge-vif);
+  border-color:var(--rouge-vif);
+  color:var(--blanc);
+}
+.btn--solid::before{ background:var(--blanc); }
+.btn--solid:hover{ color:var(--noir); border-color:var(--blanc); }
+
+.btn--ghost-light{
+  border-color:rgba(244,239,230,.35);
+}
+
+/* ============================================================
+   FILM GRAIN — global atmosphere
+   ============================================================ */
+.grain{
+  position:fixed; inset:0;
+  pointer-events:none;
+  z-index:998;
+  opacity:.05;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation:grain-shift 1.2s steps(4) infinite;
+}
+@keyframes grain-shift{
+  0%{ transform:translate(0,0); } 25%{ transform:translate(-1%,1%); }
+  50%{ transform:translate(1%,-1%); } 75%{ transform:translate(-1%,-1%); } 100%{ transform:translate(1%,1%); }
+}
+
+/* ============================================================
+   FILMSTRIP RAIL — signature element (desktop only)
+   ============================================================ */
+.rail{
+  position:fixed;
+  left:0; top:0; bottom:0;
+  width:56px;
+  z-index:400;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:linear-gradient(180deg, var(--noir) 0%, transparent 6%, transparent 94%, var(--noir) 100%);
+}
+.rail__track{
+  position:relative;
+  flex:1;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  align-items:center;
+  padding:90px 0 40px;
+}
+.rail__hole{
+  width:9px; height:13px;
+  border-radius:3px;
+  background:var(--gris-fonce);
+  opacity:.5;
+  transition:background .5s var(--ease), opacity .5s var(--ease);
+}
+.rail__hole.is-active{
+  background:var(--rouge-vif);
+  opacity:1;
+  box-shadow:0 0 10px rgba(232,21,60,.6);
+}
+.rail__frame{
+  position:fixed;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%) rotate(-90deg);
+  transform-origin:left center;
+  font-family:var(--impact);
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--gris);
+  white-space:nowrap;
+}
+.rail__frame span{ color:var(--rouge-vif); }
+@media (max-width:1080px){ .rail{ display:none; } }
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0;
+  z-index:500;
+  padding:26px 0;
+  transition:padding .5s var(--ease), background .5s var(--ease), border-color .5s var(--ease), backdrop-filter .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.is-scrolled{
+  padding:14px 0;
+  background:rgba(10,9,8,.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-color:var(--ligne);
+}
+.nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.nav__brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:var(--impact);
+  font-size:22px;
+  letter-spacing:.06em;
+}
+.nav__brand .mark{
+  width:38px; height:38px;
+  border:1.5px solid var(--rouge-vif);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  transform:rotate(45deg);
+  flex-shrink:0;
+}
+.nav__brand .mark span{
+  transform:rotate(-45deg);
+  font-family:var(--impact);
+  font-size:14px;
+  color:var(--rouge-vif);
+}
+.nav__brand small{
+  display:block;
+  font-family:var(--corps);
+  font-weight:400;
+  font-size:9.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-top:2px;
+}
+
+.nav__links{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.nav__item{ position:relative; }
+.nav__link{
+  display:flex; align-items:center; gap:6px;
+  padding:10px 18px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--blanc);
+  opacity:.85;
+  transition:opacity .3s var(--ease);
+}
+.nav__link:hover{ opacity:1; }
+.nav__link i{ font-size:9px; transition:transform .3s var(--ease); opacity:.7; }
+.nav__item:hover .nav__link i{ transform:rotateX(180deg); }
+
+.nav__actions{ display:flex; align-items:center; gap:14px; }
+.nav__actions .btn{ padding:12px 22px; font-size:11.5px; }
+
+.dropdown{
+  position:absolute; top:100%; left:0;
+  min-width:250px;
+  padding:10px;
+  background:rgba(19,17,16,.98);
+  border:1px solid var(--ligne);
+  backdrop-filter:blur(10px);
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+}
+.nav__item:hover .dropdown{ opacity:1; visibility:visible; transform:translateY(0); }
+.dropdown a{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 14px;
+  font-size:13px; font-weight:500;
+  color:var(--blanc); opacity:.75;
+  border-left:2px solid transparent;
+  transition:opacity .25s, border-color .25s, background .25s, padding-left .25s;
+}
+.dropdown a:hover{
+  opacity:1; border-color:var(--rouge-vif); background:rgba(232,21,60,.08); padding-left:20px;
+}
+.dropdown a .tag{
+  font-family:var(--impact); font-size:9px; letter-spacing:.1em;
+  color:var(--rouge-vif); border:1px solid var(--rouge-vif); padding:2px 6px;
+}
+
+.burger{
+  display:none;
+  width:26px; height:18px;
+  position:relative;
+  z-index:600;
+}
+.burger span{
+  position:absolute; left:0; width:100%; height:2px; background:var(--blanc);
+  transition:transform .35s var(--ease), opacity .35s var(--ease), top .35s var(--ease);
+}
+.burger span:nth-child(1){ top:0; }
+.burger span:nth-child(2){ top:8px; }
+.burger span:nth-child(3){ top:16px; }
+.burger.is-open span:nth-child(1){ top:8px; transform:rotate(45deg); }
+.burger.is-open span:nth-child(2){ opacity:0; }
+.burger.is-open span:nth-child(3){ top:8px; transform:rotate(-45deg); }
+
+@media (max-width:960px){
+  .nav__links, .nav__actions .btn--ghost-light{ display:none; }
+  .burger{ display:block; }
+}
+
+.mobile-menu{
+  position:fixed; inset:0; z-index:550;
+  background:var(--noir);
+  padding:110px 30px 40px;
+  display:flex; flex-direction:column; gap:6px;
+  transform:translateX(100%);
+  transition:transform .5s var(--ease);
+  overflow-y:auto;
+}
+.mobile-menu.is-open{ transform:translateX(0); }
+.mobile-menu a{
+  font-family:var(--display); font-size:32px; font-weight:400;
+  padding:16px 0; border-bottom:1px solid var(--ligne);
+}
+.mobile-menu .sub{ padding-left:18px; }
+.mobile-menu .sub a{ font-family:var(--corps); font-size:15px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; padding:12px 0; color:var(--gris); }
+.mobile-menu .btn{ margin-top:26px; align-self:flex-start; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  padding-bottom:90px;
+}
+.hero__bg{
+  position:absolute; inset:0;
+  background-image:url('https://picsum.photos/seed/ftca-hero-kelibia/1920/1200');
+  background-size:cover; background-position:center 30%;
+  filter:grayscale(1) contrast(1.15) brightness(.55);
+  transform:scale(1.08);
+  animation:hero-in 2.4s var(--ease) forwards;
+}
+@keyframes hero-in{ from{ transform:scale(1.16); filter:grayscale(1) contrast(1.15) brightness(.2);} to{ transform:scale(1.08); filter:grayscale(1) contrast(1.15) brightness(.55);} }
+.hero__wash{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(10,9,8,.55) 0%, rgba(10,9,8,.35) 35%, rgba(10,9,8,.92) 100%),
+    linear-gradient(100deg, rgba(179,16,34,.35), transparent 55%);
+}
+.hero__sprockets{
+  position:absolute; top:0; bottom:0; right:36px;
+  width:14px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:40px 0;
+  opacity:.5;
+}
+.hero__sprockets span{ width:14px; height:20px; border:1.5px solid var(--blanc); border-radius:3px; }
+@media (max-width:768px){ .hero__sprockets{ display:none; } }
+
+.hero__content{ position:relative; z-index:2; width:100%; }
+.hero__kicker{
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:26px;
+  opacity:0; animation:rise .9s var(--ease) .5s forwards;
+}
+.hero__kicker .dot{ width:8px; height:8px; border-radius:50%; background:var(--rouge-vif); animation:pulse 1.8s ease-in-out infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+.hero__kicker span{ font-size:12.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--blanc); opacity:.75; }
+
+.hero h1{
+  font-size:clamp(52px, 9.5vw, 138px);
+  line-height:.92;
+  letter-spacing:-.02em;
+  opacity:0; animation:rise 1.1s var(--ease) .68s forwards;
+}
+.hero h1 em{ font-style:italic; color:var(--rouge-vif); font-weight:400; }
+.hero__sub{
+  max-width:560px;
+  margin-top:26px;
+  font-size:18px;
+  color:var(--gris);
+  font-weight:400;
+  opacity:0; animation:rise .9s var(--ease) .95s forwards;
+}
+@keyframes rise{ from{ opacity:0; transform:translateY(26px);} to{ opacity:1; transform:translateY(0);} }
+
+.hero__bottom{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:30px;
+  margin-top:56px; flex-wrap:wrap;
+  opacity:0; animation:rise .9s var(--ease) 1.2s forwards;
+}
+.hero__actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero__badge{
+  display:flex; align-items:center; gap:16px;
+  padding:14px 22px;
+  border:1px solid var(--ligne);
+  background:rgba(19,17,16,.5);
+  backdrop-filter:blur(6px);
+}
+.hero__badge b{ font-family:var(--impact); font-size:22px; color:var(--rouge-vif); letter-spacing:.02em; }
+.hero__badge div{ font-size:11px; color:var(--gris); text-transform:uppercase; letter-spacing:.08em; line-height:1.5; }
+
+.hero__scroll{
+  position:absolute; bottom:26px; left:40px; z-index:2;
+  display:flex; align-items:center; gap:10px;
+  font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gris);
+}
+.hero__scroll .line{ width:1px; height:34px; background:linear-gradient(var(--rouge-vif), transparent); animation:scrollline 1.8s ease-in-out infinite; }
+@keyframes scrollline{ 0%{ transform:scaleY(0); transform-origin:top;} 50%{ transform:scaleY(1); transform-origin:top;} 51%{ transform-origin:bottom;} 100%{ transform:scaleY(0); transform-origin:bottom;} }
+@media (max-width:768px){ .hero__scroll{ display:none; } }
+
+/* ============================================================
+   REVEAL UTILITY
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(36px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }
+.reveal-stagger.is-visible > *{ transition-delay:calc(var(--i, 0) * 90ms); }
+
+section{ position:relative; }
+
+/* ============================================================
+   SECTION HEAD
+   ============================================================ */
+.shead{ max-width:720px; margin-bottom:64px; }
+.shead h2{ font-size:clamp(34px,5vw,58px); margin-top:18px; line-height:1.05; }
+.shead p{ margin-top:20px; font-size:17px; color:var(--gris); max-width:540px; }
+
+/* ============================================================
+   SECTION — FTCA
+   ============================================================ */
+.sec-ftca{ padding:150px 0 60px; }
+
+.ftca-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:start;
+}
+@media (max-width:900px){ .ftca-grid{ grid-template-columns:1fr; gap:50px; } }
+
+.timeline{ position:relative; padding-left:32px; }
+.timeline::before{ content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--ligne); }
+.timeline__item{ position:relative; padding-bottom:38px; }
+.timeline__item:last-child{ padding-bottom:0; }
+.timeline__item::before{
+  content:""; position:absolute; left:-32px; top:4px;
+  width:11px; height:11px; border-radius:50%;
+  background:var(--noir); border:2px solid var(--rouge-vif);
+}
+.timeline__year{ font-family:var(--impact); font-size:15px; color:var(--rouge-vif); letter-spacing:.05em; }
+.timeline__item p{ margin-top:8px; color:var(--gris); font-size:15px; max-width:420px; }
+
+.mission-list{ display:flex; flex-direction:column; }
+.mission-item{
+  display:grid; grid-template-columns:48px 1fr; gap:20px;
+  padding:26px 0; border-top:1px solid var(--ligne);
+}
+.mission-list .mission-item:last-child{ border-bottom:1px solid var(--ligne); }
+.mission-item i{ font-size:20px; color:var(--rouge-vif); padding-top:4px; }
+.mission-item h4{ font-size:17px; font-weight:600; font-family:var(--corps); text-transform:uppercase; letter-spacing:.04em; }
+.mission-item p{ margin-top:8px; color:var(--gris); font-size:14.5px; }
+
+.editorial{
+  margin-top:120px;
+  padding:80px 0;
+  border-top:1px solid var(--ligne);
+  border-bottom:1px solid var(--ligne);
+  display:grid; grid-template-columns:.6fr 1fr; gap:60px;
+}
+@media (max-width:900px){ .editorial{ grid-template-columns:1fr; gap:30px; } }
+.editorial blockquote{
+  font-family:var(--display); font-style:italic; font-weight:400;
+  font-size:clamp(24px,3vw,34px); line-height:1.35; color:var(--blanc);
+}
+.editorial blockquote span{ color:var(--rouge-vif); }
+.editorial .stats{ display:flex; flex-direction:column; gap:26px; justify-content:center; }
+.stat{ display:flex; align-items:baseline; gap:16px; }
+.stat b{ font-family:var(--impact); font-size:44px; color:var(--rouge-vif); line-height:1; }
+.stat span{ font-size:13px; color:var(--gris); text-transform:uppercase; letter-spacing:.06em; max-width:220px; }
+
+/* ============================================================
+   IMMERSIVE STORYTELLING BREAK
+   ============================================================ */
+.break{
+  position:relative;
+  height:82vh; min-height:520px;
+  margin:120px 0;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.break__bg{
+  position:absolute; inset:0;
+  background-image:url('https://picsum.photos/seed/ftca-storytelling-film/1800/1200');
+  background-size:cover; background-position:center;
+  filter:grayscale(1) contrast(1.2) brightness(.4);
+  will-change:transform;
+}
+.break__bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,9,8,.4), rgba(10,9,8,.75)); }
+.break__text{
+  position:relative; z-index:2; text-align:center; max-width:900px; padding:0 30px;
+}
+.break__text p{
+  font-family:var(--display); font-style:italic; font-weight:400;
+  font-size:clamp(26px,4.4vw,52px); line-height:1.3;
+}
+.break__text p span{ color:var(--rouge-vif); font-style:normal; }
+.break__frameno{
+  position:absolute; z-index:2; bottom:32px; right:40px;
+  font-family:var(--impact); font-size:12px; letter-spacing:.2em; color:rgba(244,239,230,.55);
+}
+
+/* ============================================================
+   SECTION — FIFAK
+   ============================================================ */
+.sec-fifak{ padding:60px 0 140px; }
+
+.fifak-cards{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--ligne);
+  border:1px solid var(--ligne);
+}
+@media (max-width:900px){ .fifak-cards{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px){ .fifak-cards{ grid-template-columns:1fr; } }
+
+.fcard{
+  background:var(--noir);
+  padding:34px 26px;
+  transition:background .4s var(--ease);
+}
+.fcard:hover{ background:var(--panneau); }
+.fcard .num{ font-family:var(--impact); font-size:13px; color:var(--rouge-vif); letter-spacing:.1em; }
+.fcard h4{ margin-top:14px; font-size:19px; font-family:var(--display); }
+.fcard p{ margin-top:10px; font-size:13.5px; color:var(--gris); }
+
+.archive-strip{ margin-top:90px; }
+.archive-strip .shead{ margin-bottom:40px; }
+.archive-track{
+  display:flex; gap:2px; overflow-x:auto; padding-bottom:14px;
+  scrollbar-width:thin; scrollbar-color:var(--rouge-vif) var(--panneau);
+}
+.aitem{
+  flex:0 0 200px;
+  padding:26px 20px;
+  background:var(--panneau);
+  border-top:2px solid transparent;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.aitem:hover{ border-color:var(--rouge-vif); background:var(--panneau-2); }
+.aitem b{ font-family:var(--impact); font-size:30px; display:block; }
+.aitem span{ font-size:12px; color:var(--gris); text-transform:uppercase; letter-spacing:.06em; display:block; margin-top:8px; }
+
+/* ============================================================
+   FIFAK 2026 — FEATURE
+   ============================================================ */
+.feature2026{
+  position:relative;
+  padding:150px 0 130px;
+  background:var(--noir);
+  overflow:hidden;
+  border-top:1px solid var(--rouge-sombre);
+  border-bottom:1px solid var(--rouge-sombre);
+}
+.feature2026::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 0%, rgba(179,16,34,.28), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(179,16,34,.2), transparent 60%);
+}
+.feature2026__watermark{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-family:var(--impact); font-size:min(48vw,780px); line-height:1;
+  color:transparent; -webkit-text-stroke:1px rgba(244,239,230,.045);
+  white-space:nowrap; z-index:0; pointer-events:none; user-select:none;
+}
+.feature2026 .wrap{ position:relative; z-index:1; }
+
+.feature2026__top{
+  display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap;
+  padding-bottom:56px; margin-bottom:56px; border-bottom:1px solid var(--ligne);
+}
+.f26-title{
+  font-family:var(--impact);
+  font-size:clamp(74px,13vw,190px);
+  line-height:.82;
+  letter-spacing:-.01em;
+}
+.f26-title .y{ color:var(--rouge-vif); }
+.f26-loc{
+  display:flex; flex-direction:column; gap:10px; text-align:right;
+}
+.f26-loc b{ font-family:var(--display); font-style:italic; font-size:26px; }
+.f26-loc span{ font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--gris); }
+@media (max-width:700px){ .f26-loc{ text-align:left; } .feature2026__top{ flex-direction:column; align-items:flex-start; } }
+
+.f26-body{ display:grid; grid-template-columns:1.1fr .9fr; gap:70px; align-items:start; }
+@media (max-width:900px){ .f26-body{ grid-template-columns:1fr; gap:44px; } }
+.f26-body p.lede{ font-size:19px; color:var(--blanc); opacity:.9; max-width:520px; }
+.f26-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+
+.f26-menu{ display:flex; flex-direction:column; }
+.f26-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 0; border-top:1px solid var(--ligne);
+  transition:padding-left .3s var(--ease), color .3s var(--ease);
+}
+.f26-menu .f26-row:last-child{ border-bottom:1px solid var(--ligne); }
+.f26-row:hover{ padding-left:14px; color:var(--rouge-vif); }
+.f26-row .lbl{ font-family:var(--display); font-size:21px; }
+.f26-row .val{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gris); }
+.f26-row:hover .val{ color:var(--rouge-vif); }
+
+/* ============================================================
+   ARTICLES
+   ============================================================ */
+.sec-articles{ padding:150px 0 130px; }
+.articles-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+@media (max-width:920px){ .articles-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:620px){ .articles-grid{ grid-template-columns:1fr; } }
+
+.article-card{ display:flex; flex-direction:column; }
+.article-card__img{
+  position:relative; aspect-ratio:4/3; overflow:hidden; margin-bottom:22px;
+}
+.article-card__img img{ width:100%; height:100%; object-fit:cover; filter:grayscale(.5) contrast(1.05); transition:transform .7s var(--ease), filter .5s var(--ease); }
+.article-card:hover .article-card__img img{ transform:scale(1.08); filter:grayscale(0) contrast(1.05); }
+.article-card__cat{
+  position:absolute; top:16px; left:16px;
+  font-family:var(--corps); font-weight:700; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+  background:var(--rouge-vif); color:var(--blanc); padding:6px 12px;
+}
+.article-card__date{ font-size:12px; color:var(--gris); letter-spacing:.06em; text-transform:uppercase; }
+.article-card h3{ margin-top:12px; font-size:22px; font-weight:500; line-height:1.25; }
+.article-card p{ margin-top:12px; font-size:14px; color:var(--gris); flex:1; }
+.article-card__link{
+  margin-top:18px; display:inline-flex; align-items:center; gap:8px;
+  font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  border-bottom:1px solid var(--rouge-vif); padding-bottom:4px; width:max-content;
+  transition:gap .3s var(--ease), color .3s var(--ease);
+}
+.article-card__link:hover{ gap:14px; color:var(--rouge-vif); }
+
+.articles-more{ text-align:center; margin-top:70px; }
+
+/* ============================================================
+   CONTACT CTA
+   ============================================================ */
+.contact-cta{ padding:130px 0; text-align:center; border-top:1px solid var(--ligne); }
+.contact-cta h2{ font-size:clamp(32px,5.4vw,64px); max-width:820px; margin:20px auto 0; line-height:1.1; }
+.contact-cta .btn{ margin-top:40px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ background:var(--panneau); border-top:1px solid var(--ligne); padding:90px 0 30px; }
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr repeat(3,.8fr); gap:50px;
+  padding-bottom:70px; border-bottom:1px solid var(--ligne);
+}
+@media (max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; row-gap:44px; } }
+@media (max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+
+.footer-brand .nav__brand{ margin-bottom:18px; }
+.footer-brand p{ font-size:14px; color:var(--gris); max-width:280px; }
+.footer-social{ display:flex; gap:14px; margin-top:26px; }
+.footer-social a{
+  width:38px; height:38px; border:1px solid var(--ligne); display:flex; align-items:center; justify-content:center;
+  transition:background .3s var(--ease), border-color .3s var(--ease);
+}
+.footer-social a:hover{ background:var(--rouge-vif); border-color:var(--rouge-vif); }
+
+.footer-col h5{ font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:var(--rouge-vif); margin-bottom:20px; font-weight:700; }
+.footer-col a{ display:block; font-size:14.5px; color:var(--gris); padding:8px 0; transition:color .3s, padding-left .3s; }
+.footer-col a:hover{ color:var(--blanc); padding-left:6px; }
+
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:14px;
+  font-size:12.5px; color:var(--gris-fonce);
+}
+.footer-bottom a{ color:var(--gris-fonce); }
+.footer-bottom a:hover{ color:var(--rouge-vif); }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- FILM STRIP RAIL -->
+<nav class="rail" aria-hidden="true">
+  <div class="rail__frame">FRAME <span id="railFrame">01</span> / 07</div>
+  <div class="rail__track" id="railTrack"></div>
+</nav>
+
+<!-- NAVBAR -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#hero" class="nav__brand">
+      <span class="mark"><span>F</span></span>
+      <span>
+        FTCA
+        <small>Cinéastes Amateurs</small>
+      </span>
+    </a>
+
+    <nav class="nav__links">
+      <div class="nav__item"><a href="#ftca" class="nav__link">FTCA</a></div>
+      <div class="nav__item">
+        <a href="#fifak" class="nav__link">FIFAK <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="#fifak2026">FIFAK 2026 <span class="tag">New</span></a>
+          <a href="#fifak">Le festival</a>
+          <a href="#fifak2026">Programme</a>
+          <a href="#fifak2026">Compétition</a>
+          <a href="#fifak2026">Jury</a>
+          <a href="#fifak2026">Palmarès</a>
+          <a href="#archives">Archives / éditions</a>
+        </div>
+      </div>
+      <div class="nav__item"><a href="#articles" class="nav__link">Articles</a></div>
+      <div class="nav__item"><a href="#contact" class="nav__link">Contact</a></div>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#fifak2026" class="btn btn--ghost-light">FIFAK 2026</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#ftca">FTCA</a>
+  <a href="#fifak">FIFAK</a>
+  <div class="sub">
+    <a href="#fifak2026">FIFAK 2026</a>
+    <a href="#fifak2026">Programme</a>
+    <a href="#fifak2026">Compétition</a>
+    <a href="#archives">Archives</a>
+  </div>
+  <a href="#articles">Articles</a>
+  <a href="#contact">Contact</a>
+  <a href="#fifak2026" class="btn btn--solid">Découvrir FIFAK 2026</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__wash"></div>
+  <div class="hero__sprockets">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="wrap hero__content">
+    <div class="hero__kicker"><span class="dot"></span><span>Depuis Kélibia — Tunisie</span></div>
+    <h1>Fédération<br>Tunisienne des<br><em>Cinéastes</em> Amateurs</h1>
+    <p class="hero__sub">La FTCA fait vivre le cinéma amateur tunisien depuis des décennies : formation, création, transmission — et l'organisation du plus ancien festival de films amateurs au monde.</p>
+
+    <div class="hero__bottom">
+      <div class="hero__actions">
+        <a href="#fifak2026" class="btn btn--solid">Découvrir FIFAK 2026</a>
+        <a href="#ftca" class="btn btn--ghost-light">Notre histoire</a>
+      </div>
+      <div class="hero__badge">
+        <b>N°39</b>
+        <div>Édition<br>FIFAK 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll"><span class="line"></span>Scroll</div>
+</section>
+
+<!-- SECTION FTCA -->
+<section class="sec-ftca" id="ftca">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">La Fédération</span>
+      <h2>Une histoire de cinéma amateur,<br>écrite en Tunisie.</h2>
+      <p>Depuis sa création, la FTCA accompagne et fait vivre le cinéma amateur en Tunisie — un cinéma libre, exigeant, porté par la passion plutôt que par l'industrie.</p>
+    </div>
+
+    <div class="ftca-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="margin-bottom:28px;">Notre histoire</span>
+        <div class="timeline" style="margin-top:28px;">
+          <div class="timeline__item">
+            <div class="timeline__year">1960</div>
+            <p>Naissance du mouvement amateur à Kélibia, porté par des passionnés de cinéma réunis autour d'un projecteur 8mm.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">1964</div>
+            <p>Première édition du FIFAK — le festival devient rapidement une référence internationale pour le cinéma amateur.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">1980s</div>
+            <p>Structuration de la FTCA en fédération nationale, rassemblant les clubs de cinéastes amateurs de tout le pays.</p>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__year">Aujourd'hui</div>
+            <p>Une nouvelle génération de cinéastes amateurs, un festival vivant, et une fédération qui continue de transmettre.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow" style="margin-bottom:28px;">Notre mission</span>
+        <div class="mission-list" style="margin-top:28px;">
+          <div class="mission-item">
+            <i class="fa-solid fa-film"></i>
+            <div><h4>Développement du cinéma amateur</h4><p>Soutenir la création indépendante à travers tout le territoire tunisien.</p></div>
+          </div>
+          <div class="mission-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div><h4>Formation</h4><p>Ateliers, ciné-clubs et transmission du savoir-faire entre générations de cinéastes.</p></div>
+          </div>
+          <div class="mission-item">
+            <i class="fa-solid fa-clapperboard"></i>
+            <div><h4>Diffusion</h4><p>Faire circuler les films amateurs tunisiens en Tunisie comme à l'international.</p></div>
+          </div>
+          <div class="mission-item">
+            <i class="fa-solid fa-globe"></i>
+            <div><h4>Échanges culturels</h4><p>Connecter les cinéastes tunisiens aux réseaux amateurs internationaux.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="editorial reveal">
+      <blockquote>« La FTCA n'est pas une institution parmi d'autres : c'est le foyer <span>historique</span> du cinéma amateur tunisien. »</blockquote>
+      <div class="stats">
+        <div class="stat"><b>60+</b><span>Années d'existence et de transmission</span></div>
+        <div class="stat"><b>67</b><span>Éditions du FIFAK organisées à Kélibia</span></div>
+        <div class="stat"><b>+40</b><span>Pays représentés au festival au fil des années</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMMERSIVE BREAK -->
+<div class="break" id="break">
+  <div class="break__bg" id="breakBg"></div>
+  <div class="break__text reveal">
+    <p>Le cinéma amateur n'est pas seulement<br>une manière de <span>filmer</span>.<br>C'est une manière de <span>raconter</span>.</p>
+  </div>
+  <div class="break__frameno">16MM — KÉLIBIA</div>
+</div>
+
+<!-- SECTION FIFAK -->
+<section class="sec-fifak" id="fifak">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Le Festival</span>
+      <h2>FIFAK</h2>
+      <p>Festival International des Films Amateurs de Kélibia — l'un des plus anciens festivals de cinéma amateur au monde, et l'événement phare de la FTCA.</p>
+    </div>
+
+    <div class="fifak-cards reveal">
+      <div class="fcard"><div class="num">01</div><h4>Le festival</h4><p>Une semaine de projections, de rencontres et de compétition sur les bords de la Méditerranée.</p></div>
+      <div class="fcard"><div class="num">02</div><h4>Compétition</h4><p>Courts métrages amateurs tunisiens et internationaux, en lice pour le Coq de Kélibia.</p></div>
+      <div class="fcard"><div class="num">03</div><h4>Jury</h4><p>Des professionnels du cinéma et de la culture évaluent chaque édition.</p></div>
+      <div class="fcard"><div class="num">04</div><h4>Palmarès</h4><p>Les films primés rejoignent l'histoire du festival et sa mémoire collective.</p></div>
+    </div>
+
+    <div class="archive-strip reveal" id="archives">
+      <div class="shead" style="margin-bottom:36px;">
+        <span class="eyebrow">Mémoire du festival</span>
+        <h2 style="font-size:32px;">Archives &amp; éditions précédentes</h2>
+      </div>
+      <div class="archive-track">
+        <div class="aitem"><b>2025</b><span>66ᵉ édition</span></div>
+        <div class="aitem"><b>2024</b><span>65ᵉ édition</span></div>
+        <div class="aitem"><b>2023</b><span>64ᵉ édition</span></div>
+        <div class="aitem"><b>2022</b><span>63ᵉ édition</span></div>
+        <div class="aitem"><b>2019</b><span>60ᵉ édition</span></div>
+        <div class="aitem"><b>1964</b><span>1ʳᵉ édition</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIFAK 2026 FEATURE -->
+<section class="feature2026" id="fifak2026">
+  <div class="feature2026__watermark" aria-hidden="true">FIFAK</div>
+  <div class="wrap">
+    <div class="feature2026__top reveal">
+      <div class="f26-title">FIFAK<br><span class="y">2026</span></div>
+      <div class="f26-loc">
+        <b>Kélibia</b>
+        <span>Tunisie — Édition N°67</span>
+      </div>
+    </div>
+
+    <div class="f26-body reveal">
+      <div>
+        <span class="eyebrow">Priorité 2026</span>
+        <p class="lede" style="margin-top:22px;">Le rendez-vous incontournable du cinéma amateur revient sur les côtes de Kélibia. Une nouvelle génération de cinéastes, une compétition internationale relevée, et une semaine entière dédiée au septième art amateur.</p>
+        <div class="f26-actions">
+          <a href="#" class="btn btn--solid">Découvrir FIFAK 2026</a>
+          <a href="#" class="btn btn--ghost-light">Voir le programme</a>
+          <a href="#" class="btn btn--ghost-light">Participer au festival</a>
+        </div>
+      </div>
+
+      <div class="f26-menu">
+        <div class="f26-row"><span class="lbl">Dates</span><span class="val">Juillet 2026</span></div>
+        <div class="f26-row"><span class="lbl">Programme</span><span class="val">Bientôt disponible</span></div>
+        <div class="f26-row"><span class="lbl">Compétition</span><span class="val">Appel à films ouvert</span></div>
+        <div class="f26-row"><span class="lbl">Jury</span><span class="val">Annonce à venir</span></div>
+        <div class="f26-row"><span class="lbl">Palmarès</span><span class="val">Éditions précédentes</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="sec-articles" id="articles">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="eyebrow">Actualités</span>
+      <h2>Derniers articles</h2>
+      <p>Les dernières nouvelles de la FTCA, du FIFAK et du cinéma amateur tunisien.</p>
+    </div>
+
+    <div class="articles-grid reveal">
+      <article class="article-card">
+        <div class="article-card__img">
+          <span class="article-card__cat">FIFAK 2026</span>
+          <img src="https://picsum.photos/seed/ftca-article-1/700/560" alt="">
+        </div>
+        <span class="article-card__date">12 Août 2026</span>
+        <h3>L'appel à films pour FIFAK 2026 est officiellement ouvert</h3>
+        <p>Les cinéastes amateurs tunisiens et internationaux peuvent dès à présent soumettre leurs courts métrages.</p>
+        <a href="#" class="article-card__link">Lire l'article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-card__img">
+          <span class="article-card__cat">Fédération</span>
+          <img src="https://picsum.photos/seed/ftca-article-2/700/560" alt="">
+        </div>
+        <span class="article-card__date">28 Juillet 2026</span>
+        <h3>Retour sur 60 ans de cinéma amateur à Kélibia</h3>
+        <p>Un regard sur l'histoire de la FTCA et l'évolution du mouvement amateur en Tunisie.</p>
+        <a href="#" class="article-card__link">Lire l'article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-card__img">
+          <span class="article-card__cat">Formation</span>
+          <img src="https://picsum.photos/seed/ftca-article-3/700/560" alt="">
+        </div>
+        <span class="article-card__date">14 Juillet 2026</span>
+        <h3>Nouveaux ateliers de réalisation ouverts aux jeunes cinéastes</h3>
+        <p>La FTCA lance un cycle de formations gratuites dans plusieurs régions du pays.</p>
+        <a href="#" class="article-card__link">Lire l'article <i class="fa-solid fa-arrow-right"></i></a>
+      </article>
+    </div>
+
+    <div class="articles-more reveal">
+      <a href="#" class="btn btn--ghost-light">Voir tous les articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section class="contact-cta" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">Contact</span>
+    <h2>Une question, un film à présenter,<br>une envie de rejoindre la FTCA ?</h2>
+    <a href="mailto:contact@ftca-fifak.tn" class="btn btn--solid">Nous écrire</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav__brand">
+          <span class="mark"><span>F</span></span>
+          <span>FTCA<small>Cinéastes Amateurs</small></span>
+        </a>
+        <p>Fédération Tunisienne des Cinéastes Amateurs — organisatrice du FIFAK, Festival International des Films Amateurs de Kélibia.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>FTCA</h5>
+        <a href="#ftca">Notre histoire</a>
+        <a href="#ftca">Notre mission</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>FIFAK</h5>
+        <a href="#fifak2026">FIFAK 2026</a>
+        <a href="#fifak2026">Programme</a>
+        <a href="#archives">Archives</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ressources</h5>
+        <a href="#articles">Articles</a>
+        <a href="#">Presse</a>
+        <a href="#">Partenaires</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FTCA — Fédération Tunisienne des Cinéastes Amateurs. Tous droits réservés.</span>
+      <span>Kélibia, Tunisie</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- NAVBAR SCROLL ----------
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('is-scrolled', window.scrollY > 40);
+}, { passive:true });
+
+// ---------- MOBILE MENU ----------
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('is-open');
+  burger.classList.toggle('is-open', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.remove('is-open');
+  burger.classList.remove('is-open');
+  document.body.style.overflow = '';
+}));
+
+// ---------- SCROLL REVEAL ----------
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// ---------- PARALLAX ON IMMERSIVE BREAK ----------
+const breakBg = document.getElementById('breakBg');
+const breakSection = document.getElementById('break');
+window.addEventListener('scroll', () => {
+  const rect = breakSection.getBoundingClientRect();
+  const vh = window.innerHeight;
+  if (rect.top < vh && rect.bottom > 0) {
+    const progress = (vh - rect.top) / (vh + rect.height);
+    const offset = (progress - 0.5) * 60;
+    breakBg.style.transform = `translateY(${offset}px) scale(1.15)`;
+  }
+}, { passive:true });
+
+// ---------- FILM RAIL: build holes + track active section ----------
+const sections = [
+  { id:'hero', label:'01' },
+  { id:'ftca', label:'02' },
+  { id:'break', label:'03' },
+  { id:'fifak', label:'04' },
+  { id:'fifak2026', label:'05' },
+  { id:'articles', label:'06' },
+  { id:'contact', label:'07' },
+];
+const railTrack = document.getElementById('railTrack');
+const railFrame = document.getElementById('railFrame');
+const holeCount = 34;
+const holes = [];
+for (let i=0;i<holeCount;i++){
+  const h = document.createElement('div');
+  h.className = 'rail__hole';
+  railTrack.appendChild(h);
+  holes.push(h);
+}
+
+const secObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const idx = sections.findIndex(s => s.id === entry.target.id);
+      if (idx === -1) return;
+      railFrame.textContent = sections[idx].label;
+      const ratio = idx / (sections.length - 1);
+      const activeHoleIdx = Math.round(ratio * (holeCount - 1));
+      holes.forEach((h, i) => h.classList.toggle('is-active', Math.abs(i - activeHoleIdx) <= 1));
+    }
+  });
+}, { threshold: 0.5 });
+sections.forEach(s => {
+  const el = document.getElementById(s.id);
+  if (el) secObserver.observe(el);
+});
+
+// ---------- STAGGER INDEX FOR GRID CHILDREN ----------
+document.querySelectorAll('.mission-list, .fifak-cards, .articles-grid').forEach(group => {
+  [...group.children].forEach((child, i) => child.style.setProperty('--i', i));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<section class="feature2026" id="fifak2026">
+  <div class="feature2026__watermark" aria-hidden="true">FIFAK</div>
+  <div class="wrap">
+    <div class="feature2026__top reveal" appRevealOnScroll>
+      <div class="f26-title">
+        FIFAK<br />
+        <span class="y">2026</span>
+      </div>
+      <div class="f26-loc">
+        <b>Kélibia</b>
+        <span>Tunisie — Édition N°39</span>
+      </div>
+    </div>
+
+    <div class="f26-body reveal" appRevealOnScroll>
+      <div>
+        <span class="eyebrow">Priorité 2026</span>
+        <p class="lede" style="margin-top: 22px">
+          Le rendez-vous incontournable du cinéma amateur revient sur les côtes de Kélibia. Une nouvelle génération
+          de cinéastes, une compétition internationale relevée, et une semaine entière dédiée au septième art amateur.
+        </p>
+        <div class="f26-actions">
+          <a href="#" class="btn btn--solid">Découvrir FIFAK 2026</a>
+          <a href="#" class="btn btn--ghost-light">Voir le programme</a>
+          <a href="#" class="btn btn--ghost-light">Participer au festival</a>
+        </div>
+      </div>
+
+      <div class="f26-menu">
+        <div class="f26-row" *ngFor="let row of fifak2026Rows$">
+          <span class="lbl">{{ row.label }}</span>
+          <span class="val">{{ row.value }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

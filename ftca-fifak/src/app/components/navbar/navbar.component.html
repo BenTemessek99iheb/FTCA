@@ -1,0 +1,50 @@
+<header [ngClass]="navClasses()" class="nav">
+  <div class="wrap">
+    <a href="#hero" class="nav__brand">
+      <span class="mark"><span>F</span></span>
+      <span>
+        FTCA
+        <small>Cinéastes Amateurs</small>
+      </span>
+    </a>
+
+    <nav class="nav__links">
+      <div class="nav__item">
+        <a href="#ftca" class="nav__link">FTCA</a>
+      </div>
+      <div class="nav__item">
+        <a href="#fifak" class="nav__link">FIFAK <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="dropdown">
+          <a href="#fifak2026">FIFAK 2026 <span class="tag">New</span></a>
+          <a href="#fifak">Le festival</a>
+          <a href="#fifak2026">Programme</a>
+          <a href="#fifak2026">Compétition</a>
+          <a href="#fifak2026">Jury</a>
+          <a href="#fifak2026">Palmarès</a>
+          <a href="#archives">Archives / éditions</a>
+        </div>
+      </div>
+      <div class="nav__item">
+        <a href="#articles" class="nav__link">Articles</a>
+      </div>
+      <div class="nav__item">
+        <a href="#contact" class="nav__link">Contact</a>
+      </div>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#fifak2026" class="btn btn--ghost-light">FIFAK 2026</a>
+      <button
+        class="burger"
+        [class.is-open]="isMobileMenuOpen"
+        (click)="toggleMobileMenu()"
+        aria-label="Menu"
+        [attr.aria-expanded]="isMobileMenuOpen"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<app-mobile-menu [isOpen]="isMobileMenuOpen" (close)="closeMobileMenu()"></app-mobile-menu>

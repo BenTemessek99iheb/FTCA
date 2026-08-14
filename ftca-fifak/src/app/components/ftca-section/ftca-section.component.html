@@ -1,0 +1,54 @@
+<section class="sec-ftca" id="ftca">
+  <div class="wrap">
+    <div class="shead reveal" appRevealOnScroll>
+      <span class="eyebrow">La Fédération</span>
+      <h2>Une histoire de cinéma amateur,<br />écrite en Tunisie.</h2>
+      <p>
+        Depuis sa création, la FTCA accompagne et fait vivre le cinéma amateur en Tunisie — un cinéma libre, exigeant,
+        porté par la passion plutôt que par l'industrie.
+      </p>
+    </div>
+
+    <div class="ftca-grid">
+      <div class="reveal" appRevealOnScroll>
+        <span class="eyebrow" style="margin-bottom: 28px">Notre histoire</span>
+        <div class="timeline" style="margin-top: 28px">
+          <div class="timeline__item" *ngFor="let item of timelineItems$">
+            <div class="timeline__year">{{ item.year }}</div>
+            <p>{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" appRevealOnScroll>
+        <span class="eyebrow" style="margin-bottom: 28px">Notre mission</span>
+        <div class="mission-list" style="margin-top: 28px">
+          <div
+            class="mission-item"
+            *ngFor="let item of missionItems$; let i = index"
+            [style.--i]="i"
+          >
+            <i [class]="item.icon"></i>
+            <div>
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="editorial reveal" appRevealOnScroll>
+      <blockquote>
+        « La FTCA n'est pas une institution parmi d'autres : c'est le foyer <span>historique</span> du cinéma amateur
+        tunisien. »
+      </blockquote>
+      <div class="stats">
+        <div class="stat" *ngFor="let stat of editorialStats$">
+          <b>{{ stat.value }}</b>
+          <span>{{ stat.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

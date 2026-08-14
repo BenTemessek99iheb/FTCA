@@ -1,0 +1,48 @@
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 550;
+  background: var(--noir);
+  padding: 110px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transform: translateX(100%);
+  transition: transform 0.5s var(--ease);
+  overflow-y: auto;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  a {
+    font-family: var(--display);
+    font-size: 32px;
+    font-weight: 400;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ligne);
+  }
+
+  .sub {
+    padding-left: 18px;
+
+    a {
+      font-family: var(--corps);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 12px 0;
+      color: var(--gris);
+    }
+  }
+
+  .btn {
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+}

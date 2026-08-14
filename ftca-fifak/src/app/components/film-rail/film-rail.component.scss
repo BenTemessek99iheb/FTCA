@@ -1,0 +1,65 @@
+/* ============================================================
+   FILMSTRIP RAIL — signature element (desktop only)
+   ============================================================ */
+
+.rail {
+  position: fixed;
+  left: 0;
+  top: var(--top-inset);
+  bottom: 0;
+  width: 56px;
+  z-index: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, var(--noir) 0%, transparent 6%, transparent 94%, var(--noir) 100%);
+}
+
+.rail__track {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 90px 0 40px;
+}
+
+.rail__hole {
+  width: 9px;
+  height: 13px;
+  border-radius: 3px;
+  background: var(--gris-fonce);
+  opacity: 0.5;
+  transition: background 0.5s var(--ease), opacity 0.5s var(--ease);
+
+  &.is-active {
+    background: var(--rouge-vif);
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(232, 21, 60, 0.6);
+  }
+}
+
+.rail__frame {
+  position: fixed;
+  left: 14px;
+  top: clamp(calc(var(--nav-safe-top) + 20px), 50%, calc(100% - 50px));
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  font-family: var(--impact);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gris);
+  white-space: nowrap;
+
+  span {
+    color: var(--rouge-vif);
+  }
+}
+
+@media (max-width: 1080px) {
+  .rail {
+    display: none;
+  }
+}

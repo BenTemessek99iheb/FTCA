@@ -1,0 +1,33 @@
+<section class="sec-fifak" id="fifak">
+  <div class="wrap">
+    <div class="shead reveal" appRevealOnScroll>
+      <span class="eyebrow">Le Festival</span>
+      <h2>FIFAK</h2>
+      <p>
+        Festival International des Films Amateurs de Kélibia — l'un des plus anciens festivals de cinéma amateur au
+        monde, et l'événement phare de la FTCA.
+      </p>
+    </div>
+
+    <div class="fifak-cards reveal" appRevealOnScroll>
+      <div class="fcard" *ngFor="let card of fifakCards$">
+        <div class="num">{{ card.num }}</div>
+        <h4>{{ card.title }}</h4>
+        <p>{{ card.description }}</p>
+      </div>
+    </div>
+
+    <div class="archive-strip reveal" appRevealOnScroll id="archives">
+      <div class="shead" style="margin-bottom: 36px">
+        <span class="eyebrow">Mémoire du festival</span>
+        <h2 style="font-size: 32px">Archives &amp; éditions précédentes</h2>
+      </div>
+      <div class="archive-track">
+        <div class="aitem" *ngFor="let archive of archiveEditions$">
+          <b>{{ archive.year }}</b>
+          <span>{{ archive.edition }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
