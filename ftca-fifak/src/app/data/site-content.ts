@@ -135,7 +135,7 @@ export interface Fifak2026Row {
 }
 
 export const FIFAK_2026_ROWS: Fifak2026Row[] = [
-  { label: 'Dates', value: 'Juillet 2026' },
+  { label: 'Dates', value: 'août 2026' },
   { label: 'Programme', value: 'Bientôt disponible' },
   { label: 'Compétition', value: 'Appel à films ouvert' },
   { label: 'Jury', value: 'Annonce à venir' },
@@ -159,28 +159,28 @@ export const ARTICLE_CARDS: ArticleCard[] = [
   {
     category: 'FIFAK 2026',
     date: '12 Août 2026',
-    title: 'L\'appel à films pour FIFAK 2026 est officiellement ouvert',
+    title: 'La Presse - FIFAK 2026 : Une édition charnière',
     excerpt:
-      'Les cinéastes amateurs tunisiens et internationaux peuvent dès à présent soumettre leurs courts métrages.',
-    image: 'https://picsum.photos/seed/ftca-article-1/700/560',
-    link: '#',
+      'La 39éme Edition du FIFAK 2026 promet d\'être particulièrement marquante.',
+    image: 'assets/image-presse.png',
+    link: 'https://www.lapresse.tn/2026/07/16/fifak-2026-une-edition-charniere/?fbclid=IwY2xjawTtRTJwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7MpuzETCUecgSNF20U6olfib-cAtm_UPYM5-FmscoUK6oifepbqSQsu0Y_VQ_aem_ANwjXywjhdyGgN6gEq6Y-g',
   },
   {
     category: 'Fédération',
-    date: '28 Juillet 2026',
+    date: '23 Août 2026',
     title: 'Retour sur 60 ans de cinéma amateur à Kélibia',
     excerpt:
       'Un regard sur l\'histoire de la FTCA et l\'évolution du mouvement amateur en Tunisie.',
-    image: 'https://picsum.photos/seed/ftca-article-2/700/560',
+    image: 'assets/ftca-logo-mark.png',
     link: '#',
   },
   {
     category: 'Formation',
-    date: '14 Juillet 2026',
+    date: '23 Août 2026',
     title: 'Nouveaux ateliers de réalisation ouverts aux jeunes cinéastes',
     excerpt:
-      'La FTCA lance un cycle de formations gratuites dans plusieurs régions du pays.',
-    image: 'https://picsum.photos/seed/ftca-article-3/700/560',
+      'La FTCA lance un cycle de formations gratuites.',
+    image: 'assets/fifak-wallp.png',
     link: '#',
   },
 ];

@@ -1,5 +1,11 @@
 <div class="h-scroller" [class.h-scroller--no-fade]="!showFades">
-  <div class="h-scroller__track" #track [style.gap.px]="gap" [style.padding]="trackPadding">
+  <div
+    class="h-scroller__track"
+    [class.h-scroller__track--center]="center"
+    #track
+    [style.gap.px]="gap"
+    [style.padding]="trackPadding"
+  >
     <ng-content></ng-content>
   </div>
 </div>

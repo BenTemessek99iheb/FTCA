@@ -41,4 +41,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  &--center {
+    /* centre le rail quand il tient dans le conteneur ; bascule en alignement
+       gauche scrollable dès qu'il déborde (évite qu'une portion du début
+       reste inaccessible au scroll) */
+    justify-content: safe center;
+  }
 }

@@ -20,6 +20,7 @@ export class HorizontalScrollerComponent {
   @Input() showFades = true;
   @Input() gap = 22;
   @Input() trackPadding = '6px 4px 24px';
+  @Input() center = false;
 
   @ViewChild('track', { static: true }) private trackRef!: ElementRef<HTMLElement>;
 
