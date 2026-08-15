@@ -257,7 +257,7 @@ export const NASHRIYA_ENTRIES: NashriyaEntry[] = [
   {
     day: 23,
     dateLabel: '23 Août 2026',
-    imageUrl: 'https://picsum.photos/seed/nash-23/1600/650',
+    imageUrl: 'assets/public-kelibia.jpg',
     en: {
       title: 'Kélibia lights up for the 67th edition',
       body: 'The festival opened tonight on the shores of Kélibia with the screening of "Nuits d\'Argent" before a packed audience. A warm and emotional start to seven nights of amateur cinema.',
