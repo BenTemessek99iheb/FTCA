@@ -25,7 +25,7 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
   ],
   badgeNumber: '23—29 AOÛT',
   badgeLines: ['67ᵉ édition', 'FIFAK 2026'],
-  bgImageUrl: 'https://picsum.photos/seed/fifak2026-hero-kelibia/1920/1200',
+  bgImageUrl: 'assets/kelibia-port.jpg',
   bgPosition: 'center 35%',
 };
 

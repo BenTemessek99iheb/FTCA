@@ -244,6 +244,6 @@ export const HERO_CONTENT: HeroContent = {
   ],
   badgeNumber: 'N°67',
   badgeLines: ['Édition', 'FIFAK 2026'],
-  bgImageUrl: 'https://picsum.photos/seed/ftca-hero-kelibia/1920/1200',
+  bgImageUrl: 'assets/wallp.jpg',
   bgPosition: 'center 30%',
 };
