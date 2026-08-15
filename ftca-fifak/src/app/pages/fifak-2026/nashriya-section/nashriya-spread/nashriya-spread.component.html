@@ -1,0 +1,22 @@
+<article class="nash-spread reveal" appRevealOnScroll>
+  <div class="nash-spread__media">
+    <img [src]="entry.imageUrl" alt="" />
+    <div class="nash-spread__folio">
+      <b>{{ folioNumber }}</b>
+      <span>{{ entry.dateLabel }}</span>
+    </div>
+  </div>
+  <div class="nash-spread__text">
+    <div class="nash-en" lang="en" dir="ltr">
+      <span class="lang-tag">English</span>
+      <h3>{{ entry.en.title }}</h3>
+      <p>{{ entry.en.body }}</p>
+    </div>
+    <div class="nash-spread__rule"></div>
+    <div class="nash-ar" lang="ar" dir="rtl">
+      <span class="lang-tag">العربية</span>
+      <h3>{{ entry.ar.title }}</h3>
+      <p>{{ entry.ar.body }}</p>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,44 @@
+/* ============================================================
+   HORIZONTAL SCROLLER — shared scroll-snap rail (programme / jury)
+   ============================================================ */
+
+.h-scroller {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--noir), transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--noir), transparent);
+  }
+
+  &--no-fade::before,
+  &--no-fade::after {
+    display: none;
+  }
+}
+
+.h-scroller__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

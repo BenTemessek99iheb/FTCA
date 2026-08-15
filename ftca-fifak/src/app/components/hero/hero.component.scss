@@ -14,9 +14,7 @@
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://picsum.photos/seed/ftca-hero-kelibia/1920/1200');
   background-size: cover;
-  background-position: center 30%;
   filter: grayscale(1) contrast(1.15) brightness(0.55);
   transform: scale(1.08);
   animation: hero-in 2.4s var(--ease) forwards;
@@ -115,11 +113,24 @@
   letter-spacing: -0.02em;
   opacity: 0;
   animation: rise 1.1s var(--ease) 0.68s forwards;
+  white-space: pre-line;
 
-  em {
+  .accent {
     font-style: italic;
     color: var(--rouge-vif);
     font-weight: 400;
+  }
+}
+
+.hero--impact h1 {
+  font-family: var(--impact);
+  font-size: clamp(64px, 11vw, 168px);
+  line-height: 0.84;
+  letter-spacing: -0.01em;
+
+  .accent {
+    font-style: normal;
+    font-weight: inherit;
   }
 }
 

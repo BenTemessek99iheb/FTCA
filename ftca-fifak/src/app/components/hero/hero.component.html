@@ -1,5 +1,9 @@
-<section class="hero" id="hero">
-  <div class="hero__bg"></div>
+<section class="hero" [class.hero--impact]="content.typographyVariant === 'impact'" id="hero">
+  <div
+    class="hero__bg"
+    [style.background-image]="'url(' + content.bgImageUrl + ')'"
+    [style.background-position]="content.bgPosition"
+  ></div>
   <div class="hero__wash"></div>
 
   <div class="hero__sprockets">
@@ -9,28 +13,38 @@
   <div class="wrap hero__content">
     <div class="hero__kicker">
       <span class="dot"></span>
-      <span>{{ content.eyebrowText }}</span>
+      <span [class.eyebrow]="content.eyebrowStyled">{{ content.eyebrowText }}</span>
     </div>
 
-    <h1>
-      {{ content.mainTitle }}<em>{{ content.italicPart }} </em>Amateurs
-    </h1>
+    <h1>{{ content.titlePrefix }}<span class="accent">{{ content.titleAccent }}</span>{{ content.titleSuffix }}</h1>
 
     <p class="hero__sub">{{ content.subtitle }}</p>
 
     <div class="hero__bottom">
       <div class="hero__actions">
-        <a href="#fifak2026" class="btn btn--solid">Découvrir FIFAK 2026</a>
-        <a href="#ftca" class="btn btn--ghost-light">Notre histoire</a>
+        <a
+          *ngFor="let action of content.actions"
+          [routerLink]="action.routerLink"
+          [fragment]="action.fragment"
+          class="btn"
+          [class.btn--solid]="action.variant === 'solid'"
+          [class.btn--ghost-light]="action.variant === 'ghost'"
+        >
+          {{ action.label }}
+        </a>
       </div>
       <div class="hero__badge">
         <b>{{ content.badgeNumber }}</b>
-        <div>{{ content.badgeText }}</div>
+        <div>
+          <ng-container *ngFor="let line of content.badgeLines; let last = last"
+            >{{ line }}<br *ngIf="!last"
+          /></ng-container>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="hero__scroll">
+  <div class="hero__scroll" appRevealOnScroll>
     <span class="line"></span>Scroll
   </div>
 </section>

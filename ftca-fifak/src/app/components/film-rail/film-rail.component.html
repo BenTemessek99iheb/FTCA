@@ -1,5 +1,5 @@
 <nav class="rail" aria-hidden="true">
-  <div class="rail__frame">FRAME <span>{{ currentFrameLabel() }}</span> / 07</div>
+  <div class="rail__frame">FRAME <span>{{ currentFrameLabel() }}</span> / {{ totalFrameLabel() }}</div>
   <div class="rail__track">
     <div
       *ngFor="let holeIndex of holes"

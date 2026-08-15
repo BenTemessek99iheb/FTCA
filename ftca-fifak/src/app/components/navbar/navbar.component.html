@@ -1,7 +1,9 @@
 <header [ngClass]="navClasses()" class="nav">
   <div class="wrap">
-    <a href="#hero" class="nav__brand">
-      <span class="mark"><span>F</span></span>
+    <a routerLink="/" class="nav__brand">
+      <span class="mark">
+        <img src="assets/ftca-logo-mark.png" alt="FTCA — Fédération Tunisienne des Cinéastes Amateurs" loading="eager" />
+      </span>
       <span>
         FTCA
         <small>Cinéastes Amateurs</small>
@@ -10,30 +12,32 @@
 
     <nav class="nav__links">
       <div class="nav__item">
-        <a href="#ftca" class="nav__link">FTCA</a>
+        <a routerLink="/" fragment="ftca" class="nav__link">FTCA</a>
       </div>
       <div class="nav__item">
-        <a href="#fifak" class="nav__link">FIFAK <i class="fa-solid fa-chevron-down"></i></a>
+        <a routerLink="/" fragment="fifak" class="nav__link">FIFAK <i class="fa-solid fa-chevron-down"></i></a>
         <div class="dropdown">
-          <a href="#fifak2026">FIFAK 2026 <span class="tag">New</span></a>
-          <a href="#fifak">Le festival</a>
-          <a href="#fifak2026">Programme</a>
-          <a href="#fifak2026">Compétition</a>
-          <a href="#fifak2026">Jury</a>
-          <a href="#fifak2026">Palmarès</a>
-          <a href="#archives">Archives / éditions</a>
+          <a routerLink="/fifak-2026" routerLinkActive="is-current" [routerLinkActiveOptions]="{ exact: true }">
+            FIFAK 2026 <span class="tag">New</span>
+          </a>
+          <a routerLink="/" fragment="fifak">Le festival</a>
+          <a routerLink="/fifak-2026" fragment="programme">Programme</a>
+          <a routerLink="/fifak-2026" fragment="programme">Compétition</a>
+          <a routerLink="/fifak-2026" fragment="jury">Jury</a>
+          <a routerLink="/" fragment="fifak">Palmarès</a>
+          <a routerLink="/" fragment="archives">Archives / éditions</a>
         </div>
       </div>
       <div class="nav__item">
-        <a href="#articles" class="nav__link">Articles</a>
+        <a routerLink="/" fragment="articles" class="nav__link">Articles</a>
       </div>
       <div class="nav__item">
-        <a href="#contact" class="nav__link">Contact</a>
+        <a routerLink="/" fragment="contact" class="nav__link">Contact</a>
       </div>
     </nav>
 
     <div class="nav__actions">
-      <a href="#fifak2026" class="btn btn--ghost-light">FIFAK 2026</a>
+      <a routerLink="/fifak-2026" class="btn btn--ghost-light">FIFAK 2026</a>
       <button
         class="burger"
         [class.is-open]="isMobileMenuOpen"

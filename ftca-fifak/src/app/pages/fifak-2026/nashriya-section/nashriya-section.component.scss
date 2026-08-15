@@ -1,0 +1,29 @@
+/* ============================================================
+   NASHRIYA — journal bilingue EN / AR
+   ============================================================ */
+
+.sec-nashriya {
+  padding: 140px 0 130px;
+  background: var(--panneau);
+  border-top: 1px solid var(--ligne);
+}
+
+.nash-intro {
+  margin-bottom: 70px;
+
+  .eyebrow {
+    direction: ltr;
+  }
+
+  h2 {
+    font-size: clamp(32px, 4.6vw, 54px);
+    margin-top: 16px;
+  }
+
+  p {
+    margin-top: 18px;
+    font-size: 16px;
+    color: var(--gris);
+    max-width: 600px;
+  }
+}

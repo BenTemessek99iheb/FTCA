@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-fifak-2026-feature',
   standalone: true,
-  imports: [CommonModule, RevealOnScrollDirective],
+  imports: [CommonModule, RouterLink, RevealOnScrollDirective],
   templateUrl: './fifak-2026-feature.component.html',
   styleUrls: ['./fifak-2026-feature.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

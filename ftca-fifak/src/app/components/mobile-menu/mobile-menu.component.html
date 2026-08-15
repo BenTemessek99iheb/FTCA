@@ -1,13 +1,13 @@
 <div class="mobile-menu" [class.is-open]="isOpen">
-  <a href="#ftca" (click)="onLinkClick()">FTCA</a>
-  <a href="#fifak" (click)="onLinkClick()">FIFAK</a>
+  <a routerLink="/" fragment="ftca" (click)="onLinkClick()">FTCA</a>
+  <a routerLink="/" fragment="fifak" (click)="onLinkClick()">FIFAK</a>
   <div class="sub">
-    <a href="#fifak2026" (click)="onLinkClick()">FIFAK 2026</a>
-    <a href="#fifak2026" (click)="onLinkClick()">Programme</a>
-    <a href="#fifak2026" (click)="onLinkClick()">Compétition</a>
-    <a href="#archives" (click)="onLinkClick()">Archives</a>
+    <a routerLink="/fifak-2026" (click)="onLinkClick()">FIFAK 2026</a>
+    <a routerLink="/fifak-2026" fragment="programme" (click)="onLinkClick()">Programme</a>
+    <a routerLink="/fifak-2026" fragment="jury" (click)="onLinkClick()">Jury</a>
+    <a routerLink="/" fragment="archives" (click)="onLinkClick()">Archives</a>
   </div>
-  <a href="#articles" (click)="onLinkClick()">Articles</a>
-  <a href="#contact" (click)="onLinkClick()">Contact</a>
-  <a href="#fifak2026" class="btn btn--solid" (click)="onLinkClick()">Découvrir FIFAK 2026</a>
+  <a routerLink="/" fragment="articles" (click)="onLinkClick()">Articles</a>
+  <a routerLink="/" fragment="contact" (click)="onLinkClick()">Contact</a>
+  <a routerLink="/fifak-2026" class="btn btn--solid" (click)="onLinkClick()">Découvrir FIFAK 2026</a>
 </div>

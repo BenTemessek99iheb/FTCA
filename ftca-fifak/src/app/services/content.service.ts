@@ -15,6 +15,8 @@ import {
   FIFAK_2026_ROWS,
   ARTICLE_CARDS,
 } from '../data/site-content';
+import { ProgrammeFilm, JuryMember, NashriyaEntry } from '../data/fifak-2026-content';
+import { PROGRAMME_FILMS, JURY_MEMBERS, NASHRIYA_ENTRIES } from '../data/fifak-2026-content';
 
 /**
  * Content service — provides typed content data
@@ -46,5 +48,17 @@ export class ContentService {
 
   getArticleCards(): ArticleCard[] {
     return ARTICLE_CARDS;
+  }
+
+  getProgrammeFilms(): ProgrammeFilm[] {
+    return PROGRAMME_FILMS;
+  }
+
+  getJuryMembers(): JuryMember[] {
+    return JURY_MEMBERS;
+  }
+
+  getNashriyaEntries(): NashriyaEntry[] {
+    return NASHRIYA_ENTRIES;
   }
 }

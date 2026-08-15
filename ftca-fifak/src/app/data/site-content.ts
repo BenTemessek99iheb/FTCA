@@ -202,23 +202,48 @@ export const EDITORIAL_STATS: EditorialStat[] = [
 
 /* ============================================================
    HERO CONTENT
+   Structure partagée par app-hero, réutilisée pour la landing
+   et pour la page dédiée FIFAK 2026 (contenu différent, même composant)
    ============================================================ */
 
+export interface HeroAction {
+  label: string;
+  variant: 'solid' | 'ghost';
+  routerLink: string;
+  fragment?: string;
+}
+
 export interface HeroContent {
+  /** 'display' = traitement Fraunces de la landing, 'impact' = traitement Anton poster (FIFAK 2026) */
+  typographyVariant: 'display' | 'impact';
   eyebrowText: string;
-  mainTitle: string;
-  italicPart: string;
+  eyebrowStyled: boolean;
+  titlePrefix: string;
+  titleAccent: string;
+  titleSuffix?: string;
   subtitle: string;
+  actions: HeroAction[];
   badgeNumber: string;
-  badgeText: string;
+  badgeLines: string[];
+  bgImageUrl: string;
+  bgPosition: string;
 }
 
 export const HERO_CONTENT: HeroContent = {
+  typographyVariant: 'display',
   eyebrowText: 'Depuis Kélibia — Tunisie',
-  mainTitle: 'Fédération\nTunisienne des\n',
-  italicPart: 'Cinéastes',
+  eyebrowStyled: false,
+  titlePrefix: 'Fédération\nTunisienne des\n',
+  titleAccent: 'Cinéastes',
+  titleSuffix: ' Amateurs',
   subtitle:
     'La FTCA fait vivre le cinéma amateur tunisien depuis des décennies : formation, création, transmission — et l\'organisation du plus ancien festival de films amateurs au monde.',
+  actions: [
+    { label: 'Découvrir FIFAK 2026', variant: 'solid', routerLink: '/fifak-2026' },
+    { label: 'Notre histoire', variant: 'ghost', routerLink: '/', fragment: 'ftca' },
+  ],
   badgeNumber: 'N°67',
-  badgeText: 'Édition\nFIFAK 2026',
+  badgeLines: ['Édition', 'FIFAK 2026'],
+  bgImageUrl: 'https://picsum.photos/seed/ftca-hero-kelibia/1920/1200',
+  bgPosition: 'center 30%',
 };
