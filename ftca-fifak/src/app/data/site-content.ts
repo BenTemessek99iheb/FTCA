@@ -231,7 +231,7 @@ export interface HeroContent {
 
 export const HERO_CONTENT: HeroContent = {
   typographyVariant: 'display',
-  eyebrowText: 'Depuis Kélibia — Tunisie',
+  eyebrowText: 'Depuis 1962 — Tunisie',
   eyebrowStyled: false,
   titlePrefix: 'Fédération\nTunisienne des\n',
   titleAccent: 'Cinéastes',
