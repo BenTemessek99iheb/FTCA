@@ -24,9 +24,9 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
     { label: 'Lire la Nashriya', variant: 'ghost', routerLink: '/fifak-2026', fragment: 'nashriya' },
   ],
   badgeNumber: '23—29 AOÛT',
-  badgeLines: ['67ᵉ édition', 'FIFAK 2026'],
-  bgImageUrl: 'assets/kelibia-port.jpg',
-  bgPosition: 'center 35%',
+  badgeLines: ['39ᵉ édition', 'FIFAK 2026'],
+  bgImageUrl: 'assets/fifak.jpg',
+  bgPosition: 'center 5%',
 };
 
 /* ============================================================

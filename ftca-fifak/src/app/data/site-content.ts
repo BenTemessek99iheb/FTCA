@@ -196,7 +196,7 @@ export interface EditorialStat {
 
 export const EDITORIAL_STATS: EditorialStat[] = [
   { value: '60+', label: 'Années d\'existence et de transmission' },
-  { value: '67', label: 'Éditions du FIFAK organisées à Kélibia' },
+  { value: '39', label: 'Éditions du FIFAK organisées à Kélibia' },
   { value: '+40', label: 'Pays représentés au festival au fil des années' },
 ];
 
@@ -242,7 +242,7 @@ export const HERO_CONTENT: HeroContent = {
     { label: 'Découvrir FIFAK 2026', variant: 'solid', routerLink: '/fifak-2026' },
     { label: 'Notre histoire', variant: 'ghost', routerLink: '/', fragment: 'ftca' },
   ],
-  badgeNumber: 'N°67',
+  badgeNumber: 'N°39',
   badgeLines: ['Édition', 'FIFAK 2026'],
   bgImageUrl: 'assets/wallp.jpg',
   bgPosition: 'center 30%',
