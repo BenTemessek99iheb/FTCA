@@ -14,6 +14,7 @@ import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
 })
 export class NavbarComponent {
   isMobileMenuOpen = false;
+  isFifakDropdownOpen = false;
   isScrolled = this.scrollService.isScrolled;
 
   navClasses = computed(() => ({
@@ -31,8 +32,13 @@ export class NavbarComponent {
     }
   }
 
+  toggleFifakDropdown(): void {
+    this.isFifakDropdownOpen = !this.isFifakDropdownOpen;
+  }
+
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
+    this.isFifakDropdownOpen = false;
     document.body.style.overflow = '';
   }
 }

@@ -1,0 +1,32 @@
+# .gitignore racine du repo FTCA (couvre CLAUDE.md et tout fichier hors de ftca-fifak/,
+# qui a son propre .gitignore pour node_modules/dist/etc. — voir ftca-fifak/.gitignore)
+
+# Node
+node_modules/
+
+# Build Angular
+dist/
+.angular/
+
+# Secrets locaux
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Système
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+
+# Notes de session Claude Code — documentation interne de continuité entre
+# sessions, pas destinée à être versionnée avec le code du site.
+CLAUDE.md
+Claude.md
+claude-notes.md

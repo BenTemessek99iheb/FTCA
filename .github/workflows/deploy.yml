@@ -1,0 +1,79 @@
+name: Deploy to cPanel (FTP)
+
+# Déploie automatiquement le site FTCA/FIFAK sur l'hébergement cPanel
+# (https://ftca-fifak.tn) à chaque push sur main. Voir ftca-fifak/DEPLOYMENT.md
+# pour la configuration des secrets GitHub requis.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # permet aussi un déclenchement manuel depuis l'onglet Actions
+
+concurrency:
+  group: cpanel-ftp-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ftca-fifak
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ftca-fifak/package-lock.json
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Build Angular (production)
+        run: npm run build:prod
+
+      - name: Vérification du build
+        run: |
+          if [ ! -f "dist/ftca-fifak/browser/index.html" ]; then
+            echo "::error::Build échoué — index.html introuvable dans dist/ftca-fifak/browser"
+            exit 1
+          fi
+          if [ ! -f "dist/ftca-fifak/browser/.htaccess" ]; then
+            echo "::warning::.htaccess absent du build — le routage Angular et le HTTPS forcé ne fonctionneront pas en production."
+          fi
+          echo "✅ Build de production généré avec succès :"
+          du -sh dist/ftca-fifak/browser
+          ls -la dist/ftca-fifak/browser
+
+      # Déploiement FTP/FTPS vers cPanel. Nécessite les secrets GitHub :
+      #   FTP_SERVER      -> ex: ftp.ftca-fifak.tn (fourni par l'hébergeur cPanel)
+      #   FTP_USERNAME    -> identifiant du compte FTP cPanel
+      #   FTP_PASSWORD    -> mot de passe du compte FTP cPanel
+      #   FTP_SERVER_DIR  -> (optionnel) dossier distant, défaut /public_html/
+      - name: Déploiement FTP vers cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ftca-fifak/dist/ftca-fifak/browser/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+
+      - name: ✅ Déploiement réussi
+        if: success()
+        run: echo "::notice::Déploiement terminé — https://ftca-fifak.tn est à jour."
+
+      - name: ❌ Échec du déploiement
+        if: failure()
+        run: echo "::error::Le déploiement a échoué. Consultez les logs ci-dessus (build ou étape FTP) — voir DEPLOYMENT.md > Dépannage."

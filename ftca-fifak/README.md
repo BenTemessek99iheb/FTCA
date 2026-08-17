@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Production / déploiement
+
+Run `npm run build:prod` for an explicit production build (equivalent to
+`ng build`, since `production` is the default configuration in
+`angular.json`). Output goes to `dist/ftca-fifak/browser/`.
+
+This project is deployed as a static site to cPanel hosting at
+[ftca-fifak.tn](https://ftca-fifak.tn), automatically via GitHub Actions on
+every push to `main`. See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full
+setup (required secrets, manual deployment, troubleshooting) and
+[CHECKLIST.md](./CHECKLIST.md) for the go-live checklist.

@@ -35,7 +35,10 @@ jobs:
         run: npm ci
 
       - name: Build (production)
-        run: npx ng build
+        # base-href explicite : GitHub Pages sert ce projet sous /FTCA/, alors que
+        # la configuration "production" d'angular.json a été alignée sur le
+        # déploiement cPanel (domaine racine https://ftca-fifak.tn -> base-href "/").
+        run: npx ng build --base-href /FTCA/
 
       - name: SPA routing fallback + disable Jekyll
         run: |
