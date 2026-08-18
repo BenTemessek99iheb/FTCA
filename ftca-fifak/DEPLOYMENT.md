@@ -113,6 +113,15 @@ pour ce déploiement cPanel — c'est le workflow `deploy-pages.yml` (GitHub
 Pages, servi sous `/FTCA/`) qui surcharge le base-href via
 `--base-href /FTCA/` au moment du build, spécifiquement pour ce cas-là.
 
+**Le déploiement a réussi mais le site affiche encore l'ancienne version**
+→ le site utilise maintenant un Service Worker (`@angular/service-worker`,
+voir PERFORMANCE.md §7). Un navigateur ayant déjà visité le site peut
+continuer à servir la version mise en cache pendant un moment après un
+déploiement : le SW détecte la mise à jour en tâche de fond et ne
+l'active qu'au **prochain rechargement complet** (parfois le second). Pour
+vérifier immédiatement après un déploiement : ouvrir les DevTools →
+Application → Service Workers, ou recharger en navigation privée.
+
 **Erreurs de permissions (403 Forbidden, ou upload FTP qui échoue sur
 certains fichiers)** → sur cPanel, les fichiers uploadés doivent
 généralement être en `644` et les dossiers en `755`. La plupart des clients

@@ -26,6 +26,7 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
   badgeNumber: '23—29 AOÛT',
   badgeLines: ['39ᵉ édition', 'FIFAK 2026'],
   bgImageUrl: 'assets/Fifak-ill.jpg',
+  bgImageWebp: 'assets/Fifak-ill.webp',
   bgPosition: 'center 1%',
 };
 

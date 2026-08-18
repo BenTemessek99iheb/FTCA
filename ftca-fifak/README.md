@@ -37,3 +37,25 @@ This project is deployed as a static site to cPanel hosting at
 every push to `main`. See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full
 setup (required secrets, manual deployment, troubleshooting) and
 [CHECKLIST.md](./CHECKLIST.md) for the go-live checklist.
+
+## Performance / images
+
+See [PERFORMANCE.md](./PERFORMANCE.md) for the full audit (image sizes,
+WebP/LQIP, service worker, self-hosted fonts, Lighthouse results).
+
+**Adding a new image** — always run the optimizer before committing:
+
+```bash
+# Drop the file in src/assets/, add its filename + target width/quality
+# to TARGETS in scripts/optimize-assets.js, then:
+npm run optimize-assets
+```
+
+This resizes to the target width, recompresses, strips EXIF metadata,
+generates a `.webp` sibling, and adds a blur placeholder (LQIP) to
+`src/assets/lqip-manifest.json`. For an `<img>`-based usage, wire it up
+the same way as `articles-section.component.html` does (`<picture>` +
+`webpImage` + `lqip` fields on the content interface in `data/*.ts`); for
+a full-bleed CSS background (like `hero`), add a `*Webp` field alongside
+the original URL instead. Keep every image under 500kB after optimization
+— if it isn't, lower `quality` or `maxWidth` for that file in the script.

@@ -10,16 +10,27 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
   <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  
+
+  <!-- Polices auto-hébergées (voir src/app/styles/_fonts.scss) : plus de dépendance
+       Google Fonts CDN. Archivo est la police de corps utilisée partout dès le
+       premier rendu (navbar, hero) -> préchargée explicitement. -->
+  <link rel="preload" href="assets/fonts/Archivo-400_800-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Archivo-400_800-normal-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- LCP de la landing (/) : sans SSR, le scanner de préchargement du navigateur
+       ne voit que ce HTML statique (le <link> injecté par HeroComponent arrive
+       après le bootstrap Angular, trop tard pour ce même gain). Route /fifak-2026
+       non couverte ici (image de hero différente) — géré dynamiquement à défaut,
+       voir PERFORMANCE.md. -->
+  <link rel="preload" href="assets/wallp.webp" as="image" fetchpriority="high">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#e8153c">
 </head>
 <body>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>

@@ -42,6 +42,10 @@ sur `https://ftca-fifak.tn`. Détails et commandes exactes dans `DEPLOYMENT.md`.
 ## Vérifications post-déploiement sur https://ftca-fifak.tn
 
 - [ ] Le site charge correctement à la racine `/`
+- [ ] **Toutes les images s'affichent** (hero, cartes articles, logo
+      navbar/footer) — c'était le bug initial (voir PERFORMANCE.md §1) :
+      vérifier `/assets/wallp.webp` et `/assets/ftca-logo-mark.webp`
+      répondent 200, pas 404
 - [ ] `https://www.ftca-fifak.tn` redirige vers `https://ftca-fifak.tn`
 - [ ] `http://ftca-fifak.tn` redirige vers `https://ftca-fifak.tn`
 - [ ] Navigation interne (`/fifak-2026`) fonctionne, y compris après un
@@ -52,6 +56,12 @@ sur `https://ftca-fifak.tn`. Détails et commandes exactes dans `DEPLOYMENT.md`.
       header `Cache-Control` longue durée, `index.html` n'est pas mis en
       cache
 - [ ] Favicon et icônes s'affichent correctement
+- [ ] DevTools → Application → Service Workers : un SW est bien enregistré
+      et actif (`ngsw-worker.js`) ; Manifest affiche le bon nom/icônes FTCA
+      (pas le logo Angular générique)
+- [ ] `npx lighthouse https://ftca-fifak.tn/ --view` : re-mesurer en
+      conditions réelles (voir PERFORMANCE.md §9 pour les limites du test
+      local effectué pendant le développement)
 
 ## Mise en place du flux continu
 

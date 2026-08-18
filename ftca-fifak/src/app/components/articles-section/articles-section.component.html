@@ -10,7 +10,16 @@
       <article class="article-card" *ngFor="let card of articleCards$; let i = index" [style.--i]="i">
         <div class="article-card__img">
           <span class="article-card__cat">{{ card.category }}</span>
-          <img [src]="card.image" [alt]="card.title" />
+          <picture style="display: contents">
+            <source *ngIf="card.webpImage" [srcset]="card.webpImage" type="image/webp" />
+            <img
+              [src]="card.image"
+              [alt]="card.title"
+              loading="lazy"
+              [style.background-image]="card.lqip ? ('url(' + card.lqip + ')') : null"
+              style="background-size: cover; background-position: center;"
+            />
+          </picture>
         </div>
         <span class="article-card__date">{{ card.date }}</span>
         <h3>{{ card.title }}</h3>

@@ -152,6 +152,10 @@ export interface ArticleCard {
   title: string;
   excerpt: string;
   image: string;
+  /** Variante .webp de `image`, générée par `npm run optimize-assets` (voir lqip-manifest.json) */
+  webpImage?: string;
+  /** Placeholder flou base64 affiché pendant le chargement lazy de `image` */
+  lqip?: string;
   link: string;
 }
 
@@ -163,6 +167,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     excerpt:
       'La 39éme Edition du FIFAK 2026 promet d\'être particulièrement marquante.',
     image: 'assets/image-presse.png',
+    webpImage: 'assets/image-presse.webp',
+    lqip: 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JaQAD5gHb6/wch+1v7UUctvYAAP7SZJleNNH+rMJNFnUKhg5cz56Yqo+6t77X4Ms+tm2xfMykIn7XDMvKlf9KCwJ+G27jENgcatblQTeyyo6EUp3ZNMI/5waX/Su8N1oM4EPVPJ1n7O3k2smLjudL7ZhYCDzZ1Pkop+pTT1k/RwRXKCXVT25L6j/Vx3DxqvZAOIAA',
     link: 'https://www.lapresse.tn/2026/07/16/fifak-2026-une-edition-charniere/?fbclid=IwY2xjawTtRTJwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7MpuzETCUecgSNF20U6olfib-cAtm_UPYM5-FmscoUK6oifepbqSQsu0Y_VQ_aem_ANwjXywjhdyGgN6gEq6Y-g',
   },
   {
@@ -172,6 +178,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     excerpt:
       'Un regard sur l\'histoire de la FTCA et l\'évolution du mouvement amateur en Tunisie.',
     image: 'assets/ftca-logo-mark.png',
+    webpImage: 'assets/ftca-logo-mark.webp',
+    lqip: 'data:image/webp;base64,UklGRoYCAABXRUJQVlA4WAoAAAAQAAAAFwAAFwAAQUxQSHMBAAABkGvb1rE965z3V2zbL2LbTmXbNjqnNKrU6n70sXMDtm3nxQk+XUJETEAH10vrN18wtH7gpW7voaQWvG29EQDBd5E0CHmH56ApPBfNZMb8TrmZPAoFcbJwGL2j3ZjRveqCZDNy1Zjhw8evX9fbySzDWhtGgO+SJ2lEHcdRpfFqaOshKAgZOszrT/sWTfsigAAq/ynT1jdevOXTj9vL0DlVUEcUEBqXbti9ptR+W9KX2TPI43AnFKG6V0TbYgt/2XQKdtaputlOoPwv+KUW2pde9elw6IL9tLE4ICq4/727bvu2JUkU2xlFAKFNqUWWMrLwbNtmhaAqaZI4icL4wSyE1IJbZj9+x2aJHalIXnOvBnnN2lQDr8yev/xm9nFph35UufRxLfWvvVuc4tnzr4ldXnpwAFXv2RYaPbIN4JfYh08/Qvt4c3sVys1Y3Y3Ks1Z1gqDMIrPE9hQqmQr+rmsnT5+6dLR1s8Bz3SDwXTcIPLdNFwBWUDgg7AAAALAGAJ0BKhgAGAA+7WKnTqmlIyIwGAwBMB2JZADADQE/+l0qCT1fT1X9gCkKVfhFaB5uuTV8wAjIYf8wqPgAAP7t4CUK5JPUFu9XkFZsFshhHNxmKuGw5yzKUziBkQS+/3Hkj2fWsd/yAKVLWwvyjmUNsJFtcd7pNwggJPludeRuyE578LQFH4Zx3uv5DpLK5zWn0cT7ICByFqfecYxdTQPWq6FXalZPPIS6Ctu4ESDTH2KznrqcR2vzTjtGM5qj4zrpbvkGgkcx5cf/rNBdJ7fY+3P0MYsp7ROTmjeYmT0aAqX9s7d/3iEQQAAA',
     link: '#',
   },
   {
@@ -181,6 +189,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     excerpt:
       'La FTCA lance un cycle de formations gratuites.',
     image: 'assets/fifak-wallp.png',
+    webpImage: 'assets/fifak-wallp.webp',
+    lqip: 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACwBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JZACdMoAlvBWsyfvSPxm9T4LNoTgAAP7p/zSWr1XyJ6OjvSgPNgjs5qcPxeWlNjHjkbCrC2nvHAlK8v7HUyNQexDZ5oSS+JFHEyYco5Sd9SSK4gWepw+5Ws1lSTJOxT4+zkw/KanoyYYWuv7q9JmF93lcj8PK+A7JYmfRnA25wpdTlD7yYZQqy6XlmYae93hFwAAA',
     link: '#',
   },
 ];
@@ -226,6 +236,8 @@ export interface HeroContent {
   badgeNumber: string;
   badgeLines: string[];
   bgImageUrl: string;
+  /** Variante .webp de bgImageUrl (générée par npm run optimize-assets), utilisée en priorité + préchargée */
+  bgImageWebp?: string;
   bgPosition: string;
 }
 
@@ -245,5 +257,6 @@ export const HERO_CONTENT: HeroContent = {
   badgeNumber: 'N°39',
   badgeLines: ['Édition', 'FIFAK 2026'],
   bgImageUrl: 'assets/wallp.jpg',
+  bgImageWebp: 'assets/wallp.webp',
   bgPosition: 'center 30%',
 };

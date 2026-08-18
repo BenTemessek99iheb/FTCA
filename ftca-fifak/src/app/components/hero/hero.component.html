@@ -1,7 +1,7 @@
 <section class="hero" [class.hero--impact]="content.typographyVariant === 'impact'" id="hero">
   <div
     class="hero__bg"
-    [style.background-image]="'url(' + content.bgImageUrl + ')'"
+    [style.background-image]="'url(' + (content.bgImageWebp || content.bgImageUrl) + ')'"
     [style.background-position]="content.bgPosition"
   ></div>
   <div class="hero__wash"></div>

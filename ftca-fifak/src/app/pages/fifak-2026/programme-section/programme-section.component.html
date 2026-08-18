@@ -34,7 +34,7 @@
             <span class="prog-card__cat">{{ categoryLabels[film.category] }}</span>
             <span class="prog-card__date">{{ film.day }} Août</span>
           </div>
-          <img [src]="film.posterUrl" alt="" />
+          <img [src]="film.posterUrl" alt="" loading="lazy" />
         </div>
         <div class="prog-card__body">
           <h4>{{ film.title }}</h4>
