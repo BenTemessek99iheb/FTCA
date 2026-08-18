@@ -40,5 +40,6 @@ export class NavbarComponent {
     this.isMobileMenuOpen = false;
     this.isFifakDropdownOpen = false;
     document.body.style.overflow = '';
+    
   }
 }
