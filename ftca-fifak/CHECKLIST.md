@@ -57,4 +57,6 @@ sur `https://ftca-fifak.tn`. Détails et commandes exactes dans `DEPLOYMENT.md`.
 
 - [ ] Confirmer qu'un push sur `main` déclenche bien le workflow (onglet
       **Actions**) et se termine en vert
+- [ ] Ouvrir le run et vérifier chaque étape : `npm ci`, build, "Vérification
+      du build" (0 erreur), étape FTP (pas de `550`/timeout)
 - [ ] Confirmer que le site est à jour après ce déploiement automatique

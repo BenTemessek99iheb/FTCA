@@ -113,7 +113,31 @@ pour ce déploiement cPanel — c'est le workflow `deploy-pages.yml` (GitHub
 Pages, servi sous `/FTCA/`) qui surcharge le base-href via
 `--base-href /FTCA/` au moment du build, spécifiquement pour ce cas-là.
 
-## 6. Notes techniques
+**Erreurs de permissions (403 Forbidden, ou upload FTP qui échoue sur
+certains fichiers)** → sur cPanel, les fichiers uploadés doivent
+généralement être en `644` et les dossiers en `755`. La plupart des clients
+FTP (dont `FTP-Deploy-Action` et `lftp`) préservent des permissions
+correctes par défaut ; si un `403` apparaît après déploiement, vérifier
+dans cPanel → **File Manager** → clic droit sur le fichier/dossier →
+**Permissions**, et corriger à `644`/`755` si besoin. Un `550 Permission
+denied` pendant l'étape FTP en CI indique en général un compte FTP sans
+droit d'écriture sur `FTP_SERVER_DIR` — vérifier les permissions du compte
+FTP lui-même dans cPanel → **FTP Accounts**.
+
+## 6. Scripts npm et outillage
+
+- `npm run build:prod` — build de production (`ng build --configuration
+  production`)
+- `npm run serve:prod` — dev-server avec la configuration de production
+- `npm test` — tests unitaires (Karma/Jasmine)
+- Pas de script `lint` : ESLint n'est pas configuré sur ce projet (aucune
+  dépendance `@angular-eslint/*`, aucun fichier de config). Ajouter un
+  `"lint": "ng lint"` sans linter installé échouerait immédiatement — à
+  faire volontairement via `ng add @angular-eslint/schematics` si le linting
+  devient un besoin, plutôt que comme effet de bord de cette préparation
+  au déploiement.
+
+## 7. Notes techniques
 
 - Site 100 % statique : aucun runtime Node.js n'est requis côté serveur,
   compatible avec un hébergement cPanel mutualisé basique.
