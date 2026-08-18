@@ -14,7 +14,15 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://ftca-fifak.tn/%{REQUEST_URI} [L,R=301]
 
-  # 3) Routage Angular (SPA) : toute requête qui ne correspond pas à un
+  # 3) /assets/ sert toujours des fichiers réels (images, fonts, icônes) :
+  #    court-circuite explicitement le fallback SPA ci-dessous pour ce
+  #    préfixe. Redondant avec les conditions !-f/!-d de la règle 4 (un
+  #    fichier /assets/ existant ne serait de toute façon jamais réécrit),
+  #    mais rend l'intention explicite et évite d'évaluer inutilement ces
+  #    conditions sur ce préfixe à fort trafic.
+  RewriteRule ^assets/ - [L]
+
+  # 4) Routage Angular (SPA) : toute requête qui ne correspond pas à un
   #    fichier ou dossier réel est renvoyée vers index.html, pour laisser
   #    le Router Angular gérer la route (ex: /fifak-2026, /fifak-2026#programme)
   RewriteBase /
