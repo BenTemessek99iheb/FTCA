@@ -13,7 +13,7 @@ import { assetUrl } from '../shared/asset-url';
 
 export const FIFAK_2026_HERO_CONTENT: HeroContent = {
   typographyVariant: 'impact',
-  eyebrowText: '67ᵉ édition — Kélibia, Tunisie',
+  eyebrowText: '39ᵉ édition — Kélibia, Tunisie',
   eyebrowStyled: true,
   titlePrefix: 'FIFAK ',
   titleAccent: '2026',
@@ -274,11 +274,11 @@ export const NASHRIYA_ENTRIES: NashriyaEntry[] = [
     dateLabel: '23 Août 2026',
     imageUrl: assetUrl('public-kelibia'),
     en: {
-      title: 'Kélibia lights up for the 67th edition',
+      title: 'Kélibia lights up for the 39th edition',
       body: 'The festival opened tonight on the shores of Kélibia with the screening of "Nuits d\'Argent" before a packed audience. A warm and emotional start to seven nights of amateur cinema.',
     },
     ar: {
-      title: 'قليبية تضيء لانطلاق الدورة السابعة والستين',
+      title: 'قليبية تضيء لانطلاق الدورة التاسعة والثلاثين',
       body: 'انطلقت فعاليات المهرجان هذا المساء على شاطئ قليبية بعرض فيلم "ليالي الفضة" أمام جمهور غفير، في بداية مفعمة بالمشاعر لسبع ليال من السينما الهاوية.',
     },
   },
