@@ -5,6 +5,7 @@
  */
 
 import { HeroContent } from './site-content';
+import { assetUrl } from '../shared/asset-url';
 
 /* ============================================================
    HERO
@@ -25,8 +26,8 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
   ],
   badgeNumber: '23—29 AOÛT',
   badgeLines: ['39ᵉ édition', 'FIFAK 2026'],
-  bgImageUrl: 'assets/Fifak-ill.jpg',
-  bgImageWebp: 'assets/Fifak-ill.webp',
+  bgImageUrl: assetUrl('Fifak-ill'),
+  bgImageWebp: assetUrl('Fifak-ill'),
   bgPosition: 'center 1%',
 };
 
@@ -271,7 +272,7 @@ export const NASHRIYA_ENTRIES: NashriyaEntry[] = [
   {
     day: 23,
     dateLabel: '23 Août 2026',
-    imageUrl: 'assets/public-kelibia.webp',
+    imageUrl: assetUrl('public-kelibia'),
     en: {
       title: 'Kélibia lights up for the 67th edition',
       body: 'The festival opened tonight on the shores of Kélibia with the screening of "Nuits d\'Argent" before a packed audience. A warm and emotional start to seven nights of amateur cinema.',

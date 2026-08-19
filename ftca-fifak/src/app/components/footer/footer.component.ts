@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { assetUrl } from '../../shared/asset-url';
 
 @Component({
   selector: 'app-footer',
@@ -11,5 +12,7 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
+  readonly assetUrl = assetUrl;
+
   currentYear = new Date().getFullYear();
 }

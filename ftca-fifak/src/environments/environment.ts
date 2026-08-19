@@ -5,4 +5,5 @@ export const environment = {
   // Pas de backend/CMS pour l'instant (contenu statique via ContentService) —
   // point d'extension prévu pour un futur remplacement par une API réelle.
   apiUrl: null as string | null,
+  assetsBaseUrl: '/assets',
 };

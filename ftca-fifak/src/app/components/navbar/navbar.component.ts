@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ScrollStateService } from '../../services/scroll-state.service';
 import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
+import { assetUrl } from '../../shared/asset-url';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,8 @@ import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  readonly assetUrl = assetUrl;
+
   isMobileMenuOpen = false;
   isFifakDropdownOpen = false;
   isScrolled = this.scrollService.isScrolled;

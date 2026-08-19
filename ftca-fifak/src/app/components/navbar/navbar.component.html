@@ -3,8 +3,8 @@
     <a routerLink="/" class="nav__brand">
       <span class="mark">
         <picture style="display: contents">
-          <source srcset="assets/ftca-logo-mark.webp" type="image/webp" />
-          <img src="assets/ftca-logo-mark.webp" alt="FTCA — Fédération Tunisienne des Cinéastes Amateurs" loading="eager" />
+          <source [srcset]="assetUrl('ftca-logo-mark')" type="image/webp" />
+          <img [src]="assetUrl('ftca-logo-mark')" alt="FTCA — Fédération Tunisienne des Cinéastes Amateurs" loading="eager" />
         </picture>
       </span>
       <span>
