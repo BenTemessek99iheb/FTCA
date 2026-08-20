@@ -11,23 +11,25 @@
     <div class="jury-group reveal" appRevealOnScroll>
       <div class="jury-group__label"><h3>Jury National</h3><span>— Tunisie</span></div>
       <app-horizontal-scroller [showFades]="false" [gap]="34" trackPadding="6px 4px 20px" [center]="true">
-        <div class="jury-avatar" *ngFor="let member of nationalMembers">
+        <button type="button" class="jury-avatar" *ngFor="let member of nationalMembers" (click)="selectMember(member)">
           <div class="jury-avatar__ring"><img [src]="member.photoUrl" alt="" loading="lazy" /></div>
           <h4>{{ member.name }}</h4>
           <span>{{ member.role }}</span>
-        </div>
+        </button>
       </app-horizontal-scroller>
     </div>
 
     <div class="jury-group reveal" appRevealOnScroll>
       <div class="jury-group__label"><h3>Jury International</h3><span>— Invités du festival</span></div>
       <app-horizontal-scroller [showFades]="false" [gap]="34" trackPadding="6px 4px 20px" [center]="true">
-        <div class="jury-avatar" *ngFor="let member of internationalMembers">
+        <button type="button" class="jury-avatar" *ngFor="let member of internationalMembers" (click)="selectMember(member)">
           <div class="jury-avatar__ring"><img [src]="member.photoUrl" alt="" loading="lazy" /></div>
           <h4>{{ member.name }}</h4>
           <span>{{ member.role }}</span>
-        </div>
+        </button>
       </app-horizontal-scroller>
     </div>
   </div>
+
+  <app-jury-member-modal *ngIf="selectedMember() as m" [member]="m" (close)="closeModal()"></app-jury-member-modal>
 </section>

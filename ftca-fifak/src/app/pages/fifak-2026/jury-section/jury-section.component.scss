@@ -56,8 +56,10 @@
 }
 
 .jury-avatar {
+  display: block;
   flex: 0 0 auto;
   width: 140px;
+  padding: 0;
   text-align: center;
   scroll-snap-align: start;
 }

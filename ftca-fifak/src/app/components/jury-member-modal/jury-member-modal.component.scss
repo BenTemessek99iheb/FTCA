@@ -1,0 +1,136 @@
+/* ============================================================
+   JURY MEMBER MODAL — overlay générique (national + international)
+   ============================================================ */
+
+.jmm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 9, 8, 0.82);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: jmm-fade 0.3s var(--ease);
+}
+
+@keyframes jmm-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.jmm-panel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--panneau);
+  border: 1px solid var(--ligne);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  animation: jmm-rise 0.35s var(--ease);
+}
+
+@keyframes jmm-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.jmm-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, 0.55);
+  color: var(--blanc);
+  font-size: 15px;
+  border-radius: 50%;
+  transition: background 0.25s var(--ease);
+
+  &:hover {
+    background: var(--rouge-vif);
+  }
+}
+
+.jmm-photo {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.3) contrast(1.08);
+  }
+}
+
+.jmm-content {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h3 {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+}
+
+.jmm-role {
+  font-size: 13px;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.jmm-country {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--rouge-vif);
+  font-weight: 700;
+
+  i {
+    font-size: 12px;
+  }
+}
+
+.jmm-bio {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--blanc);
+}
+
+@media (max-width: 620px) {
+  .jmm-panel {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+
+  .jmm-photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .jmm-content {
+    padding: 26px 22px 30px;
+  }
+}

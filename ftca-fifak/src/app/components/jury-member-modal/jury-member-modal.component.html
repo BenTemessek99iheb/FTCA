@@ -1,0 +1,24 @@
+<div class="jmm-backdrop" (click)="onBackdropClick()">
+  <div
+    class="jmm-panel"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="member.name"
+    (click)="$event.stopPropagation()"
+  >
+    <button type="button" class="jmm-close" (click)="close.emit()" aria-label="Fermer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="jmm-photo">
+      <img [src]="member.photoUrl" alt="" loading="eager" />
+    </div>
+
+    <div class="jmm-content">
+      <h3>{{ member.name }}</h3>
+      <span class="jmm-role">{{ member.role }}</span>
+      <span class="jmm-country"><i class="fa-solid fa-location-dot"></i> {{ member.country }}</span>
+      <p class="jmm-bio">{{ member.bio }}</p>
+    </div>
+  </div>
+</div>
