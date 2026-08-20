@@ -20,7 +20,7 @@
     </div>
 
     <div class="jury-group reveal" appRevealOnScroll>
-      <div class="jury-group__label"><h3>Jury International</h3><span>— Invités du festival</span></div>
+      <div class="jury-group__label"><h3>Jury International</h3><span>—</span></div>
       <app-horizontal-scroller [showFades]="false" [gap]="34" trackPadding="6px 4px 20px" [center]="true">
         <button type="button" class="jury-avatar" *ngFor="let member of internationalMembers" (click)="selectMember(member)">
           <div class="jury-avatar__ring"><img [src]="member.photoUrl" alt="" loading="lazy" /></div>
