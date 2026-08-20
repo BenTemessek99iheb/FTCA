@@ -34,7 +34,18 @@ Ces informations FTP se trouvent dans cPanel → **FTP Accounts** (créer un
 compte FTP dédié au déploiement plutôt que d'utiliser le compte cPanel
 principal est recommandé).
 
-> ⚠️ Si `ftca-fifak.tn` est le **domaine principal** du compte cPanel,
+> ⚠️ **Mise à jour 2026-08-20 — théorie "addon domain" ci-dessous invalidée.**
+> Confirmé via cPanel → Domains : `ftca-fifak.tn` est bien le **domaine
+> principal** du compte, avec Document Root = `/public_html` directement (pas
+> un addon domain). Ce n'était donc **pas** la cause d'un épisode où tous les
+> runs `Deploy to cPanel (FTP)` étaient marqués "success" alors que le site en
+> ligne ne reflétait aucun commit récent (voir §5 "Le déploiement a réussi
+> mais public_html/ ne correspond pas au build" pour la vraie cause trouvée).
+> Le paragraphe suivant (règle générale domaine principal vs addon domain)
+> reste correct et utile si le projet change un jour d'hébergement/domaine —
+> il n'a simplement pas été le problème ici.
+>
+> Si `ftca-fifak.tn` est le **domaine principal** du compte cPanel,
 > `public_html/` est la bonne cible. Si c'est un **addon domain**, le dossier
 > réel est généralement `public_html/ftca-fifak.tn/` — à vérifier dans
 > cPanel → **Domains**, et à renseigner dans `FTP_SERVER_DIR` si différent.
@@ -83,6 +94,44 @@ les fichiers absents du build local), puis envoie tout via FTPS.
    le client FTP) dans `public_html/`.
 
 ## 5. Dépannage
+
+**Le déploiement a réussi mais `public_html/` ne correspond pas au build**
+(observé 2026-08-20 : tous les runs `Deploy to cPanel (FTP)` marqués
+"success" dans l'onglet Actions, mais `https://ftca-fifak.tn` continuait à
+servir un build antérieur à toute la migration Cloudinary — pas de
+`<link rel="manifest">`, Google Fonts CDN encore chargé, aucun dossier
+`assets/`). Confirmé via cPanel → File Manager : fichiers datés d'un
+déploiement bien plus ancien, et un fichier nommé `htaccess` **sans le
+point initial** présent à la racine de `public_html/` (voir point suivant).
+Domaine confirmé principal (Document Root `/public_html` direct, pas
+d'addon domain — voir §2). Cause la plus probable : le compte FTP dédié
+utilisé par le secret `FTP_USERNAME` a un **home directory déjà scopé sur
+`public_html/`** côté cPanel — dans ce cas, `server-dir: /public_html/` (la
+valeur par défaut du workflow) fait atterrir l'upload dans
+`public_html/public_html/`, un dossier jamais servi publiquement, pendant
+que FTP-Deploy-Action rapporte quand même un statut "success" (l'upload a
+bien réussi — juste pas au bon endroit). Correctif appliqué dans
+`deploy.yml` : `server-dir` par défaut changé de `/public_html/` à `/`
+(ancienne valeur gardée en commentaire pour rollback). Si `/` ne résout pas
+le problème : vérifier le home directory exact du compte dans cPanel →
+**FTP Accounts**, et ajuster `server-dir` (ou le secret `FTP_SERVER_DIR`
+s'il est défini — il a priorité sur la valeur par défaut du workflow) en
+conséquence.
+
+**Fichier `htaccess` sans le point trouvé en prod** — repéré dans le même
+épisode : un fichier `htaccess` (au lieu de `.htaccess`) traînait à la
+racine de `public_html/`, probablement un reliquat d'un upload manuel très
+ancien (avant l'automatisation FTP) où le point initial a été perdu (client
+FTP/interface qui masque les fichiers cachés par défaut, renommage
+accidentel...). Sans le point, Apache ignore complètement ce fichier : ni
+fallback SPA (`RewriteRule ^ index.html`), ni forçage HTTPS, ni règles de
+cache/gzip ne s'appliquent. Le vrai `.htaccess` (avec le point) est bien
+généré par le build (`angular.json` → `architect.build.options.assets`,
+glob `.htaccess` depuis la racine du repo — vérifié 2026-08-20) et sera
+déployé correctement une fois `server-dir` corrigé ; l'ancien fichier
+`htaccess` orphelin sur le serveur peut être supprimé manuellement via
+File Manager (ne sera pas nettoyé automatiquement par le déploiement FTP
+tant qu'il n'entre pas en conflit de nom avec `.htaccess`).
 
 **Rafraîchir une route (ex: `/fifak-2026`) donne une 404 Apache** →
 `.htaccess` n'a pas été uploadé (fichier caché souvent oublié), ou

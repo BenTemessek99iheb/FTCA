@@ -26,6 +26,24 @@ qui n'a pas inclus le dossier `assets/` ni le fichier caché `.htaccess`).
 (voir DEPLOYMENT.md) résout ce point** — aucune correction de code n'était
 nécessaire pour ce symptôme précis.
 
+> **Suite, 2026-08-20** — le symptôme "images cassées en prod" est revenu
+> après la migration Cloudinary, mais avec **deux causes distinctes qu'il
+> ne faut pas confondre** :
+> 1. Un vrai bug de code (mineur, déjà corrigé) : le Service Worker
+>    (`ngsw-config.json` → `/assets/**`) précachait encore 4 fichiers locaux
+>    devenus orphelins après la migration vers `assetUrl()`/Cloudinary —
+>    fichiers supprimés de `src/assets/`.
+> 2. La cause principale, **pas liée au code du tout** : le pipeline
+>    GitHub Actions (`deploy.yml`) rapportait "success" à chaque run, mais
+>    l'upload FTP atterrissait probablement dans `public_html/public_html/`
+>    (compte FTP déjà home-scopé sur `public_html/` + `server-dir:
+>    /public_html/` en plus) — donc *aucun* commit depuis le tout début de
+>    la migration Cloudinary n'avait jamais atteint le site réellement
+>    servi. Voir DEPLOYMENT.md §5 pour le détail et le correctif. Lire ce
+>    genre de symptôme comme "code cassé" sans vérifier d'abord si le
+>    déploiement atteint le bon dossier est le piège à éviter — ce fut le
+>    cas ici pendant plusieurs itérations de debug.
+
 ## 2. Optimisation des images locales
 
 `npm run optimize-assets` (script `scripts/optimize-assets.js`, basé sur

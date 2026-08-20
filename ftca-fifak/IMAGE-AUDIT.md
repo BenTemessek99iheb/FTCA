@@ -76,3 +76,15 @@ précédente, le contenu alors en ligne ne correspondait pas au build produit
 ici (dossier `assets/` et `.htaccess` absents du serveur). Un
 redéploiement complet du contenu de `dist/ftca-fifak/browser/` est le
 correctif, pas une modification de code supplémentaire.
+
+> **Note 2026-08-20** — cet audit est antérieur à la migration Cloudinary
+> (il documente encore le schéma `<picture>` local PNG/JPEG + fallback
+> WebP décrit ici, remplacé depuis par `assetUrl()` pointant vers
+> Cloudinary — voir CLAUDE.md, entrée de session 2026-08-20). Le
+> diagnostic méthodologique ci-dessus (code/dev local sain, cause probable
+> = déploiement) reste valide et s'est **reconfirmé exact** : les 404 vus
+> en production après la migration Cloudinary n'étaient pas dus au code
+> (vérifié à nouveau, exhaustivement) mais à un mauvais `server-dir` FTP
+> dans `deploy.yml` qui empêchait tout déploiement depuis le début de la
+> migration d'atteindre le site réel — voir DEPLOYMENT.md §5 pour la cause
+> exacte trouvée et le correctif appliqué.
