@@ -93,7 +93,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/Hors_champ_Out_of_frame.jpg',
-    genre: 'experimental',
+    genre: 'fiction',
     synopsis: {
       en: 'Between a dream that refuses to die and a nightmare that refuses to end, a soul wanders on the margins of life... There, outside the frame, the real story begins.',
       ar: 'بين حلمٍ يرفض أن يموت وكابوسٍ يرفض أن ينتهي، تتوه روحٌ على هامش الحياة... هناك، خارج الإطار، تبدأ الحكاية الحقيقية.',
@@ -106,13 +106,13 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/%D8%AA%D9%82%D9%81%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%B6%D9%84%D8%A7%D9%84standing_in_the_shadows.jpg',
-    genre: 'documentaire',
+    genre: 'experimental',
     // Split EN/AR non fait : le terme arabe "صنعات" est imbriqué au milieu de la
     // phrase anglaise, et le paragraphe AR commence tronqué ("ن خلال" au lieu de
     // "من خلال") — texte original laissé intact, à corriger manuellement.
     synopsis: {
       en: 'Through the archives of the Salle El Fateh, the film observes the silent struggle and ongoing invisibility of the  صنعات , highlighting the interplay between the past and the present. The film reveals the memory embedded in the body and time, bringing to light the gradual erasure of these women who remain largely unknown. ن خلال الأرشيف في قاعة الفتح، يراقب الفيلم النضال الصامت والتهميش المستمر لـ صنعات، مع التنقل بين الماضي والحاضر. يكشف الفيلم الذاكرة المتجسدة في الجسد والزمان، ويبرز التلاشي التدريجي لهؤلاء النساء اللواتي يظلن مجهولات، وذلك من خلال التفاعل بين الأرشيف والحاضر',
-      ar: '',
+      ar: 'ن خلال الأرشيف في قاعة الفتح، يراقب الفيلم النضال الصامت والتهميش المستمر لـ صنعات، مع التنقل بين الماضي والحاضر. يكشف الفيلم الذاكرة المتجسدة في الجسد والزمان، ويبرز التلاشي التدريجي لهؤلاء النساء اللواتي يظلن مجهولات، وذلك من خلال التفاعل بين الأرشيف والحاضر',
     },
   },
  
@@ -169,7 +169,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     // vraie synopsis arabe d'Amel. Texte original laissé intact tel quel.
     synopsis: {
       en: 'In late summer 2022, the life of "Amel," a sixty-five-year-old woman, is turned upside down when her family discovers that she has advanced-stage cancer. Amid health challenges and emotional turmoil, the hidden layers of a complex family bond come to light, as love, responsibility, and the fear of loss collide في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
-      ar: '',
+      ar: 'في أواخر صيف2022، تنقلب حياة "آمال"، امرأة في الخامسة والستين من عمرها، رأسًا على عقب عندما تكتشف عائلتها إصابتها بمرض السرطان في مرحلة متقدمة. وسط التحديات الصحية واالضطرابات العاطفية، تنكشف خبايا عالقة عائلية متشابكة، حيث تتصارع األدوار بين الحب، المسؤولية، والخوف من الفقدان',
     },
   },
   {
@@ -230,7 +230,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 27,
-    posterUrl: 'https://picsum.photos/seed/film-intl-4/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787248594/o_god_opener_of_doors.jpg',
     // Aucun synopsis fourni pour l'instant -> genre non déductible, 'fiction'
     // posé par défaut uniquement pour respecter le type, à valider/corriger.
     genre: 'fiction',
@@ -295,7 +295,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 29,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243845/Chorea_Poster_-_Djafar_Moussa.png',
-    genre: 'experimental',
+    genre: 'fiction',
     synopsis: {
       en: 'Inspired by the main actor s real struggle as a male dancer in Tunisian society, Chorea narrates a story of resilience and discovery. Using the medium of choreography, the film attempts to reflect the journey of navigating early adulthood while trying to piece together the fragments of identity.',
       ar: 'الفيلم مستوحى من القصة الحقيقية للممّثل الرئيسي و المصاعب التي يواجهها كراقص في المجتمع التونسي. يروي "إِهْفِتْ" قصة عن الصمود و الاكتشاف, و يقدم, من خلال الرقص كوسيط فني, محاولة للتعبير و مناقشة رحلة التعلّم تزامنا مع السعي إلى بناء الذات.',
@@ -308,7 +308,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 29,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243829/%D8%BA%D8%A8%D8%B1%D8%A9Dust.png',
-    genre: 'doc-fiction',
+    genre: 'documentaire',
     synopsis: {
       en: 'In Tataouine, Saber lives among stone, wood and dust. With his hands, he shapes forms from materials carrying traces of the past, while the desire to leave remains ever-present. Between a workshop that mirrors his spirit and a town he keeps returning to, a portrait emerges of a man trying to understand his bond with a place—and what remains of it when he leaves.',
       ar: 'في تطاوين، يعيش صابر بين الحجر والخشب والغبار، يصنع بيديه أشكالاً من أثرٍ قديم، بينما تظلّ فكرة الرحيل حاضرة في حياته. بين ورشةٍ تشبهه، ومدينةٍ يعود إليها كلما ابتعد، تتشكل حكاية رجل يحاول أن يفهم علاقته بالمكان، وبما يبقى منه حين يرحل.',
@@ -323,8 +323,8 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
-    genre: 'fiction',
-    synopsis: { en: 'À compléter par la FTCA', ar: '' },
+    genre: 'documentaire',
+    synopsis: { en: 'À compléter par la FTCA', ar: '"حُاحْ" رحلة في عالم الفلاح بحمّام الغزاز، وفي علاقته العميقة بالأرض التي عاش منها وتعلّق بها عبر أجيال. من خلال شهادات الفلاحين، يكتشف الفيلم مكانة الدرع كجزء من ذاكرة المدينة وثقافتها وعاداتها، قبل أن يكشف التحولات التي أصبحت تهدد هذا الإرث: البناء العشوائي والتوسع العمراني على حساب الأراضي الفلاحية، ملوحة المياه وتدهور البيئة، تراجع النشاط الفلاحي، وغياب رؤية واضحة ومستدامة لمستقبل الفلاحة، إلى جانب الضغوط العقارية التي تدفع بالأرض نحو التغيير. بين ذاكرة جيل عاش الفلاحة كطريقة حياة، وواقع جيل يحاول مواصلة العمل في ظروف أكثر صعوبة، يرصد الفيلم علاقة الإنسان بأرضه حين تصبح هذه الأرض نفسها مهددة بالاختفاء. وفي ختام الرحلة، تنتقل الحكاية من الحقل إلى المائدة، لتكشف كيف ارتبطت الدرع بعادات غذائية متوارثة، وكيف يمكن لاختفاء محصول أن يعني فقدان جزء من ذاكرة المكان وثقافته.' },
   },
   {
     title: 'بلدية 90 /  Municipality 90 ',
@@ -361,7 +361,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Monad.jpg',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
-    genre: 'fiction',
+    genre: 'experimental',
     synopsis: { en: 'À compléter par la FTCA', ar: '' },
   },
   // ---- Données de TEST ci-dessous (à SUPPRIMER quand le vrai catalogue
