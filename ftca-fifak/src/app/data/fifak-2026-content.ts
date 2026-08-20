@@ -222,11 +222,11 @@ export interface JuryMember {
 
 export const JURY_MEMBERS: JuryMember[] = [
   {
-    name: 'Anas Kammoun',
+    name: 'Ons Kammoun',
     role: 'Réalisateur / Professeur Universitaire',
     country: 'Tunisie',
     group: 'national',
-    photoUrl: 'https://picsum.photos/seed/jury-nat-1/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225448/ons_kamoun.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -234,7 +234,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisatrice',
     country: 'Tunisie',
     group: 'national',
-    photoUrl: 'https://picsum.photos/seed/jury-nat-2/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225446/Olfa_chakroun.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -242,7 +242,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Artiste / Actrice',
     country: 'Tunisie',
     group: 'national',
-    photoUrl: 'https://picsum.photos/seed/jury-nat-3/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787224629/Lobna_noomen.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -250,7 +250,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Cinéaste amateur / FTCA',
     country: 'Tunisie',
     group: 'national',
-    photoUrl: 'https://picsum.photos/seed/jury-nat-4/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225450/Ridha_ROKBENI.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -258,7 +258,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisateur',
     country: 'Tunisie',
     group: 'national',
-    photoUrl: 'https://picsum.photos/seed/jury-nat-5/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225441/Anouar_Lahouar.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -266,6 +266,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Directrice de festival',
     country: 'France',
     group: 'international',
+    // Pas d'URL Cloudinary fournie pour ce membre — placeholder picsum conservé, à remplacer.
     photoUrl: 'https://picsum.photos/seed/jury-intl-1/240/240',
     bio: 'À compléter par la FTCA',
   },
@@ -274,7 +275,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisateur / Acteur',
     country: 'Tunisie',
     group: 'international',
-    photoUrl: 'https://picsum.photos/seed/jury-intl-2/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225443/moez-mrabet.png',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -282,7 +283,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisateur / Producteur',
     country: 'Palestine',
     group: 'international',
-    photoUrl: 'https://picsum.photos/seed/jury-intl-3/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787224640/hanna_atallah.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -290,7 +291,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisateur',
     country: 'Sénégal',
     group: 'international',
-    photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225452/Moussa_toure%CC%81.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -298,7 +299,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Réalisatrice',
     country: 'France',
     group: 'international',
-    photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787224637/Marie-Pierre_Br%C3%AAtas.jpg',
     bio: 'À compléter par la FTCA',
   },
   {
@@ -306,7 +307,7 @@ export const JURY_MEMBERS: JuryMember[] = [
     role: 'Critique cinéma',
     country: 'Algérie',
     group: 'international',
-    photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    photoUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787225440/abdelkerim_kadri.jpg',
     bio: 'À compléter par la FTCA',
   },
 ];
