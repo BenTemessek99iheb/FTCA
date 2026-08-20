@@ -44,6 +44,8 @@ export interface ProgrammeFilm {
   category: ProgrammeCategory;
   day: number; // 23–29
   posterUrl: string;
+  /** Résumé court affiché sur la carte film (2-3 lignes, "Lire plus" pour le texte complet) */
+  synopsis: string;
 }
 
 export const PROGRAMME_CATEGORY_LABELS: Record<ProgrammeCategory, string> = {
@@ -63,6 +65,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'ouverture',
     day: 23,
     posterUrl: 'https://picsum.photos/seed/film-ouverture/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Le Sel de la Mer',
@@ -71,6 +74,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 24,
     posterUrl: 'https://picsum.photos/seed/film-national-1/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Broken Frames',
@@ -79,6 +83,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 24,
     posterUrl: 'https://picsum.photos/seed/film-intl-1/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Sable et Lumière',
@@ -87,6 +92,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Silent Reels',
@@ -95,6 +101,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-intl-2/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Empreintes',
@@ -103,6 +110,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'hommage',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-hommage-1/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Kélibia Blues',
@@ -111,6 +119,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 26,
     posterUrl: 'https://picsum.photos/seed/film-national-3/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'The Last Reel',
@@ -119,6 +128,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 26,
     posterUrl: 'https://picsum.photos/seed/film-intl-3/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Terre Amère',
@@ -127,6 +137,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-national-4/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Anhedonia',
@@ -135,6 +146,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-intl-4/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Retour de Flamme',
@@ -143,6 +155,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'hommage',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-hommage-2/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Vagues',
@@ -151,6 +164,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 28,
     posterUrl: 'https://picsum.photos/seed/film-national-5/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Echoes of Amateur Cinema',
@@ -159,6 +173,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 28,
     posterUrl: 'https://picsum.photos/seed/film-intl-5/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
   {
     title: 'Lueurs',
@@ -167,7 +182,28 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'national',
     day: 29,
     posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    synopsis: 'À compléter par la FTCA',
   },
+
+  // ---- Données de TEST ci-dessous (à SUPPRIMER quand le vrai catalogue
+  // 50+ films sera fourni par la FTCA) : générées uniquement pour vérifier
+  // visuellement grille/filtres/pagination à volume réel. Titres/synopsis
+  // volontairement identifiables comme factices. ----
+  ...Array.from({ length: 38 }, (_, i) => {
+    const n = i + 15;
+    const categories: ProgrammeCategory[] = ['national', 'international', 'hommage', 'national', 'international'];
+    const category = categories[i % categories.length];
+    const day = PROGRAMME_DAYS[i % PROGRAMME_DAYS.length];
+    return {
+      title: `Film exemple #${n}`,
+      director: 'Réalisateur Test',
+      country: 'Pays Test',
+      category,
+      day,
+      posterUrl: `https://picsum.photos/seed/film-test-${n}/450/600`,
+      synopsis: 'Donnée de test — à remplacer par le vrai catalogue FTCA.',
+    };
+  }),
 ];
 
 /* ============================================================
@@ -177,77 +213,101 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
 export interface JuryMember {
   name: string;
   role: string;
+  country: string;
   group: 'national' | 'international';
   photoUrl: string;
+  /** Biographie affichée dans la popup (jury-member-modal), pas sur la carte */
+  bio: string;
 }
 
 export const JURY_MEMBERS: JuryMember[] = [
   {
     name: 'Anas Kammoun',
     role: 'Réalisateur / Professeur Universitaire',
+    country: 'Tunisie',
     group: 'national',
     photoUrl: 'https://picsum.photos/seed/jury-nat-1/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Olfa Chakroun',
     role: 'Réalisatrice',
+    country: 'Tunisie',
     group: 'national',
     photoUrl: 'https://picsum.photos/seed/jury-nat-2/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Lobna Noomen',
     role: 'Artiste / Actrice',
+    country: 'Tunisie',
     group: 'national',
     photoUrl: 'https://picsum.photos/seed/jury-nat-3/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Ridha Rakbani',
     role: 'Cinéaste amateur / FTCA',
+    country: 'Tunisie',
     group: 'national',
     photoUrl: 'https://picsum.photos/seed/jury-nat-4/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Anouar Lahouar',
     role: 'Réalisateur',
+    country: 'Tunisie',
     group: 'national',
     photoUrl: 'https://picsum.photos/seed/jury-nat-5/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Leïla Mansour',
-    role: 'Directrice de festival — France',
+    role: 'Directrice de festival',
+    country: 'France',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-1/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Moez Mrabet',
-    role: 'Réalisateur / Acteur — Tunisie',
+    role: 'Réalisateur / Acteur',
+    country: 'Tunisie',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-2/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Hanna Atallah',
-    role: 'Réalisateur / Producteur — Palestine',
+    role: 'Réalisateur / Producteur',
+    country: 'Palestine',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-3/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Moussa Touré',
-    role: 'Réalisateur — Sénégal',
+    role: 'Réalisateur',
+    country: 'Sénégal',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    bio: 'À compléter par la FTCA',
   },
-  
   {
     name: 'Marie-pierre Bretas',
-    role: 'Réalisatrice — France',
+    role: 'Réalisatrice',
+    country: 'France',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    bio: 'À compléter par la FTCA',
   },
   {
     name: 'Abdelkarim Kadri',
-    role: 'Critique cinéma — Algerie',
+    role: 'Critique cinéma',
+    country: 'Algérie',
     group: 'international',
     photoUrl: 'https://picsum.photos/seed/jury-intl-4/240/240',
+    bio: 'À compléter par la FTCA',
   },
 ];
 
