@@ -50,6 +50,24 @@ jobs:
           du -sh dist/ftca-fifak/browser
           ls -la dist/ftca-fifak/browser
 
+      # DEBUG TEMPORAIRE — investigation "le déploiement FTP réussit mais
+      # ftca-fifak.tn ne reflète pas le contenu déployé" (voir DEPLOYMENT.md
+      # > Dépannage > "Le déploiement a réussi mais public_html/ ne correspond
+      # pas au build"). Confirme que assets/ et .htaccess (avec le point)
+      # sont bien présents et corrects À LA SOURCE avant l'upload, pour
+      # éliminer le doute "bug de build" vs "bug de chemin FTP". À retirer
+      # une fois le bon server-dir confirmé.
+      - name: 🔍 DEBUG — contenu du dossier local avant upload FTP
+        run: |
+          echo "--- find dist/ftca-fifak/browser (profondeur 2) ---"
+          find dist/ftca-fifak/browser -maxdepth 2
+          echo ""
+          echo "--- présence explicite de .htaccess (avec le point) ---"
+          ls -la dist/ftca-fifak/browser/.htaccess
+          echo ""
+          echo "--- présence explicite du dossier assets/ ---"
+          ls -la dist/ftca-fifak/browser/assets | head -20
+
       # Déploiement FTP/FTPS vers cPanel. Nécessite les secrets GitHub :
       #   FTP_SERVER      -> ex: ftp.ftca-fifak.tn (fourni par l'hébergeur cPanel)
       #   FTP_USERNAME    -> identifiant du compte FTP cPanel
@@ -64,7 +82,17 @@ jobs:
           protocol: ftps
           port: 21
           local-dir: ftca-fifak/dist/ftca-fifak/browser/
-          server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
+          # 2026-08-20 : "/public_html/" (valeur précédente) donnait des
+          # déploiements "success" qui n'atteignaient jamais le site réel.
+          # Hypothèse la plus probable : le compte FTP dédié est déjà
+          # home-scopé sur public_html/, donc "/public_html/" en plus
+          # uploadait dans public_html/public_html/ (jamais servi).
+          # Testé avec "/" — si ça ne marche pas non plus, vérifier le
+          # home directory exact du compte FTP dans cPanel > FTP Accounts
+          # et ajuster en conséquence (voir DEPLOYMENT.md > Dépannage).
+          server-dir: ${{ secrets.FTP_SERVER_DIR || '/' }}
+          # Ancienne valeur, gardée en commentaire pour rollback rapide :
+          # server-dir: ${{ secrets.FTP_SERVER_DIR || '/public_html/' }}
           exclude: |
             **/.git*
             **/.git*/**
