@@ -1,0 +1,112 @@
+/* ============================================================
+   PROGRAMME PAGE — catalogue complet, filtres + pagination
+   ============================================================ */
+
+.programme-page {
+  padding: calc(var(--nav-safe-top) + 40px) 0 130px;
+}
+
+.programme-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gris);
+  transition: color 0.25s var(--ease);
+
+  &:hover {
+    color: var(--blanc);
+  }
+}
+
+.shead {
+  margin-top: 28px;
+}
+
+.programme-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 48px;
+}
+
+.programme-filters__group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.programme-filters__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.programme-filters__pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  button {
+    padding: 9px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--ligne);
+    color: var(--gris);
+    transition: all 0.3s var(--ease);
+
+    &:hover {
+      color: var(--blanc);
+      border-color: rgba(244, 239, 230, 0.3);
+    }
+
+    &.is-active {
+      background: var(--rouge-vif);
+      border-color: var(--rouge-vif);
+      color: var(--blanc);
+    }
+  }
+}
+
+.programme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
+}
+
+@media (max-width: 1080px) {
+  .programme-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .programme-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .programme-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.programme-page__more {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.programme-page__empty {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--gris);
+}

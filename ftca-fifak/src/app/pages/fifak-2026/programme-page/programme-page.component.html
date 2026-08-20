@@ -1,0 +1,54 @@
+<section class="programme-page">
+  <div class="wrap">
+    <a routerLink="/fifak-2026" fragment="programme" class="programme-page__back">
+      <i class="fa-solid fa-arrow-left"></i> Retour à FIFAK 2026
+    </a>
+
+    <div class="shead">
+      <span class="eyebrow">Programme complet</span>
+      <h1>Tous les films — FIFAK 2026</h1>
+      <p>{{ filteredFilms().length }} film(s) au programme.</p>
+    </div>
+
+    <div class="programme-filters">
+      <div class="programme-filters__group">
+        <span class="programme-filters__label">Jour</span>
+        <div class="programme-filters__pills">
+          <button type="button" [class.is-active]="selectedDay() === null" (click)="setDay(null)">Tous</button>
+          <button type="button" *ngFor="let day of days" [class.is-active]="selectedDay() === day" (click)="setDay(day)">
+            {{ day }} Août
+          </button>
+        </div>
+      </div>
+
+      <div class="programme-filters__group">
+        <span class="programme-filters__label">Catégorie</span>
+        <div class="programme-filters__pills">
+          <button type="button" [class.is-active]="selectedCategory() === null" (click)="setCategory(null)">Toutes</button>
+          <button
+            type="button"
+            *ngFor="let cat of categories"
+            [class.is-active]="selectedCategory() === cat"
+            (click)="setCategory(cat)"
+          >
+            {{ categoryLabels[cat] }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="pagedFilms().length; else empty">
+      <div class="programme-grid">
+        <app-film-card *ngFor="let film of pagedFilms()" [film]="film"></app-film-card>
+      </div>
+
+      <div class="programme-page__more" *ngIf="hasMore()">
+        <button type="button" class="btn btn--ghost-light" (click)="loadMore()">Charger plus de films</button>
+      </div>
+    </ng-container>
+
+    <ng-template #empty>
+      <p class="programme-page__empty">Aucun film ne correspond à ce filtre.</p>
+    </ng-template>
+  </div>
+</section>
