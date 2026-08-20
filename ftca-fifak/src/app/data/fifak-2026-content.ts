@@ -79,7 +79,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'ouverture',
     day: 23,
-    posterUrl: 'https://picsum.photos/seed/film-ouverture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243863/el_commita.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'A mysterious committee interviews candidates for the presidency, but with each interview, a satirical truth about power is revealed. The session ends with a shocking twist that proves the decision had been made from the very beginning.',
@@ -92,7 +92,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 24,
-    posterUrl: 'https://picsum.photos/seed/film-national-1/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/Hors_champ_Out_of_frame.jpg',
     genre: 'experimental',
     synopsis: {
       en: 'Between a dream that refuses to die and a nightmare that refuses to end, a soul wanders on the margins of life... There, outside the frame, the real story begins.',
@@ -105,7 +105,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 24,
-    posterUrl: 'https://picsum.photos/seed/film-national-1/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/%D8%AA%D9%82%D9%81%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%B6%D9%84%D8%A7%D9%84standing_in_the_shadows.jpg',
     genre: 'documentaire',
     // Split EN/AR non fait : le terme arabe "صنعات" est imbriqué au milieu de la
     // phrase anglaise, et le paragraphe AR commence tronqué ("ن خلال" au lieu de
@@ -122,7 +122,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 25,
-    posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243847/%D9%A2%D9%A0_%D9%8A%D9%88%D9%85%D9%8B%D8%A7_%D8%A8%D8%AA%D9%88%D9%82%D9%8A%D8%AA_%D8%A8%D9%88%D8%B2%D9%88%D9%8A%D8%AF%D8%A920_days_in_bouzouida_time.png',
     genre: 'documentaire',
     synopsis: {
       en: 'Twenty breathtaking days—a span of time where history merges with reality, and upbringing transforms into destiny. Through the gaze of the father, Mohamed Bouzouida, and the intimate testimonies of his children, 20 Days in Bouzouida Time chronicles the story of their brother, Hamza, who chose to build a bridge of resistance stretching from the mountains of Tunisia to the sea of Gaza. Caught between a departed mother s wish and the ancestral legacy, the family comes together to bear witness to the definitive moment of separation, sharing the heavy price of the principles they were raised upon.',
@@ -135,7 +135,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 25,
-    posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243851/Still_Loading_Mazel.png',
     genre: 'fiction',
     synopsis: {
       en: 'A young screenwriter-director is ready to shoot her first short film but unexpected legal and administrative obstacles stop the project,Caught between frustration and determination, she must decide whether to give up or fight for her film.',
@@ -148,7 +148,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 25,
-    posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243826/Sous_le_voile_-_Hazar_Abbassi.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'On the day when songs celebrate her union with her cousin — the man who broke her — Nour searches for a way out behind the veils of silence. A fragile yet furious escape begins, unfolding between the forest and the sea.',
@@ -161,7 +161,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 25,
-    posterUrl: 'https://picsum.photos/seed/film-intl-2/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243871/AMEL_-_rahma_ben_jemaa.png',
     genre: 'fiction',
     // Split EN/AR non fait : le texte arabe collé ici dans les données source est
     // en réalité celui de "Beneath the Veil" (Nour/mariage/forêt), sans rapport
@@ -178,7 +178,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 25,
-    posterUrl: 'https://picsum.photos/seed/film-hommage-1/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243863/%EF%BB%9B%EF%BA%92%EF%BA%B4%EF%BA%94The_Omnipresent.png',
     genre: 'fiction',
     synopsis: {
       en: 'On the day of a decisive exam, a group of students arrives before anyone else, determined to cheat in complete peace. Their plan collapses when they discover a new teacher strict, methodical, and already in position ready to supervise the room with relentless vigilance.Between panicked glances, improvised tricks, and increasingly absurd attempts at cheating, the tension rises along with suppressed bursts of laughter. Each student tries to outsmart the others in a true comedy of resourcefulness.As the teacher tightens control, the exam turns into a silent battle where everything can shift at any moment. By the end of the session, an unexpected revelation completely changes the game.',
@@ -191,7 +191,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 26,
-    posterUrl: 'https://picsum.photos/seed/film-national-3/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243823/buried.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'This documentary tells the story of Hnia, a resilient rural woman who shares her experience with Al Mardouma, a traditional method of charcoal production. Through her testimony, the film revisits her past, tracing her life journey and the challenges she faced in both work and daily survival. The film sheds light on the position of Tunisian rural women and their essential role in preserving traditional heritage, highlighting their strength, patience, and resilience while working under harsh living conditions.',
@@ -204,7 +204,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 26,
-    posterUrl: 'https://picsum.photos/seed/film-intl-3/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243828/Job_Opportunity_%D9%81%D8%B1%D8%B5%D8%A9_%D8%B9%D9%85%D9%84_A4_-_club_taher_lhaddad_ftca_ftca.png',
     genre: 'fiction',
     synopsis: {
       en: 'Desperately looking for a job, Adem, a young graduate in his twenties, goes through a series of absurd and humiliating job interviews.',
@@ -217,7 +217,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 27,
-    posterUrl: 'https://picsum.photos/seed/film-national-4/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243833/Good_Boy.png',
     genre: 'fiction',
     synopsis: {
       en: 'When avoiding effort becomes an obsession, every small shortcut comes with a hidden price.',
@@ -242,7 +242,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 27,
-    posterUrl: 'https://picsum.photos/seed/film-hommage-2/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/SOMEARESLEEPLESSPOSTER_-_Yung_Amiro.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'Upon the sudden departure of his colleague, Chantal Gérard, Xavier Caution is assigned to the night shift at a dying newspaper, while a butterfly circles around a halogen lamp.',
@@ -255,7 +255,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 28,
-    posterUrl: 'https://picsum.photos/seed/film-national-5/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243821/Zerda.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'Zarda" is a documentary that offers a visual and human journey into the traditional pilgrimages to the shrines of saints in southern Tunisia, where spirituality intertwines with cultural heritage and collective memory. Through poetic imagery and authentic moments, the film documents the rituals, chants, prayers, and human encounters that define this enduring tradition, while highlighting its cultural significance and contributing to the preservation of a unique heritage that is gradually disappearing.',
@@ -268,7 +268,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 28,
-    posterUrl: 'https://picsum.photos/seed/film-intl-5/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243820/Sacrifi%C3%A9s_pour_nourrir_le_monde.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'Sacrificed to Feed the World tells the story of Gabès, a city in southern Tunisia that has endured decades of industrial pollution caused by the chemical complex. Through intimate testimonies and powerful imagery, the film reveals how pollution has reshaped everyday life, devastating the sea, contaminating agricultural land, and forcing local communities to pay the price with their health and livelihoods for an industry that produces fertilizers for the world.The documentary follows fishermen who have lost their sea, farmers whose land has been damaged, and families living with the growing burden of pollution-related illnesses and environmental degradation. Their stories paint a deeply human portrait of a community struggling to survive under the weight of environmental injustice. At the same time, the film highlights the unconventional forms of resistance led by Gabès youth. Turning culture into a tool of protest, they use rap music, graffiti art, and the chants of football ultras to challenge silence, reclaim public space, and amplify their fight for environmental justice. More than a film about pollution, Sacrificed to Feed the World is a story of resilience, creativity, and the determination of a community refusing to be sacrificed. It asks a fundamental question: who pays the price for feeding the world?',
@@ -281,7 +281,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 28,
-    posterUrl: 'https://picsum.photos/seed/film-intl-5/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/Breath%D9%86%D9%81%D8%B3.png',
     genre: 'fiction',
     synopsis: {
       en: 'A short film of a psychological and symbolic drama following Ibrahim, a plastic bottle collector who finds a strange gas mask that drags him into suffocating nightmares of pollution and illusion, turning his search for clean air into a desperate struggle for survival',
@@ -294,7 +294,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243845/Chorea_Poster_-_Djafar_Moussa.png',
     genre: 'experimental',
     synopsis: {
       en: 'Inspired by the main actor s real struggle as a male dancer in Tunisian society, Chorea narrates a story of resilience and discovery. Using the medium of choreography, the film attempts to reflect the journey of navigating early adulthood while trying to piece together the fragments of identity.',
@@ -307,7 +307,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243829/%D8%BA%D8%A8%D8%B1%D8%A9Dust.png',
     genre: 'doc-fiction',
     synopsis: {
       en: 'In Tataouine, Saber lives among stone, wood and dust. With his hands, he shapes forms from materials carrying traces of the past, while the desire to leave remains ever-present. Between a workshop that mirrors his spirit and a town he keeps returning to, a portrait emerges of a man trying to understand his bond with a place—and what remains of it when he leaves.',
@@ -332,7 +332,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243867/Municipality.png',
     genre: 'documentaire',
     synopsis: {
       en: 'In 1990, the small coastal town of Chebba witnessed an exceptional political experience. Left-wing independents, together with members of the Chebba cell of the Tunisian Communist Party, ran in the municipal elections on an opposition list called “The Independent List.” The list received broad popular support and won 15 seats, compared with only 3 seats for the Constitutional Democratic Rally (RCD), making it an exceptional case during Ben Ali’s rule. More than three decades later, the film returns to this experience through the testimonies of those who lived it: former activists, members of “The Independent List,” and witnesses of that period, including Saïda Nasri, one of the film’s co-directors, who took part in the elections as a volunteer polling-station observer. Through these testimonies, the film revisits the memory of a collective experience of political activism in Chebba, between nostalgia and a critical reading of the past. It questions the stakes, limitations, and significance of this experience, and what it can mean today as one of the rare examples of opposition political action under an authoritarian regime.',
@@ -345,7 +345,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Running.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'Massoud has spent all of his life running, trying to make something of himself. However, nothing seems to work out. No matter how hard he runs, life gives him nothing in return. After chasing things that lead nowhere, he finally finds what he is meant to do.',
@@ -358,7 +358,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Monad.jpg',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
     genre: 'fiction',
