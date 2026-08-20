@@ -1,71 +1,20 @@
 /* ============================================================
-   PROGRAMME — rail horizontal, façon fiche
+   PROGRAMME — preview en grille verticale (le catalogue complet vit
+   sur /fifak-2026/programme, voir programme-page.component)
    ============================================================ */
 
 .sec-programme {
   padding: 140px 0 130px;
 }
 
-/* Ce header a besoin d'une mise en page flex propre à la page FIFAK 2026
-   (texte + boutons prev/next côte à côte), différente du .shead simple
-   utilisé par les sections de la landing (_tokens.scss). */
-.shead {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 56px;
-
-  h2 {
-    font-size: clamp(32px, 4.6vw, 54px);
-    margin-top: 16px;
-    line-height: 1.05;
-  }
-
-  p {
-    margin-top: 18px;
-    font-size: 16px;
-    color: var(--gris);
-    max-width: 520px;
-  }
-}
-
-.shead__text {
-  max-width: 640px;
-}
-
-.shead__nav {
-  display: flex;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.scroll-btn {
-  width: 46px;
-  height: 46px;
-  border: 1px solid var(--ligne);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: var(--gris);
-  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
-
-  &:hover {
-    border-color: var(--rouge-vif);
-    color: var(--blanc);
-    background: rgba(232, 21, 60, 0.08);
-  }
-}
-
 .day-jump {
   display: flex;
   gap: 8px;
-  margin-bottom: 44px;
+  margin: 32px 0 44px;
   flex-wrap: wrap;
 
-  button {
+  a {
+    display: inline-block;
     padding: 9px 16px;
     font-size: 12px;
     font-weight: 700;
@@ -79,83 +28,36 @@
       color: var(--blanc);
       border-color: rgba(244, 239, 230, 0.3);
     }
-
-    &.is-active {
-      background: var(--rouge-vif);
-      border-color: var(--rouge-vif);
-      color: var(--blanc);
-    }
   }
 }
 
-.prog-card {
-  flex: 0 0 auto;
-  width: 250px;
-  scroll-snap-align: start;
+.programme-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
 }
 
-.prog-card__img {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(0.6) contrast(1.08);
-    transition: transform 0.7s var(--ease), filter 0.5s var(--ease);
+@media (max-width: 1080px) {
+  .programme-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.prog-card:hover .prog-card__img img {
-  transform: scale(1.06);
-  filter: grayscale(0) contrast(1.08);
+@media (max-width: 768px) {
+  .programme-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
 }
 
-.prog-card__tags {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+@media (max-width: 520px) {
+  .programme-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.programme-cta {
+  margin-top: 56px;
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.prog-card__cat {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--rouge-vif);
-  color: var(--blanc);
-  padding: 5px 9px;
-}
-
-.prog-card__date {
-  font-family: var(--impact);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  color: var(--blanc);
-  background: rgba(10, 9, 8, 0.6);
-  padding: 5px 9px;
-  backdrop-filter: blur(4px);
-}
-
-.prog-card__body {
-  padding-top: 16px;
-}
-
-.prog-card h4 {
-  font-size: 17px;
-  line-height: 1.25;
-}
-
-.prog-card .meta {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--gris);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  justify-content: center;
 }

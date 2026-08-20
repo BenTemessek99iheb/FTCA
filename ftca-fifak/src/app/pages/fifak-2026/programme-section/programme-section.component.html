@@ -1,46 +1,25 @@
 <section class="sec-programme" id="programme">
   <div class="wrap">
     <div class="shead reveal" appRevealOnScroll>
-      <div class="shead__text">
-        <span class="eyebrow">Programme</span>
-        <h2>Les films de l'édition 2026</h2>
-        <p>Sept nuits de projections à Kélibia. Faites défiler la sélection, ou sautez directement à un jour du festival.</p>
-      </div>
-      <div class="shead__nav">
-        <button type="button" class="scroll-btn" (click)="scrollPrev()" aria-label="Précédent">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <button type="button" class="scroll-btn" (click)="scrollNext()" aria-label="Suivant">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
+      <span class="eyebrow">Programme</span>
+      <h2>Les films de l'édition 2026</h2>
+      <p>Sept nuits de projections à Kélibia. Aperçu de la sélection — {{ totalFilms }} films au programme complet.</p>
     </div>
 
     <div class="day-jump reveal" appRevealOnScroll>
-      <button
-        type="button"
-        *ngFor="let day of days"
-        [class.is-active]="day === activeDay()"
-        (click)="jumpToDay(day)"
-      >
+      <a *ngFor="let day of days" routerLink="/fifak-2026/programme" [queryParams]="{ day }">
         {{ day }} Août
-      </button>
+      </a>
     </div>
 
-    <app-horizontal-scroller class="reveal" appRevealOnScroll [gap]="22" trackPadding="6px 4px 24px">
-      <article class="prog-card" *ngFor="let film of films" #filmCard>
-        <div class="prog-card__img">
-          <div class="prog-card__tags">
-            <span class="prog-card__cat">{{ categoryLabels[film.category] }}</span>
-            <span class="prog-card__date">{{ film.day }} Août</span>
-          </div>
-          <img [src]="film.posterUrl" alt="" loading="lazy" />
-        </div>
-        <div class="prog-card__body">
-          <h4>{{ film.title }}</h4>
-          <div class="meta">{{ film.director }} — {{ film.country }}</div>
-        </div>
-      </article>
-    </app-horizontal-scroller>
+    <div class="programme-grid reveal reveal-stagger" appRevealOnScroll>
+      <app-film-card *ngFor="let film of previewFilms; let i = index" [film]="film" [style.--i]="i"></app-film-card>
+    </div>
+
+    <div class="programme-cta">
+      <a routerLink="/fifak-2026/programme" class="btn btn--solid">
+        Voir tout le programme ({{ totalFilms }} films)
+      </a>
+    </div>
   </div>
 </section>
