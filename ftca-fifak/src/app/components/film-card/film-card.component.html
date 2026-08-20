@@ -1,7 +1,10 @@
 <article class="film-card">
   <div class="film-card__img">
     <div class="film-card__tags">
-      <span class="film-card__cat" [style.background]="'var(--cat-' + film.category + ')'">{{ categoryLabels[film.category] }}</span>
+      <div class="film-card__badges">
+        <span class="film-card__cat" [style.background]="'var(--cat-' + film.category + ')'">{{ categoryLabels[film.category] }}</span>
+        <span class="film-card__genre">{{ genreLabels[film.genre] }}</span>
+      </div>
       <span class="film-card__date">{{ film.day }} Août</span>
     </div>
     <img [src]="film.posterUrl" alt="" loading="lazy" />
@@ -9,7 +12,20 @@
   <div class="film-card__body">
     <h4>{{ film.title }}</h4>
     <div class="film-card__meta">{{ film.director }} — {{ film.country }}</div>
-    <p class="film-card__synopsis" [class.is-expanded]="expanded()">{{ film.synopsis }}</p>
+
+    <div class="film-card__lang-toggle" *ngIf="hasArabic()">
+      <button type="button" [class.is-active]="activeLang() === 'en'" (click)="setLang('en')">EN</button>
+      <button type="button" [class.is-active]="activeLang() === 'ar'" (click)="setLang('ar')">AR</button>
+    </div>
+
+    <p
+      class="film-card__synopsis"
+      [class.is-expanded]="expanded()"
+      [class.is-arabic]="activeLang() === 'ar'"
+      [dir]="activeLang() === 'ar' ? 'rtl' : 'ltr'"
+    >
+      {{ activeSynopsis() }}
+    </p>
     <button type="button" class="film-card__toggle" (click)="toggleExpanded()">
       {{ expanded() ? 'Réduire' : 'Lire plus' }}
     </button>
