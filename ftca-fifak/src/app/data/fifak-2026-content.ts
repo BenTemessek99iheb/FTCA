@@ -37,6 +37,20 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
 
 export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage';
 
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental';
+
+export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
+  fiction: 'Fiction',
+  documentaire: 'Documentaire',
+  'doc-fiction': 'Doc/Fiction',
+  experimental: 'Expérimental',
+};
+
+export interface ProgrammeFilmSynopsis {
+  en: string;
+  ar: string;
+}
+
 export interface ProgrammeFilm {
   title: string;
   director: string;
@@ -44,8 +58,9 @@ export interface ProgrammeFilm {
   category: ProgrammeCategory;
   day: number; // 23–29
   posterUrl: string;
-  /** Résumé court affiché sur la carte film (2-3 lignes, "Lire plus" pour le texte complet) */
-  synopsis: string;
+  genre: FilmGenre;
+  /** Résumé bilingue affiché sur la carte film (2-3 lignes, "Lire plus" pour le texte complet) */
+  synopsis: ProgrammeFilmSynopsis;
 }
 
 export const PROGRAMME_CATEGORY_LABELS: Record<ProgrammeCategory, string> = {
@@ -59,132 +74,296 @@ export const PROGRAMME_DAYS = [23, 24, 25, 26, 27, 28, 29];
 
 export const PROGRAMME_FILMS: ProgrammeFilm[] = [
   {
-    title: "Nuits d'Argent",
-    director: 'Sonia Kraïem',
+    title: "El Comita/ the committee",
+    director: 'Mouhamed Trabelsi',
     country: 'Tunisie',
     category: 'ouverture',
     day: 23,
     posterUrl: 'https://picsum.photos/seed/film-ouverture/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    synopsis: {
+      en: 'A mysterious committee interviews candidates for the presidency, but with each interview, a satirical truth about power is revealed. The session ends with a shocking twist that proves the decision had been made from the very beginning.',
+      ar: '',
+    },
   },
   {
-    title: 'Le Sel de la Mer',
-    director: 'Amine Chérif',
+    title: 'خارج الاطار / Hors champ',
+    director: 'Sadok Sadem',
     country: 'Tunisie',
     category: 'national',
     day: 24,
     posterUrl: 'https://picsum.photos/seed/film-national-1/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'experimental',
+    synopsis: {
+      en: 'Between a dream that refuses to die and a nightmare that refuses to end, a soul wanders on the margins of life... There, outside the frame, the real story begins.',
+      ar: 'بين حلمٍ يرفض أن يموت وكابوسٍ يرفض أن ينتهي، تتوه روحٌ على هامش الحياة... هناك، خارج الإطار، تبدأ الحكاية الحقيقية.',
+    },
   },
   {
-    title: 'Broken Frames',
-    director: 'Marco Ferretti',
-    country: 'Italie',
-    category: 'international',
+    title: 'تقفن في الضلال/standing in the shadows',
+    director: 'khadija zammouli',
+    country: 'Tunisie',
+    category: 'national',
     day: 24,
-    posterUrl: 'https://picsum.photos/seed/film-intl-1/450/600',
-    synopsis: 'À compléter par la FTCA',
+    posterUrl: 'https://picsum.photos/seed/film-national-1/450/600',
+    genre: 'documentaire',
+    // Split EN/AR non fait : le terme arabe "صنعات" est imbriqué au milieu de la
+    // phrase anglaise, et le paragraphe AR commence tronqué ("ن خلال" au lieu de
+    // "من خلال") — texte original laissé intact, à corriger manuellement.
+    synopsis: {
+      en: 'Through the archives of the Salle El Fateh, the film observes the silent struggle and ongoing invisibility of the  صنعات , highlighting the interplay between the past and the present. The film reveals the memory embedded in the body and time, bringing to light the gradual erasure of these women who remain largely unknown. ن خلال الأرشيف في قاعة الفتح، يراقب الفيلم النضال الصامت والتهميش المستمر لـ صنعات، مع التنقل بين الماضي والحاضر. يكشف الفيلم الذاكرة المتجسدة في الجسد والزمان، ويبرز التلاشي التدريجي لهؤلاء النساء اللواتي يظلن مجهولات، وذلك من خلال التفاعل بين الأرشيف والحاضر',
+      ar: '',
+    },
   },
+ 
   {
-    title: 'Sable et Lumière',
-    director: 'Rania Bouazizi',
+    title: '٢٠ يومًا، بتوقيت بوزويدة/20 days in bouzouida time',
+    director: 'Bassem Belgacem jebahi',
     country: 'Tunisie',
     category: 'national',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'documentaire',
+    synopsis: {
+      en: 'Twenty breathtaking days—a span of time where history merges with reality, and upbringing transforms into destiny. Through the gaze of the father, Mohamed Bouzouida, and the intimate testimonies of his children, 20 Days in Bouzouida Time chronicles the story of their brother, Hamza, who chose to build a bridge of resistance stretching from the mountains of Tunisia to the sea of Gaza. Caught between a departed mother s wish and the ancestral legacy, the family comes together to bear witness to the definitive moment of separation, sharing the heavy price of the principles they were raised upon.',
+      ar: 'عشرون يوماً من حبس الأنفاس.. زمن كافٍ ليتداخل فيه التاريخ بالواقع، وتتحول فيه التربية إلى مصير. يروي فيلم 20 يوماً، بتوقيت بوزويدة —من خلال نظرات الأب محمد بوزويدة وشهادات أبنائه المؤثرة—حكاية شقيقهم حمزة الذي اختار أن يمد جسراً من المقاومة يمتد من جبال تونس إلى بحر غزة. بين وصية الأم الغائبة وأمانة الأجداد، تجتمع العائلة لتشهد على لحظة الفراق الحاسمة، وتقتسم مع الأب الثمن الباهظ للمبادئ التي كبروا عليها.',
+    },
+  },
+   {
+    title: 'Still Loading.. / Mezel...',
+    director: 'Nada Bouhadida',
+    country: 'Tunisie',
+    category: 'national',
+    day: 25,
+    posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    genre: 'fiction',
+    synopsis: {
+      en: 'A young screenwriter-director is ready to shoot her first short film but unexpected legal and administrative obstacles stop the project,Caught between frustration and determination, she must decide whether to give up or fight for her film.',
+      ar: 'مخرجة وكاتبة سيناريو شابة تستعد لتصوير أول فيلم قصير لها  لكنها تصطدم بعراقيل إدارية وقانونية لم تكن تعرفه بين الإحباط والإصرار، تجد نفسها أمام خيار صعب: الاستسلام أو الدفاع عن حلمها',
+    },
+  },
+   {
+    title: 'Beneath the Veil / Sous le voile',
+    director: 'Hazar Abbassi',
+    country: 'Tunisie',
+    category: 'national',
+    day: 25,
+    posterUrl: 'https://picsum.photos/seed/film-national-2/450/600',
+    genre: 'fiction',
+    synopsis: {
+      en: 'On the day when songs celebrate her union with her cousin — the man who broke her — Nour searches for a way out behind the veils of silence. A fragile yet furious escape begins, unfolding between the forest and the sea.',
+      ar: 'في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
+    },
   },
   {
-    title: 'Silent Reels',
-    director: 'Anke Voss',
-    country: 'Allemagne',
-    category: 'international',
+    title: 'Amel / امال',
+    director: 'rahma ben jemaa',
+    country: 'Tunisie',
+    category: 'national',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-intl-2/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    // Split EN/AR non fait : le texte arabe collé ici dans les données source est
+    // en réalité celui de "Beneath the Veil" (Nour/mariage/forêt), sans rapport
+    // avec le sujet d'Amel (cancer) — erreur de copier-coller à corriger avec la
+    // vraie synopsis arabe d'Amel. Texte original laissé intact tel quel.
+    synopsis: {
+      en: 'In late summer 2022, the life of "Amel," a sixty-five-year-old woman, is turned upside down when her family discovers that she has advanced-stage cancer. Amid health challenges and emotional turmoil, the hidden layers of a complex family bond come to light, as love, responsibility, and the fear of loss collide في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
+      ar: '',
+    },
   },
   {
-    title: 'Empreintes',
-    director: 'Rétrospective',
+    title: 'ﻛﺒﺴﺔ/The Omnipresent',
+    director: 'Youssef Ben Khalifa',
     country: 'Tunisie',
-    category: 'hommage',
+    category: 'national',
     day: 25,
     posterUrl: 'https://picsum.photos/seed/film-hommage-1/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    synopsis: {
+      en: 'On the day of a decisive exam, a group of students arrives before anyone else, determined to cheat in complete peace. Their plan collapses when they discover a new teacher strict, methodical, and already in position ready to supervise the room with relentless vigilance.Between panicked glances, improvised tricks, and increasingly absurd attempts at cheating, the tension rises along with suppressed bursts of laughter. Each student tries to outsmart the others in a true comedy of resourcefulness.As the teacher tightens control, the exam turns into a silent battle where everything can shift at any moment. By the end of the session, an unexpected revelation completely changes the game.',
+      ar: 'في يوم امتحان مصيري، يصل مجموعة من التلاميذ باكراً إلى القاعة بنيّة الغش بهدوء قبل وصول الجميع. غير أن مخططهم ينهار عند ظهور أستاذ جديد صارم، جهّز القاعة مسبقاً ويراقبهم بعيون يقظة لا تفوّت شيئاً. تتصاعد محاولات الغش بطرق طريفة ومرتبكة، ممزوجة بضحكات مكتومة وقلق متزايد. يتحول الامتحان إلى معركة سرية بين ذكاء التلاميذ وصرامة الأستاذ، وكل واحد منهم يحاول النجاة بخطته. ومع اقتراب نهاية الحصة، يفاجأ الجميع باكتشاف غير متوقع يقلب الموقف رأساً على عقب.',
+    },
   },
   {
-    title: 'Kélibia Blues',
-    director: 'Mehdi Sassi',
+    title: 'the buried / L Enfoui',
+    director: 'yassmine naceur',
     country: 'Tunisie',
     category: 'national',
     day: 26,
     posterUrl: 'https://picsum.photos/seed/film-national-3/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'documentaire',
+    synopsis: {
+      en: 'This documentary tells the story of Hnia, a resilient rural woman who shares her experience with Al Mardouma, a traditional method of charcoal production. Through her testimony, the film revisits her past, tracing her life journey and the challenges she faced in both work and daily survival. The film sheds light on the position of Tunisian rural women and their essential role in preserving traditional heritage, highlighting their strength, patience, and resilience while working under harsh living conditions.',
+      ar: 'يتناول هذا الفيلم الوثائقي قصة المرأة الريفية المجاهدة هنية، التي تروي تجربتها مع المردومة، وهي طريقة تقليدية لصنع الفحم. من خلال شهادتها، يعود الفيلم إلى ماضيها ليستعرض مسار حياتها وما واجهته من صعوبات وتحديات في العمل والعيش. يسلّط الفيلم الضوء على مكانة المرأة الريفية التونسية ودورها المحوري في الحفاظ على الموروث التقليدي، مبرزًا قوتها وصبرها وقدرتها على المقاومة والعمل في ظروف قاسية',
+    },
   },
   {
-    title: 'The Last Reel',
-    director: 'Julia Novak',
-    country: 'Pologne',
-    category: 'international',
+    title: 'فرصة عمل/Job Opportunity',
+    director: 'Karima Trabelsi',
+    country: 'Tunisie',
+    category: 'national',
     day: 26,
     posterUrl: 'https://picsum.photos/seed/film-intl-3/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    synopsis: {
+      en: 'Desperately looking for a job, Adem, a young graduate in his twenties, goes through a series of absurd and humiliating job interviews.',
+      ar: 'في بحثه اليائس عن عمل، يواجه آدم، وهو خريج شاب في العشرينات من عمره، سلسلة من مقابلات التوظيف العبثية والمهينة.',
+    },
   },
   {
-    title: 'Terre Amère',
-    director: 'Ines Gharbi',
+    title: 'هدر/Good Boy',
+    director: 'Samoud Sélim & Jerbi Mariem',
     country: 'Tunisie',
     category: 'national',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-national-4/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    synopsis: {
+      en: 'When avoiding effort becomes an obsession, every small shortcut comes with a hidden price.',
+      ar: 'عندما يتحول تجنب المجهود إلى هوس، تفرض الحلول السهلة أثمانًا خفيّة.',
+    },
   },
   {
-    title: 'Anhedonia',
-    director: 'Pablo Reyes',
-    country: 'Espagne',
-    category: 'international',
+    title: 'عالصباح يا فتاح / O God opener of doors',
+    director: 'Kahna Maddeb',
+    country: 'Tunisie',
+    category: 'national',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-intl-4/450/600',
-    synopsis: 'À compléter par la FTCA',
+    // Aucun synopsis fourni pour l'instant -> genre non déductible, 'fiction'
+    // posé par défaut uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'À compléter par la FTCA', ar: '' },
   },
   {
-    title: 'Retour de Flamme',
-    director: 'Rétrospective',
+    title: 'قد لا ينام البعض/Sleepless Are Some',
+    director: 'Amir Belhaj',
     country: 'Tunisie',
-    category: 'hommage',
+    category: 'national',
     day: 27,
     posterUrl: 'https://picsum.photos/seed/film-hommage-2/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'fiction',
+    synopsis: {
+      en: 'Upon the sudden departure of his colleague, Chantal Gérard, Xavier Caution is assigned to the night shift at a dying newspaper, while a butterfly circles around a halogen lamp.',
+      ar: 'إثر الرحيل المفاجئ لزميلته شانتال جيرارد ، يُنقل اكزافييه كوسيون إلى نوبة العمل الليلية في صحيفةٍ تحتضر، بينما تطوف فراشة حول ضوءٍ زائف.',
+    },
   },
   {
-    title: 'Vagues',
-    director: 'Firas Belhaj',
+    title: 'زردة /Zerda',
+    director: 'Sboui saber',
     country: 'Tunisie',
     category: 'national',
     day: 28,
     posterUrl: 'https://picsum.photos/seed/film-national-5/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'documentaire',
+    synopsis: {
+      en: 'Zarda" is a documentary that offers a visual and human journey into the traditional pilgrimages to the shrines of saints in southern Tunisia, where spirituality intertwines with cultural heritage and collective memory. Through poetic imagery and authentic moments, the film documents the rituals, chants, prayers, and human encounters that define this enduring tradition, while highlighting its cultural significance and contributing to the preservation of a unique heritage that is gradually disappearing.',
+      ar: 'يرصد فيلم «زردة» رحلةً بصريةً وإنسانيةً إلى عالم الزيارات الشعبية للأولياء الصالحين في الجنوب التونسي، حيث تمتزج الروحانية بالتراث، وتلتقي الذاكرة الجماعية بطقوس توارثتها الأجيال. ومن خلال صورة شاعرية ومشاهد حية، يوثق الفيلم تفاصيل هذه الممارسة الشعبية بما تحمله من أهازيج ودعوات ولقاءات إنسانية، في محاولة للحفاظ على جزء أصيل من الموروث الثقافي الذي يواجه خطر الاندثار.',
+    },
   },
   {
-    title: 'Echoes of Amateur Cinema',
-    director: 'Ben Whitfield',
-    country: 'Royaume-Uni',
-    category: 'international',
+    title: 'ضُحِّيَ بهم لإطعام العالم /sacrificed to feed the world ',
+    director: 'Islem zrelli',
+    country: 'Tunisie',
+    category: 'national',
     day: 28,
     posterUrl: 'https://picsum.photos/seed/film-intl-5/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'documentaire',
+    synopsis: {
+      en: 'Sacrificed to Feed the World tells the story of Gabès, a city in southern Tunisia that has endured decades of industrial pollution caused by the chemical complex. Through intimate testimonies and powerful imagery, the film reveals how pollution has reshaped everyday life, devastating the sea, contaminating agricultural land, and forcing local communities to pay the price with their health and livelihoods for an industry that produces fertilizers for the world.The documentary follows fishermen who have lost their sea, farmers whose land has been damaged, and families living with the growing burden of pollution-related illnesses and environmental degradation. Their stories paint a deeply human portrait of a community struggling to survive under the weight of environmental injustice. At the same time, the film highlights the unconventional forms of resistance led by Gabès youth. Turning culture into a tool of protest, they use rap music, graffiti art, and the chants of football ultras to challenge silence, reclaim public space, and amplify their fight for environmental justice. More than a film about pollution, Sacrificed to Feed the World is a story of resilience, creativity, and the determination of a community refusing to be sacrificed. It asks a fundamental question: who pays the price for feeding the world?',
+      ar: '',
+    },
   },
   {
-    title: 'Lueurs',
-    director: 'Film de clôture',
+    title: 'Breath/نفس',
+    director: 'mohamed aziz sassi',
+    country: 'Tunisie',
+    category: 'national',
+    day: 28,
+    posterUrl: 'https://picsum.photos/seed/film-intl-5/450/600',
+    genre: 'fiction',
+    synopsis: {
+      en: 'A short film of a psychological and symbolic drama following Ibrahim, a plastic bottle collector who finds a strange gas mask that drags him into suffocating nightmares of pollution and illusion, turning his search for clean air into a desperate struggle for survival',
+      ar: 'فيلم قصير دراما نفسية ورمزية يتابع إبراهيم، جامع القوارير البلاستيكية، الذي يعثر على قناع غاز غريب يجرّه إلى كوابيس خانقة بين التلوث والوهم، ليتحول بحثه عن أكسجين نقي إلى صراع مرعب يهدد حياته',
+    },
+  },
+  {
+    title: 'إِهْفِتْ/Chorea',
+    director: 'Seif Flifel',
     country: 'Tunisie',
     category: 'national',
     day: 29,
     posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
-    synopsis: 'À compléter par la FTCA',
+    genre: 'experimental',
+    synopsis: {
+      en: 'Inspired by the main actor s real struggle as a male dancer in Tunisian society, Chorea narrates a story of resilience and discovery. Using the medium of choreography, the film attempts to reflect the journey of navigating early adulthood while trying to piece together the fragments of identity.',
+      ar: 'الفيلم مستوحى من القصة الحقيقية للممّثل الرئيسي و المصاعب التي يواجهها كراقص في المجتمع التونسي. يروي "إِهْفِتْ" قصة عن الصمود و الاكتشاف, و يقدم, من خلال الرقص كوسيط فني, محاولة للتعبير و مناقشة رحلة التعلّم تزامنا مع السعي إلى بناء الذات.',
+    },
   },
-
+  {
+    title: 'غبرة/Dust',
+    director: 'Walid Ajroudi',
+    country: 'Tunisie',
+    category: 'national',
+    day: 29,
+    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    genre: 'doc-fiction',
+    synopsis: {
+      en: 'In Tataouine, Saber lives among stone, wood and dust. With his hands, he shapes forms from materials carrying traces of the past, while the desire to leave remains ever-present. Between a workshop that mirrors his spirit and a town he keeps returning to, a portrait emerges of a man trying to understand his bond with a place—and what remains of it when he leaves.',
+      ar: 'في تطاوين، يعيش صابر بين الحجر والخشب والغبار، يصنع بيديه أشكالاً من أثرٍ قديم، بينما تظلّ فكرة الرحيل حاضرة في حياته. بين ورشةٍ تشبهه، ومدينةٍ يعود إليها كلما ابتعد، تتشكل حكاية رجل يحاول أن يفهم علاقته بالمكان، وبما يبقى منه حين يرحل.',
+    },
+  },
+  {
+    title: 'حاح/Three days, three months',
+    director: 'Saif Eddine Ben Ghozi',
+    country: 'Tunisie',
+    category: 'national',
+    day: 29,
+    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'À compléter par la FTCA', ar: '' },
+  },
+  {
+    title: 'بلدية 90 /  Municipality 90 ',
+    director: 'Saîda Nasri et Anas Elech',
+    country: 'Tunisie',
+    category: 'national',
+    day: 29,
+    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    genre: 'documentaire',
+    synopsis: {
+      en: 'In 1990, the small coastal town of Chebba witnessed an exceptional political experience. Left-wing independents, together with members of the Chebba cell of the Tunisian Communist Party, ran in the municipal elections on an opposition list called “The Independent List.” The list received broad popular support and won 15 seats, compared with only 3 seats for the Constitutional Democratic Rally (RCD), making it an exceptional case during Ben Ali’s rule. More than three decades later, the film returns to this experience through the testimonies of those who lived it: former activists, members of “The Independent List,” and witnesses of that period, including Saïda Nasri, one of the film’s co-directors, who took part in the elections as a volunteer polling-station observer. Through these testimonies, the film revisits the memory of a collective experience of political activism in Chebba, between nostalgia and a critical reading of the past. It questions the stakes, limitations, and significance of this experience, and what it can mean today as one of the rare examples of opposition political action under an authoritarian regime.',
+      ar: '',
+    },
+  },
+  {
+    title: 'يجري/Running',
+    director: 'Mohamed Karim Dahmouni & Mohamed Ali Maatoug',
+    country: 'Tunisie',
+    category: 'national',
+    day: 29,
+    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    genre: 'fiction',
+    synopsis: {
+      en: 'Massoud has spent all of his life running, trying to make something of himself. However, nothing seems to work out. No matter how hard he runs, life gives him nothing in return. After chasing things that lead nowhere, he finally finds what he is meant to do.',
+      ar: 'بعد أن أمضى مسعود حياته كلها باحثا عن شيء يحقق به ذاته، اكتشف ألا شيء كان يستحق كل هذا العناء. فكل باب طرقه أُغلق في وجهه، وكل طريق سلكه لم يوصله إلى مبتغاه. وحينما أنهكه الركض، وتعب من ملاحقة أشياء لا جدوى منها، وجد أخيرا ما يمكنه التميز فيه.',
+    },
+  },
+  {
+    title: 'MONAD',
+    director: 'Mohamed Elyes Kefi',
+    country: 'Tunisie',
+    category: 'national',
+    day: 29,
+    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'À compléter par la FTCA', ar: '' },
+  },
   // ---- Données de TEST ci-dessous (à SUPPRIMER quand le vrai catalogue
   // 50+ films sera fourni par la FTCA) : générées uniquement pour vérifier
   // visuellement grille/filtres/pagination à volume réel. Titres/synopsis
@@ -192,7 +371,9 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
   ...Array.from({ length: 38 }, (_, i) => {
     const n = i + 15;
     const categories: ProgrammeCategory[] = ['national', 'international', 'hommage', 'national', 'international'];
+    const genres: FilmGenre[] = ['fiction', 'documentaire', 'doc-fiction', 'experimental'];
     const category = categories[i % categories.length];
+    const genre = genres[i % genres.length];
     const day = PROGRAMME_DAYS[i % PROGRAMME_DAYS.length];
     return {
       title: `Film exemple #${n}`,
@@ -201,7 +382,8 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       category,
       day,
       posterUrl: `https://picsum.photos/seed/film-test-${n}/450/600`,
-      synopsis: 'Donnée de test — à remplacer par le vrai catalogue FTCA.',
+      genre,
+      synopsis: { en: 'Donnée de test — à remplacer par le vrai catalogue FTCA.', ar: '' },
     };
   }),
 ];
