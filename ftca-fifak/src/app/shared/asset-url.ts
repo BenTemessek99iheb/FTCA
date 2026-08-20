@@ -4,3 +4,4 @@ import { environment } from '../../environments/environment';
 export function assetUrl(path: string): string {
   return `${environment.assetsBaseUrl}/${path}`;
 }
+
