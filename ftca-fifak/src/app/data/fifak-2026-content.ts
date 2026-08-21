@@ -37,7 +37,7 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
 
 export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage' ;
 
-export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation' | 'doc-animation' | 'drama';
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation' | 'doc-animation' | 'drama' |'Comedie';
 
 export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   fiction: 'Fiction',
@@ -47,7 +47,8 @@ export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   'doc-experimental': 'Doc/Expérimental',
   animation: 'Animation',
   'doc-animation': 'Doc/Animation',
-  drama: 'Drame'
+  drama: 'Drame',
+  Comedie :'comedie'
 
 };
 
@@ -914,10 +915,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'France',
     category: 'international',
     day: 28,
-    posterUrl: '',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787354637/manus_erectus.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
-    genre: 'fiction',
-    synopsis: { en: '.', ar: '' },
+    genre: 'Comedie',
+    synopsis: { en: 'A man with a somewhat unusual problem goes to see a somewhat unusual doctor. Manus Erectus is an absurd chamber comedy, both funny and touching.', ar: '' },
     duree: '00:06:47',
     Prod: 'Prod - Indépendant ',
     anneeProduction: 2026,
