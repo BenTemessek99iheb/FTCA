@@ -1079,11 +1079,11 @@ export const NASHRIYA_ENTRIES: NashriyaEntry[] = [
     imageUrl: assetUrl('public-kelibia'),
     en: {
       title: 'Kélibia lights up for the 39th edition',
-      body: 'The festival opened tonight on the shores of Kélibia with the screening of "Nuits d\'Argent" before a packed audience. A warm and emotional start to seven nights of amateur cinema.',
+      body: 'The festival opens on the shores of Kélibia with the screening of "le monde" and "Upshot" before a packed audience. A warm and emotional start to seven nights of amateur cinema.',
     },
     ar: {
       title: 'قليبية تضيء لانطلاق الدورة التاسعة والثلاثين',
-      body: 'انطلقت فعاليات المهرجان هذا المساء على شاطئ قليبية بعرض فيلم "ليالي الفضة" أمام جمهور غفير، في بداية مفعمة بالمشاعر لسبع ليال من السينما الهاوية.',
+      body: 'تنطلق فعاليات المهرجان هذا المساء على شاطئ قليبية بعرض فيلم "ليالي الفضة" أمام جمهور غفير، في بداية مفعمة بالمشاعر لسبع ليال من السينما الهاوية.',
     },
   },
 /*   {
