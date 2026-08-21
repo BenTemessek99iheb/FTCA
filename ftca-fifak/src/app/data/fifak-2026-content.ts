@@ -37,13 +37,14 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
 
 export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage';
 
-export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental';
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' ;
 
 export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   fiction: 'Fiction',
   documentaire: 'Documentaire',
   'doc-fiction': 'Doc/Fiction',
   experimental: 'Expérimental',
+  'doc-experimental': 'Doc/Expérimental',
 };
 
 export interface ProgrammeFilmSynopsis {
@@ -212,12 +213,12 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     },
   },
   {
-    title: 'هدر/Good Boy',
+    title: 'هدر/Good Boy', 
     director: 'Samoud Sélim & Jerbi Mariem',
     country: 'Tunisie',
     category: 'national',
     day: 27,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243833/Good_Boy.png',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787269810/good_boy_FIFAK_26_affiche.png',
     genre: 'fiction',
     synopsis: {
       en: 'When avoiding effort becomes an obsession, every small shortcut comes with a hidden price.',
@@ -315,16 +316,16 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     },
   },
   {
-    title: 'حاح/Three days, three months',
+    title: 'حوح/Three days, three months',
     director: 'Saif Eddine Ben Ghozi',
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://picsum.photos/seed/film-cloture/450/600',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787270521/7ou7.jpg',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
     genre: 'documentaire',
-    synopsis: { en: 'À compléter par la FTCA', ar: '"حُاحْ" رحلة في عالم الفلاح بحمّام الغزاز، وفي علاقته العميقة بالأرض التي عاش منها وتعلّق بها عبر أجيال. من خلال شهادات الفلاحين، يكتشف الفيلم مكانة الدرع كجزء من ذاكرة المدينة وثقافتها وعاداتها، قبل أن يكشف التحولات التي أصبحت تهدد هذا الإرث: البناء العشوائي والتوسع العمراني على حساب الأراضي الفلاحية، ملوحة المياه وتدهور البيئة، تراجع النشاط الفلاحي، وغياب رؤية واضحة ومستدامة لمستقبل الفلاحة، إلى جانب الضغوط العقارية التي تدفع بالأرض نحو التغيير. بين ذاكرة جيل عاش الفلاحة كطريقة حياة، وواقع جيل يحاول مواصلة العمل في ظروف أكثر صعوبة، يرصد الفيلم علاقة الإنسان بأرضه حين تصبح هذه الأرض نفسها مهددة بالاختفاء. وفي ختام الرحلة، تنتقل الحكاية من الحقل إلى المائدة، لتكشف كيف ارتبطت الدرع بعادات غذائية متوارثة، وكيف يمكن لاختفاء محصول أن يعني فقدان جزء من ذاكرة المكان وثقافته.' },
+    synopsis: { en: '', ar: '"حُاحْ" رحلة في عالم الفلاح بحمّام الغزاز، وفي علاقته العميقة بالأرض التي عاش منها وتعلّق بها عبر أجيال. من خلال شهادات الفلاحين، يكتشف الفيلم مكانة الدرع كجزء من ذاكرة المدينة وثقافتها وعاداتها، قبل أن يكشف التحولات التي أصبحت تهدد هذا الإرث: البناء العشوائي والتوسع العمراني على حساب الأراضي الفلاحية، ملوحة المياه وتدهور البيئة، تراجع النشاط الفلاحي، وغياب رؤية واضحة ومستدامة لمستقبل الفلاحة، إلى جانب الضغوط العقارية التي تدفع بالأرض نحو التغيير. بين ذاكرة جيل عاش الفلاحة كطريقة حياة، وواقع جيل يحاول مواصلة العمل في ظروف أكثر صعوبة، يرصد الفيلم علاقة الإنسان بأرضه حين تصبح هذه الأرض نفسها مهددة بالاختفاء. وفي ختام الرحلة، تنتقل الحكاية من الحقل إلى المائدة، لتكشف كيف ارتبطت الدرع بعادات غذائية متوارثة، وكيف يمكن لاختفاء محصول أن يعني فقدان جزء من ذاكرة المكان وثقافته.' },
   },
   {
     title: 'بلدية 90 /  Municipality 90 ',
@@ -332,7 +333,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 29,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243867/Municipality.png',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787270230/municipality90.png',
     genre: 'documentaire',
     synopsis: {
       en: 'In 1990, the small coastal town of Chebba witnessed an exceptional political experience. Left-wing independents, together with members of the Chebba cell of the Tunisian Communist Party, ran in the municipal elections on an opposition list called “The Independent List.” The list received broad popular support and won 15 seats, compared with only 3 seats for the Constitutional Democratic Rally (RCD), making it an exceptional case during Ben Ali’s rule. More than three decades later, the film returns to this experience through the testimonies of those who lived it: former activists, members of “The Independent List,” and witnesses of that period, including Saïda Nasri, one of the film’s co-directors, who took part in the elections as a volunteer polling-station observer. Through these testimonies, the film revisits the memory of a collective experience of political activism in Chebba, between nostalgia and a critical reading of the past. It questions the stakes, limitations, and significance of this experience, and what it can mean today as one of the rare examples of opposition political action under an authoritarian regime.',
@@ -364,28 +365,226 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     genre: 'experimental',
     synopsis: { en: 'À compléter par la FTCA', ar: '' },
   },
-  // ---- Données de TEST ci-dessous (à SUPPRIMER quand le vrai catalogue
-  // 50+ films sera fourni par la FTCA) : générées uniquement pour vérifier
-  // visuellement grille/filtres/pagination à volume réel. Titres/synopsis
-  // volontairement identifiables comme factices. ----
-  ...Array.from({ length: 38 }, (_, i) => {
-    const n = i + 15;
-    const categories: ProgrammeCategory[] = ['national', 'international', 'hommage', 'national', 'international'];
-    const genres: FilmGenre[] = ['fiction', 'documentaire', 'doc-fiction', 'experimental'];
-    const category = categories[i % categories.length];
-    const genre = genres[i % genres.length];
-    const day = PROGRAMME_DAYS[i % PROGRAMME_DAYS.length];
-    return {
-      title: `Film exemple #${n}`,
-      director: 'Réalisateur Test',
-      country: 'Pays Test',
-      category,
-      day,
-      posterUrl: `https://picsum.photos/seed/film-test-${n}/450/600`,
-      genre,
-      synopsis: { en: 'Donnée de test — à remplacer par le vrai catalogue FTCA.', ar: '' },
-    };
-  }),
+    
+//---------------------------- International films ----------------------------//
+
+
+  {
+    title: 'The Dead Of Three Villages',
+    director: 'Muhammed Kaya',
+    country: 'Türkiye',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787261309/The_Dead_Of_Three_Villages.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'In the early 1900s, a 38-year-old man rode through the villages of Diyarbakır on horseback. He fell off his horse and died at a crossroads between three villages. Children who witnessed this immediately informed their elders. Scholars from three religions (a Muslim Kurdish mullah, an Armenian Christian priest, and a Yazidi Kurdish sheikh) began discussing the deceased s religion in the village square, placing the deceased before them. The mullah, the sheikh, and the priest attempted to interpret the deceased s death from their own perspective. The mulla attributed the dirty and worn knees to prayer, Sheikh Halit attributed the injury to the sun, and the priest attributed it to his morning prayers to God. The mullah suggested that the man had been circumcised. Taybet Ana, an elderly villager, requested that the deceased be taken to her home to have his circumcision performed there. The deceased was taken to the old woman s house. The deceased, who was circumcised, was not Christian. The scholars of the three religions left the funeral to perform their religious duties. The mullah goes to perform ablution, but his arm hair is combed back. Noticing this, the mullah tells the religious scholars that the hair is combed back when performing ablution. Based on the mullah s suggestion, the man is examined. This claim is deemed insufficient. Three religious scholars, having determined that the man was Muslim due to the stone mark on his forehead, send him to wash the body. While washing the body, Gassal turns it over and notices the hammer and sickle tattoo on its back, summoning the religious scholars again. The three religious scholars stare at the tattoo.', ar: '' },
+  },
+   {
+    title: 'Like an Orchid',
+    director: 'Jana Bashir, Cheryl Chan, Julia Blaszczyk',
+    country: 'Royaume-Uni',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787261539/Like_an_Orchid.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'Like an Orchid follows the story of an exhausted woman who steps into a crowded subway train, where she faces the horrors that are not talked about enough…', ar: '' },
+  },
+   
+ {
+    title: 'My Grandmother is a Skydiver',
+    director: 'Polina Piddubna',
+    country: 'Allemagne Ukraine',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787262046/My_Grandmother_is_a_Skydiver.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'Alfyia, a joyful young woman in 1960s Central Asia, is actively parachuting and studying to become a midwife, when she receives an extraordinary phone call from her granddaughter in 2022. She is worried about her grandmother s safety amid the invasion of Ukraine. In this intergenerational conversation across time and space, the granddaughter tries to restore and rethink family memory and her own ethnic identity, break the endless cycle of collective trauma and reflect on the meaning of human life.', ar: '' },
+  },
+  {
+    title: 'Prayer',
+    director: 'Sofia Geweiler',
+    country: 'Portugale',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787263428/prayer.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'In a techno club in Lisbon, immigrant worker Abdul is on a video call with his wife, Aliyah, who is going into labor and begs him to be present, at least over the phone. At the same time, his colleague Maria desperately needs his help. Caught between work s demands and his son s birth, Abdul grapples with the fear of losing his job and the challenge of becoming a father from afar. On top of all that, he fights with his strict father-in-law for his right to perform the sacred tradition of reciting the Adhan for his newborn son. The film "Prayer", which explores the intersection of tradition, fatherhood, and the struggles of undocumented immigrant labor, is based on the autobiographical story of its screenwriter, Deo Mahameru. The project was created as a student film within the KinoEyes Joint European Film Masters at Lusofona University in Lisbon.', ar: '' },
+  },
+   {
+    title: 'Profitable place',
+    director: 'Alex Maximov',
+    country: 'biélorussie',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787264668/Profitable_place.png',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'Some places in the world are better for business than others. And with the right skills, you don’t just meet demand — you create it.', ar: '' },
+  },
+    {
+    title: 'Echo',
+    director: 'Mohamed Masli',
+    country: 'Libye',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265253/ECHO.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: '', ar: '' },
+  },
+   {
+    title: 'Qulpynai',
+    director: 'Amir Salimzhan',
+    country: 'Kazakhstan',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265651/Qulpynai.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'A 7-year-old girl named Sulu and her 4-year-old sister Karlygash live in a village with their grandfather. They deeply miss their father, a pilot who was sent to the front lines. One day, they receive a letter supposedly from him, but since they don t know how to read, they have no idea what it says. Desperate to see him, the girls sneak into their grandfather s garage to build a wooden airplane and fly to their father.', ar: '' },
+  },
+   {
+    title: 'The Badaro Complex',
+    director: 'Adam Mabrouk',
+    country: 'liban egypte',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265786/The_Badaro_Complex.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'You, a clueless aspiring filmmaker, create your debut short film, while desperately seeking the approval of your idols', ar: '' },
+  },
+    {
+    title: 'The Cause Of Water',
+    director: 'Steven Chabre',
+    country: 'Etats-Unis',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265988/The_Cause_Of_Water.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'the Cause of Water Synopsis The Cause of Water is a film about movement, connection and meditation. A man and woman connect, separate, and connect as they traverse environments and states.  An old couch is their vehicle.  Meditation and musing are the screen on which it all unfolds.', ar: '' },
+  },
+  {
+    title: 'Silk Spun',
+    director: 'Marguerite Ranger',
+    country: 'Canada Vietnam',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787267189/Silk_Spun.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'experimental',
+    synopsis: { en: 'Blending memories, fiction, and confessions, Silk Spun tells the history of three generations of women from a Vietnamese family since their arrival in Quebec in 1975. In the intimacy and vulnerability of her intergenerational relationships, the director exposes the contextual disparities transforming the relationship to individual identity among the women of her family.', ar: '' },
+  },
+  {
+    title: 'Allegory of the Cave',
+    director: 'Wang Yajing',
+    country: 'Chine',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265049/Allegory_of_the_Cave.png',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'doc-experimental',
+    synopsis: { en: 'This world is very chaotic, with many injustices and exploitation, gender conflicts and violent injuries, the law of the jungle and war killings, ideal struggles and shattered dreams;We should call for fairness and justice, love and peace, freedom and hope,encourage people to gain hope and happiness. ', ar: '' },
+  },  {
+    title: 'Image Burning',
+    director: 'Ahmed Fayez',
+    country: 'Egypte',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268060/IMAGE_BURNING.png',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'A retired teacher, isolated on New Year’s Eve, lures a young woman into his quiet home. Their encounter forces him to confront a truth far more unsettling than his loneliness and one that reshapes both their lives.', ar: '' },
+  },  {
+    title: 'At last',
+    director: 'Shazdeh Hachem',
+    country: 'Liban',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268291/at_last.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'Alain is 8 years old. At school, the students bully him and the blindness of the adults worsen his situation because they punish him for standing up for himself.', ar: '' },
+  },
+
+  {
+    title: 'Malverde',
+    director: 'Claudia Gordillo',
+    country: 'Colombie',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268291/malverde.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'Malverde narrates the rhythms of a land planted with sugarcane. An imposed plant that has recoded native nature and the ways in which human and non-human bodies move to survive. The story takes place in southern Valle del Cauca and northern Cauca, Colombia, and delves into a kind of journey and evocation, in what this extractivist landscape has become today.', ar: '' },
+  },
+    {
+    title: 'Pruning',
+    director: 'MOHAMMAD hemati',
+    country: 'Iran',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268632/pruning.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'At an age when most boys have long left the ritual behind, Ilya sets out on a journey to be circumcised. A passage expected to usher him into manhood. But as he travels, he discovers that being a man means something far different from what he has always believed.', ar: '' },
+  },
+    {
+    title: 'Warden',
+    director: 'SABAH MOHAMMADI',
+    country: 'IRAN',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268700/warning.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'Zivar, a middle-aged woman, is the supervisor of a student dormitory. She reacts harshly when a student returns late to the dorm. In her solitude, she feels guilty and tries to improve the situation', ar: '' },
+  },
+    {
+    title: 'Al-Mamadani: The 501st Survivor',
+    director: 'Anwar Mohammed Abulkhair, Deema Abd Alhady',
+    country: 'Palestine',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268815/Al-Mamadani_The_501st_Survivor.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: '.', ar: '' },
+  },
+    {
+    title: 'Le Monde,',
+    director: 'Mohammad Bakri',
+    country: 'Palestine',
+    category: 'ouverture',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787269074/le_monde_-_ouverture.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'Inside Le Monde, a café-restaurant, people of different ages and backgrounds are immersed in their private moments as a birthday celebration unfolds. In the background, a television quietly broadcasts images of the war in Gaza, largely ignored by those present. Only a seventy-year-old man sitting in a corner with his daughter seems to register what is happening. At the height of the celebration, he rises, accepts a cane from his daughter, and we realize that he is blind. He leaves the café in silence, prompting a quiet reflection on what it truly means to see.', ar: 'داخل مقهى-مطعم «لو موند»، ينغمس أشخاص من أعمار وخلفيات مختلفة في لحظاتهم الخاصة بينما تتواصل أجواء احتفال بعيد ميلاد. في الخلفية، يبثّ التلفاز بهدوء صورًا عن الحرب في غزة، فيتجاهلها معظم الحاضرين. وحده رجل في السبعين من عمره يجلس في زاوية برفقة ابنته يبدو أنه يلتقط ما يحدث. في ذروة الاحتفال، ينهض، تتناول ابنته عصًا وتضعها في يده، فنكتشف أنه كفيف. يغادر المقهى بصمت، فيفتح ذلك بابًا لتأمّل هادئ في معنى أن نرى حقًا.' },
+  },
 ];
 
 /* ============================================================
