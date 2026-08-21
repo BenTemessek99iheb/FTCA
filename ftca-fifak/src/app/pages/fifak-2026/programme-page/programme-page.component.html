@@ -10,6 +10,27 @@
       <p>{{ filteredFilms().length }} film(s) au programme.</p>
     </div>
 
+    <div class="programme-search">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input
+        type="search"
+        class="programme-search__input"
+        placeholder="Rechercher un film par titre..."
+        [value]="searchQuery()"
+        (input)="setSearchQuery($any($event.target).value)"
+        aria-label="Rechercher un film par titre"
+      />
+      <button
+        type="button"
+        class="programme-search__clear"
+        *ngIf="searchQuery()"
+        (click)="clearSearch()"
+        aria-label="Effacer la recherche"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
     <div class="programme-filters">
       <div class="programme-filters__group">
         <span class="programme-filters__label">Jour</span>
@@ -48,7 +69,9 @@
     </ng-container>
 
     <ng-template #empty>
-      <p class="programme-page__empty">Aucun film ne correspond à ce filtre.</p>
+      <p class="programme-page__empty">
+        {{ searchQuery() ? 'Aucun film ne correspond à "' + searchQuery() + '".' : 'Aucun film ne correspond à ce filtre.' }}
+      </p>
     </ng-template>
   </div>
 </section>

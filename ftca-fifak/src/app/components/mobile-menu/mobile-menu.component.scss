@@ -27,7 +27,48 @@
     border-bottom: 1px solid var(--ligne);
   }
 
+  .mm-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    font-family: var(--display);
+    font-size: clamp(22px, 7.5vw, 32px);
+    font-weight: 400;
+    color: var(--blanc);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--ligne);
+
+    i {
+      font-size: 0.4em;
+      color: var(--gris);
+      transition: transform 0.3s var(--ease);
+    }
+
+    &.is-expanded i {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* Piste grid-template-rows 0fr -> 1fr : anime vers une hauteur "auto"
+     sans mesurer le contenu en JS (support moderne — dégrade en simple
+     apparition instantanée sur les navigateurs plus anciens, sans casser). */
   .sub {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s var(--ease);
+
+    &.is-open {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .sub__inner {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
     padding-left: 16px;
 
     a {
@@ -57,7 +98,8 @@
     padding-right: 20px;
     gap: 0;
 
-    a {
+    a,
+    .mm-parent {
       padding: 11px 0;
     }
 

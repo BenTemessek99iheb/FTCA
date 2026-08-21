@@ -1,13 +1,26 @@
 <div class="mobile-menu" [class.is-open]="isOpen">
   <a routerLink="/" fragment="ftca" (click)="onLinkClick()">FTCA</a>
-  <a routerLink="/" fragment="fifak" (click)="onLinkClick()">FIFAK</a>
-  <div class="sub">
-    <a routerLink="/fifak-2026" (click)="onLinkClick()">FIFAK 2026</a>
-    <a routerLink="/fifak-2026" fragment="programme" (click)="onLinkClick()">Programme</a>
-    <a routerLink="/fifak-2026" fragment="jury" (click)="onLinkClick()">Jury</a>
-    <a routerLink="/" fragment="archives" (click)="onLinkClick()">Archives</a>
+
+  <button
+    type="button"
+    class="mm-parent"
+    [class.is-expanded]="isFifakOpen()"
+    (click)="toggleFifak()"
+    aria-controls="mm-fifak-sub"
+    [attr.aria-expanded]="isFifakOpen()"
+  >
+    FIFAK
+    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+  </button>
+  <div class="sub" [class.is-open]="isFifakOpen()" id="mm-fifak-sub">
+    <div class="sub__inner">
+      <a routerLink="/fifak-2026/programme" (click)="onLinkClick()">Programme</a>
+      <a routerLink="/fifak-2026" fragment="jury" (click)="onLinkClick()">Jury</a>
+      <a routerLink="/" fragment="archives" (click)="onLinkClick()">Archives</a>
+      <a routerLink="/" fragment="articles" (click)="onLinkClick()">Articles</a>
+    </div>
   </div>
-  <a routerLink="/" fragment="articles" (click)="onLinkClick()">Articles</a>
+
   <a routerLink="/" fragment="contact" (click)="onLinkClick()">Contact</a>
   <a routerLink="/fifak-2026" class="btn btn--solid" (click)="onLinkClick()">Découvrir FIFAK 2026</a>
 </div>

@@ -25,13 +25,18 @@ export class ProgrammePageComponent implements OnInit {
 
   readonly selectedDay = signal<number | null>(null);
   readonly selectedCategory = signal<ProgrammeCategory | null>(null);
+  readonly searchQuery = signal('');
   readonly visibleCount = signal(PAGE_SIZE);
 
   readonly filteredFilms = computed(() => {
     const day = this.selectedDay();
     const category = this.selectedCategory();
+    const query = this.searchQuery().trim().toLowerCase();
     return this.allFilms.filter(
-      (film) => (day === null || film.day === day) && (category === null || film.category === category)
+      (film) =>
+        (day === null || film.day === day) &&
+        (category === null || film.category === category) &&
+        (!query || film.title.toLowerCase().includes(query))
     );
   });
 
@@ -56,6 +61,15 @@ export class ProgrammePageComponent implements OnInit {
   setCategory(category: ProgrammeCategory | null): void {
     this.selectedCategory.set(category);
     this.visibleCount.set(PAGE_SIZE);
+  }
+
+  setSearchQuery(query: string): void {
+    this.searchQuery.set(query);
+    this.visibleCount.set(PAGE_SIZE);
+  }
+
+  clearSearch(): void {
+    this.setSearchQuery('');
   }
 
   loadMore(): void {

@@ -646,7 +646,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Egypte',
     category: 'international',
     day: 28,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268060/IMAGE_BURNING.png',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787346558/image_burning_1.png',
     // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
     synopsis: { en: 'A retired teacher, isolated on New Year’s Eve, lures a young woman into his quiet home. Their encounter forces him to confront a truth far more unsettling than his loneliness and one that reshapes both their lives.', ar: '' },
@@ -864,21 +864,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     anneeProduction: 2026,
   },
    
-     {
-    title: 'ف س خ /Erasure',
-    director: 'Nesrine Douzi',
-    country: 'Tunisie',
-    category: 'international',
-    day: 26,
-    posterUrl: '',
-    // Genre corrigé depuis la table de référence internationale ('Doc').
-    genre: 'doc-animation',
-    synopsis: { en: '.', ar: '' },
-    duree: '00:22:00',
-    Prod: 'Prod - Association ',
-    sousCategorie: 'Association Lina Ben Mhenni – École féministe Lina Ben Mhenni',
-    anneeProduction: 2025,
-  },
+    
   
    {
     title: 'مرايا/Mirror ',
@@ -936,6 +922,21 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     duree: '00:06:47',
     Prod: 'Prod - Indépendant ',
     anneeProduction: 2026,
+  },
+   {
+    title: 'ف س خ /Erasure',
+    director: 'Nesrine Douzi',
+    country: 'Tunisie',
+    category: 'international',
+    day: 26,
+    posterUrl: '',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'doc-animation',
+    synopsis: { en: 'An artist s studio disappears. Artworks vanish. A single thread remains. F.S.K. (Erasure) begins with a simple question: Who was Tunisia s first female visual artist? Through a poetic investigation combining archival materials, 2D animation, live-action footage, and mixed-media textures, the film explores the erasure of women s names from the history of Tunisian visual art. Moving between memory and absence, it reflects on the mechanisms of forgetting while reclaiming fragments of a hidden artistic heritage.', ar: 'يختفي مرسم، وتختفي معه أعمال فنية، لكن يبقى خيط يقود رحلة بحث في الذاكرة. ينطلق فيلم "ف.س.خ" من سؤال: من هي أول فنانة تشكيلية تونسية؟ عبر رحلة تمزج بين الأرشيف، والرسوم المتحركة، والصورة الحية، والمواد المختلفة، يكشف الفيلم آليات محو الأسماء النسائية من تاريخ الفن التشكيلي التونسي، ويتأمل في الذاكرة بوصفها مساحة مقاومة للنسيان واستعادة للأثر.' },
+    duree: '00:22:00',
+    Prod: 'Prod - Association ',
+    sousCategorie: 'Association Lina Ben Mhenni – École féministe Lina Ben Mhenni',
+    anneeProduction: 2025,
   },
   ];
  
