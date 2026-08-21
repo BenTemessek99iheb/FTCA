@@ -1,0 +1,247 @@
+/* ============================================================
+   FILM DETAIL MODAL — popup générique ouverte au clic sur une film-card
+   ============================================================ */
+
+.fdm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 9, 8, 0.82);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fdm-backdrop-in 0.25s var(--ease);
+
+  &.is-closing {
+    animation: fdm-backdrop-out 0.2s var(--ease) forwards;
+  }
+}
+
+@keyframes fdm-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fdm-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fdm-panel {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--panneau);
+  border: 1px solid var(--ligne);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  outline: none;
+  animation: fdm-panel-in 0.28s var(--ease);
+
+  &.is-closing {
+    animation: fdm-panel-out 0.2s var(--ease) forwards;
+  }
+}
+
+@keyframes fdm-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fdm-panel-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+.fdm-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, 0.55);
+  color: var(--blanc);
+  font-size: 15px;
+  border-radius: 50%;
+  transition: background 0.25s var(--ease);
+
+  &:hover {
+    background: var(--rouge-vif);
+  }
+}
+
+.fdm-poster {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.fdm-content {
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.fdm-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fdm-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  padding: 5px 10px;
+}
+
+.fdm-badge--genre {
+  background: rgba(10, 9, 8, 0.55);
+  border: 1px solid rgba(244, 239, 230, 0.25);
+}
+
+.fdm-panel h2 {
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.fdm-director {
+  font-size: 13.5px;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fdm-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+  padding-top: 4px;
+  border-top: 1px solid var(--ligne);
+  padding-top: 16px;
+}
+
+.fdm-fact {
+  min-width: 0;
+
+  dt {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  dd {
+    margin-top: 3px;
+    font-size: 14px;
+    color: var(--blanc);
+    overflow-wrap: break-word;
+  }
+
+  a {
+    color: var(--rouge-vif);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.25s var(--ease);
+
+    &:hover {
+      color: var(--blanc);
+    }
+
+    i {
+      font-size: 11px;
+    }
+  }
+}
+
+.fdm-synopsis {
+  padding-top: 12px;
+  border-top: 1px solid var(--ligne);
+
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gris);
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--blanc);
+  }
+
+  p + p {
+    margin-top: 14px;
+  }
+}
+
+.fdm-synopsis__ar {
+  font-family: var(--arabe);
+  text-align: right;
+  font-size: 15.5px;
+  line-height: 1.9;
+  padding-top: 14px;
+  border-top: 1px dashed var(--ligne);
+}
+
+@media (max-width: 620px) {
+  .fdm-panel {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+
+  .fdm-poster {
+    aspect-ratio: 16 / 9;
+  }
+
+  .fdm-content {
+    padding: 26px 22px 30px;
+  }
+
+  .fdm-facts {
+    grid-template-columns: 1fr;
+  }
+}

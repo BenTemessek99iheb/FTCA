@@ -1,4 +1,12 @@
-<article class="film-card">
+<article
+  class="film-card"
+  role="button"
+  tabindex="0"
+  [attr.aria-label]="'Voir les détails de ' + film.title"
+  (click)="openDetail()"
+  (keydown.enter)="openDetail()"
+  (keydown.space)="openDetail(); $event.preventDefault()"
+>
   <div class="film-card__img">
     <div class="film-card__tags">
       <div class="film-card__badges">
@@ -14,8 +22,8 @@
     <div class="film-card__meta">{{ film.director }} — {{ film.country }}</div>
 
     <div class="film-card__lang-toggle" *ngIf="hasArabic()">
-      <button type="button" [class.is-active]="activeLang() === 'en'" (click)="setLang('en')">EN</button>
-      <button type="button" [class.is-active]="activeLang() === 'ar'" (click)="setLang('ar')">AR</button>
+      <button type="button" [class.is-active]="activeLang() === 'en'" (click)="$event.stopPropagation(); setLang('en')">EN</button>
+      <button type="button" [class.is-active]="activeLang() === 'ar'" (click)="$event.stopPropagation(); setLang('ar')">AR</button>
     </div>
 
     <p
@@ -26,8 +34,10 @@
     >
       {{ activeSynopsis() }}
     </p>
-    <button type="button" class="film-card__toggle" (click)="toggleExpanded()">
+    <button type="button" class="film-card__toggle" (click)="$event.stopPropagation(); toggleExpanded()">
       {{ expanded() ? 'Réduire' : 'Lire plus' }}
     </button>
   </div>
+
+  <app-film-detail-modal *ngIf="detailOpen()" [film]="film" (close)="closeDetail()"></app-film-detail-modal>
 </article>

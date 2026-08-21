@@ -1,0 +1,67 @@
+<div class="fdm-backdrop" [class.is-closing]="closing()" (click)="onBackdropClick()">
+  <div
+    #panel
+    class="fdm-panel"
+    [class.is-closing]="closing()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="fdm-title"
+    tabindex="-1"
+    (click)="$event.stopPropagation()"
+  >
+    <button type="button" class="fdm-close" (click)="requestClose()" aria-label="Fermer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="fdm-poster">
+      <img [src]="film.posterUrl" alt="" />
+    </div>
+
+    <div class="fdm-content">
+      <div class="fdm-badges">
+        <span class="fdm-badge fdm-badge--cat" [style.background]="'var(--cat-' + film.category + ')'">{{ categoryLabels[film.category] }}</span>
+        <span class="fdm-badge fdm-badge--genre">{{ genreLabels[film.genre] }}</span>
+      </div>
+
+      <h2 id="fdm-title">{{ film.title }}</h2>
+      <div class="fdm-director">{{ film.director }}</div>
+
+      <dl class="fdm-facts">
+        <div class="fdm-fact" *ngIf="film.country">
+          <dt>Pays</dt>
+          <dd>{{ film.country }}</dd>
+        </div>
+        <div class="fdm-fact">
+          <dt>Jour</dt>
+          <dd>{{ film.day }} Août</dd>
+        </div>
+        <div class="fdm-fact" *ngIf="film.duree">
+          <dt>Durée</dt>
+          <dd>{{ film.duree }}</dd>
+        </div>
+        <div class="fdm-fact" *ngIf="film.anneeProduction">
+          <dt>Année de production</dt>
+          <dd>{{ film.anneeProduction }}</dd>
+        </div>
+        <div class="fdm-fact" *ngIf="film.Prod">
+          <dt>Production</dt>
+          <dd>{{ film.Prod }}</dd>
+        </div>
+        <div class="fdm-fact" *ngIf="film.sousCategorie">
+          <dt>Précision</dt>
+          <dd>{{ film.sousCategorie }}</dd>
+        </div>
+        <div class="fdm-fact" *ngIf="film.lienFilm">
+          <dt>Lien</dt>
+          <dd><a [href]="film.lienFilm" target="_blank" rel="noopener noreferrer">Voir le film <i class="fa-solid fa-arrow-up-right-from-square"></i></a></dd>
+        </div>
+      </dl>
+
+      <div class="fdm-synopsis" *ngIf="film.synopsis.en || film.synopsis.ar">
+        <h3>Synopsis</h3>
+        <p *ngIf="film.synopsis.en">{{ film.synopsis.en }}</p>
+        <p *ngIf="film.synopsis.ar" dir="rtl" class="fdm-synopsis__ar">{{ film.synopsis.ar }}</p>
+      </div>
+    </div>
+  </div>
+</div>

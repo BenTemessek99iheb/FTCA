@@ -37,7 +37,7 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
 
 export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage';
 
-export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' ;
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation';
 
 export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   fiction: 'Fiction',
@@ -45,15 +45,8 @@ export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   'doc-fiction': 'Doc/Fiction',
   experimental: 'Expérimental',
   'doc-experimental': 'Doc/Expérimental',
+  animation: 'Animation',
 };
-
-// Type de production (ex: Indépendant, École, FTCA...) — liste volontairement
-// vide pour l'instant, à définir par la FTCA. `never` reflète fidèlement
-// "aucune valeur valide pour l'instant" ; remplacer par une vraie union de
-// litéraux (ex: 'independant' | 'ecole' | 'ftca') dès que la liste est fixée.
-export type FilmSubCategory = never;
-
-export const FILM_SUBCATEGORY_LABELS: Record<FilmSubCategory, string> = {};
 
 export interface ProgrammeFilmSynopsis {
   en: string;
@@ -70,6 +63,15 @@ export interface ProgrammeFilm {
   genre: FilmGenre;
   /** Résumé bilingue affiché sur la carte film (2-3 lignes, "Lire plus" pour le texte complet) */
   synopsis: ProgrammeFilmSynopsis;
+  /** Durée du film, format "HH:MM:SS" */
+  duree?: string;
+  /** Type de production en texte libre (ex: "Prod - FTCA", "Prod - Indépendant", "École"...) */
+  Prod?: string;
+  /** Précision sur la production (ex: "FTCA Tataouine", "ISAMM") — vide si Prod = Indépendant */
+  sousCategorie?: string;
+  anneeProduction?: number;
+  /** Lien externe vers le film, si disponible */
+  lienFilm?: string;
 }
 
 export const PROGRAMME_CATEGORY_LABELS: Record<ProgrammeCategory, string> = {
@@ -87,33 +89,40 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Mouhamed Trabelsi',
     country: 'Tunisie',
     category: 'national',
-    day: 23,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243863/el_commita.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'A mysterious committee interviews candidates for the presidency, but with each interview, a satirical truth about power is revealed. The session ends with a shocking twist that proves the decision had been made from the very beginning.',
       ar: '',
     },
+    duree: '00:10:39',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },
   {
-    title: 'خارج الاطار / Hors champ',
+    title: 'خارج الاطار / Out of frame',
     director: 'Sadok Sadem',
     country: 'Tunisie',
     category: 'national',
-    day: 24,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/Hors_champ_Out_of_frame.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'Between a dream that refuses to die and a nightmare that refuses to end, a soul wanders on the margins of life... There, outside the frame, the real story begins.',
       ar: 'بين حلمٍ يرفض أن يموت وكابوسٍ يرفض أن ينتهي، تتوه روحٌ على هامش الحياة... هناك، خارج الإطار، تبدأ الحكاية الحقيقية.',
     },
+    duree: '00:10:57',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'Club FTCA Kairouan',
+    anneeProduction: 2026,
   },
   {
     title: 'تقفن في الضلال/standing in the shadows',
     director: 'khadija zammouli',
     country: 'Tunisie',
     category: 'national',
-    day: 24,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/%D8%AA%D9%82%D9%81%D9%86_%D9%81%D9%8A_%D8%A7%D9%84%D8%B6%D9%84%D8%A7%D9%84standing_in_the_shadows.jpg',
     genre: 'experimental',
     // Split EN/AR non fait : le terme arabe "صنعات" est imbriqué au milieu de la
@@ -123,6 +132,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       en: 'Through the archives of the Salle El Fateh, the film observes the silent struggle and ongoing invisibility of the  صنعات , highlighting the interplay between the past and the present. The film reveals the memory embedded in the body and time, bringing to light the gradual erasure of these women who remain largely unknown. ن خلال الأرشيف في قاعة الفتح، يراقب الفيلم النضال الصامت والتهميش المستمر لـ صنعات، مع التنقل بين الماضي والحاضر. يكشف الفيلم الذاكرة المتجسدة في الجسد والزمان، ويبرز التلاشي التدريجي لهؤلاء النساء اللواتي يظلن مجهولات، وذلك من خلال التفاعل بين الأرشيف والحاضر',
       ar: 'ن خلال الأرشيف في قاعة الفتح، يراقب الفيلم النضال الصامت والتهميش المستمر لـ صنعات، مع التنقل بين الماضي والحاضر. يكشف الفيلم الذاكرة المتجسدة في الجسد والزمان، ويبرز التلاشي التدريجي لهؤلاء النساء اللواتي يظلن مجهولات، وذلك من خلال التفاعل بين الأرشيف والحاضر',
     },
+    duree: '00:16:04',
+    Prod: 'Prod - Association',
+    sousCategorie: 'Association Lina Ben Mhenni',
+    anneeProduction: 2025,
   },
  
   {
@@ -130,46 +143,58 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Bassem Belgacem jebahi',
     country: 'Tunisie',
     category: 'national',
-    day: 25,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243847/%D9%A2%D9%A0_%D9%8A%D9%88%D9%85%D9%8B%D8%A7_%D8%A8%D8%AA%D9%88%D9%82%D9%8A%D8%AA_%D8%A8%D9%88%D8%B2%D9%88%D9%8A%D8%AF%D8%A920_days_in_bouzouida_time.png',
     genre: 'documentaire',
     synopsis: {
       en: 'Twenty breathtaking days—a span of time where history merges with reality, and upbringing transforms into destiny. Through the gaze of the father, Mohamed Bouzouida, and the intimate testimonies of his children, 20 Days in Bouzouida Time chronicles the story of their brother, Hamza, who chose to build a bridge of resistance stretching from the mountains of Tunisia to the sea of Gaza. Caught between a departed mother s wish and the ancestral legacy, the family comes together to bear witness to the definitive moment of separation, sharing the heavy price of the principles they were raised upon.',
       ar: 'عشرون يوماً من حبس الأنفاس.. زمن كافٍ ليتداخل فيه التاريخ بالواقع، وتتحول فيه التربية إلى مصير. يروي فيلم 20 يوماً، بتوقيت بوزويدة —من خلال نظرات الأب محمد بوزويدة وشهادات أبنائه المؤثرة—حكاية شقيقهم حمزة الذي اختار أن يمد جسراً من المقاومة يمتد من جبال تونس إلى بحر غزة. بين وصية الأم الغائبة وأمانة الأجداد، تجتمع العائلة لتشهد على لحظة الفراق الحاسمة، وتقتسم مع الأب الثمن الباهظ للمبادئ التي كبروا عليها.',
     },
+    duree: '00:12:09',
+    Prod: 'École',
+    sousCategorie: 'universite centrale',
+    anneeProduction: 2026,
   },
    {
     title: 'Still Loading.. / Mezel...',
     director: 'Nada Bouhadida',
     country: 'Tunisie',
     category: 'national',
-    day: 25,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243851/Still_Loading_Mazel.png',
     genre: 'fiction',
     synopsis: {
       en: 'A young screenwriter-director is ready to shoot her first short film but unexpected legal and administrative obstacles stop the project,Caught between frustration and determination, she must decide whether to give up or fight for her film.',
       ar: 'مخرجة وكاتبة سيناريو شابة تستعد لتصوير أول فيلم قصير لها  لكنها تصطدم بعراقيل إدارية وقانونية لم تكن تعرفه بين الإحباط والإصرار، تجد نفسها أمام خيار صعب: الاستسلام أو الدفاع عن حلمها',
     },
+    duree: '00:02:21',
+    Prod: 'Structure - Maison/Complexe des Jeunes',
+    sousCategorie: 'independant en collaboration avec la maison des jeunes jedaida',
+    anneeProduction: 2025,
   },
    {
     title: 'Beneath the Veil / Sous le voile',
     director: 'Hazar Abbassi',
     country: 'Tunisie',
     category: 'national',
-    day: 25,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243826/Sous_le_voile_-_Hazar_Abbassi.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'On the day when songs celebrate her union with her cousin — the man who broke her — Nour searches for a way out behind the veils of silence. A fragile yet furious escape begins, unfolding between the forest and the sea.',
       ar: 'في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
     },
+    duree: '00:13:24',
+    Prod: 'École',
+    sousCategorie: 'La Cinéfabrique',
+    anneeProduction: 2026,
   },
   {
     title: 'Amel / امال',
     director: 'rahma ben jemaa',
     country: 'Tunisie',
     category: 'national',
-    day: 25,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243871/AMEL_-_rahma_ben_jemaa.png',
     genre: 'fiction',
     // Split EN/AR non fait : le texte arabe collé ici dans les données source est
@@ -180,6 +205,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       en: 'In late summer 2022, the life of "Amel," a sixty-five-year-old woman, is turned upside down when her family discovers that she has advanced-stage cancer. Amid health challenges and emotional turmoil, the hidden layers of a complex family bond come to light, as love, responsibility, and the fear of loss collide في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
       ar: 'في أواخر صيف2022، تنقلب حياة "آمال"، امرأة في الخامسة والستين من عمرها، رأسًا على عقب عندما تكتشف عائلتها إصابتها بمرض السرطان في مرحلة متقدمة. وسط التحديات الصحية واالضطرابات العاطفية، تنكشف خبايا عالقة عائلية متشابكة، حيث تتصارع األدوار بين الحب، المسؤولية، والخوف من الفقدان',
     },
+    duree: '00:22:50',
+    Prod: 'École',
+    sousCategorie: 'ESAC',
+    anneeProduction: 2025,
   },
   {
     title: 'ﻛﺒﺴﺔ/The Omnipresent',
@@ -193,6 +222,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       en: 'On the day of a decisive exam, a group of students arrives before anyone else, determined to cheat in complete peace. Their plan collapses when they discover a new teacher strict, methodical, and already in position ready to supervise the room with relentless vigilance.Between panicked glances, improvised tricks, and increasingly absurd attempts at cheating, the tension rises along with suppressed bursts of laughter. Each student tries to outsmart the others in a true comedy of resourcefulness.As the teacher tightens control, the exam turns into a silent battle where everything can shift at any moment. By the end of the session, an unexpected revelation completely changes the game.',
       ar: 'في يوم امتحان مصيري، يصل مجموعة من التلاميذ باكراً إلى القاعة بنيّة الغش بهدوء قبل وصول الجميع. غير أن مخططهم ينهار عند ظهور أستاذ جديد صارم، جهّز القاعة مسبقاً ويراقبهم بعيون يقظة لا تفوّت شيئاً. تتصاعد محاولات الغش بطرق طريفة ومرتبكة، ممزوجة بضحكات مكتومة وقلق متزايد. يتحول الامتحان إلى معركة سرية بين ذكاء التلاميذ وصرامة الأستاذ، وكل واحد منهم يحاول النجاة بخطته. ومع اقتراب نهاية الحصة، يفاجأ الجميع باكتشاف غير متوقع يقلب الموقف رأساً على عقب.',
     },
+    duree: '00:06:15',
+    Prod: 'Structure - Maison/Complexe des Jeunes',
+    sousCategorie: 'Complexe Des Jeunes Sahloul Hammam Sousse-CJS',
+    anneeProduction: 2026,
   },
   {
     title: 'the buried / المردومة',
@@ -206,83 +239,112 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       en: 'This documentary tells the story of Hnia, a resilient rural woman who shares her experience with Al Mardouma, a traditional method of charcoal production. Through her testimony, the film revisits her past, tracing her life journey and the challenges she faced in both work and daily survival. The film sheds light on the position of Tunisian rural women and their essential role in preserving traditional heritage, highlighting their strength, patience, and resilience while working under harsh living conditions.',
       ar: 'يتناول هذا الفيلم الوثائقي قصة المرأة الريفية المجاهدة هنية، التي تروي تجربتها مع المردومة، وهي طريقة تقليدية لصنع الفحم. من خلال شهادتها، يعود الفيلم إلى ماضيها ليستعرض مسار حياتها وما واجهته من صعوبات وتحديات في العمل والعيش. يسلّط الفيلم الضوء على مكانة المرأة الريفية التونسية ودورها المحوري في الحفاظ على الموروث التقليدي، مبرزًا قوتها وصبرها وقدرتها على المقاومة والعمل في ظروف قاسية',
     },
+    duree: '00:10:35',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
   {
     title: 'فرصة عمل/Job Opportunity',
     director: 'Karima Trabelsi',
     country: 'Tunisie',
     category: 'national',
-    day: 26,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243828/Job_Opportunity_%D9%81%D8%B1%D8%B5%D8%A9_%D8%B9%D9%85%D9%84_A4_-_club_taher_lhaddad_ftca_ftca.png',
     genre: 'fiction',
     synopsis: {
       en: 'Desperately looking for a job, Adem, a young graduate in his twenties, goes through a series of absurd and humiliating job interviews.',
       ar: 'في بحثه اليائس عن عمل، يواجه آدم، وهو خريج شاب في العشرينات من عمره، سلسلة من مقابلات التوظيف العبثية والمهينة.',
     },
+    duree: '00:08:29',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'Club FTCA Tahar Haddad',
+    anneeProduction: 2026,
   },
   {
     title: 'هدر/Good Boy', 
     director: 'Samoud Sélim & Jerbi Mariem',
     country: 'Tunisie',
     category: 'national',
-    day: 27,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787269810/good_boy_FIFAK_26_affiche.png',
     genre: 'fiction',
     synopsis: {
       en: 'When avoiding effort becomes an obsession, every small shortcut comes with a hidden price.',
       ar: 'عندما يتحول تجنب المجهود إلى هوس، تفرض الحلول السهلة أثمانًا خفيّة.',
     },
+    duree: '00:00:59',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'Club FTCA Kélibia',
+    anneeProduction: 2026,
   },
   {
     title: 'عالصباح يا فتاح / O God opener of doors',
     director: 'Kahna Maddeb',
     country: 'Tunisie',
     category: 'national',
-    day: 27,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787248594/o_god_opener_of_doors.jpg',
     // Aucun synopsis fourni pour l'instant -> genre non déductible, 'fiction'
     // posé par défaut uniquement pour respecter le type, à valider/corriger.
     genre: 'fiction',
     synopsis: { en: '', ar: '.... عم المنجي يلتقط القوارير البلاستيكية من مكان إلى مكان فجأة ' },
+    duree: '00:07:00',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
   {
     title: 'قد لا ينام البعض/Sleepless Are Some',
     director: 'Amir Belhaj',
     country: 'Tunisie',
     category: 'national',
-    day: 27,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243839/SOMEARESLEEPLESSPOSTER_-_Yung_Amiro.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'Upon the sudden departure of his colleague, Chantal Gérard, Xavier Caution is assigned to the night shift at a dying newspaper, while a butterfly circles around a halogen lamp.',
       ar: 'إثر الرحيل المفاجئ لزميلته شانتال جيرارد ، يُنقل اكزافييه كوسيون إلى نوبة العمل الليلية في صحيفةٍ تحتضر، بينما تطوف فراشة حول ضوءٍ زائف.',
     },
+    // Source table gave "16:43:00" — inconsistent format vs the other rows
+    // (H:MM:SS). Interpreted as 16 min 43 sec, please double-check.
+    duree: '00:16:43',
+    Prod: 'École',
+    sousCategorie: 'ESAC',
+    anneeProduction: 2026,
   },
   {
     title: 'زردة /Zerda',
     director: 'Sboui saber',
     country: 'Tunisie',
     category: 'national',
-    day: 28,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243821/Zerda.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'Zarda" is a documentary that offers a visual and human journey into the traditional pilgrimages to the shrines of saints in southern Tunisia, where spirituality intertwines with cultural heritage and collective memory. Through poetic imagery and authentic moments, the film documents the rituals, chants, prayers, and human encounters that define this enduring tradition, while highlighting its cultural significance and contributing to the preservation of a unique heritage that is gradually disappearing.',
       ar: 'يرصد فيلم «زردة» رحلةً بصريةً وإنسانيةً إلى عالم الزيارات الشعبية للأولياء الصالحين في الجنوب التونسي، حيث تمتزج الروحانية بالتراث، وتلتقي الذاكرة الجماعية بطقوس توارثتها الأجيال. ومن خلال صورة شاعرية ومشاهد حية، يوثق الفيلم تفاصيل هذه الممارسة الشعبية بما تحمله من أهازيج ودعوات ولقاءات إنسانية، في محاولة للحفاظ على جزء أصيل من الموروث الثقافي الذي يواجه خطر الاندثار.',
     },
+    // Source table gave "14:37:00" — interpreted as 14 min 37 sec.
+    duree: '00:14:37',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },
   {
-    title: 'ضُحِّيَ بهم لإطعام العالم /sacrificed to feed the world ',
+    title: 'ضُحِّيَ بهم لإطعام العالم /sacrificed to feed the world ',
     director: 'Islem zrelli',
     country: 'Tunisie',
     category: 'national',
-    day: 28,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787271863/sacrificed_to_feed_the_world.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'Sacrificed to Feed the World tells the story of Gabès, a city in southern Tunisia that has endured decades of industrial pollution caused by the chemical complex. Through intimate testimonies and powerful imagery, the film reveals how pollution has reshaped everyday life, devastating the sea, contaminating agricultural land, and forcing local communities to pay the price with their health and livelihoods for an industry that produces fertilizers for the world.The documentary follows fishermen who have lost their sea, farmers whose land has been damaged, and families living with the growing burden of pollution-related illnesses and environmental degradation. Their stories paint a deeply human portrait of a community struggling to survive under the weight of environmental injustice. At the same time, the film highlights the unconventional forms of resistance led by Gabès youth. Turning culture into a tool of protest, they use rap music, graffiti art, and the chants of football ultras to challenge silence, reclaim public space, and amplify their fight for environmental justice. More than a film about pollution, Sacrificed to Feed the World is a story of resilience, creativity, and the determination of a community refusing to be sacrificed. It asks a fundamental question: who pays the price for feeding the world?',
       ar: '',
     },
+    // Source table gave "22:22:00" — interpreted as 22 min 22 sec.
+    duree: '00:22:22',
+    Prod: 'Prod - Indépendant',
+    sousCategorie: 'Independant /transboundary productions',
+    anneeProduction: 2026,
   },
   {
     title: 'Breath/نفس',
@@ -296,110 +358,146 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
       en: 'A short film of a psychological and symbolic drama following Ibrahim, a plastic bottle collector who finds a strange gas mask that drags him into suffocating nightmares of pollution and illusion, turning his search for clean air into a desperate struggle for survival',
       ar: 'فيلم قصير دراما نفسية ورمزية يتابع إبراهيم، جامع القوارير البلاستيكية، الذي يعثر على قناع غاز غريب يجرّه إلى كوابيس خانقة بين التلوث والوهم، ليتحول بحثه عن أكسجين نقي إلى صراع مرعب يهدد حياته',
     },
+    // Source table gave "7:16:00" — interpreted as 7 min 16 sec.
+    duree: '00:07:16',
+    Prod: 'École',
+    sousCategorie: 'ISAMGabés',
+    anneeProduction: 2026,
   },
   {
     title: 'إِهْفِتْ/Chorea',
     director: 'Seif Flifel',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243845/Chorea_Poster_-_Djafar_Moussa.png',
     genre: 'fiction',
     synopsis: {
       en: 'Inspired by the main actor s real struggle as a male dancer in Tunisian society, Chorea narrates a story of resilience and discovery. Using the medium of choreography, the film attempts to reflect the journey of navigating early adulthood while trying to piece together the fragments of identity.',
       ar: 'الفيلم مستوحى من القصة الحقيقية للممّثل الرئيسي و المصاعب التي يواجهها كراقص في المجتمع التونسي. يروي "إِهْفِتْ" قصة عن الصمود و الاكتشاف, و يقدم, من خلال الرقص كوسيط فني, محاولة للتعبير و مناقشة رحلة التعلّم تزامنا مع السعي إلى بناء الذات.',
     },
+    // Source table gave "2:44:00" — interpreted as 2 min 44 sec.
+    duree: '00:02:44',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
   {
     title: 'غبرة/Dust',
     director: 'Walid Ajroudi',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243829/%D8%BA%D8%A8%D8%B1%D8%A9Dust.png',
     genre: 'documentaire',
     synopsis: {
       en: 'In Tataouine, Saber lives among stone, wood and dust. With his hands, he shapes forms from materials carrying traces of the past, while the desire to leave remains ever-present. Between a workshop that mirrors his spirit and a town he keeps returning to, a portrait emerges of a man trying to understand his bond with a place—and what remains of it when he leaves.',
       ar: 'في تطاوين، يعيش صابر بين الحجر والخشب والغبار، يصنع بيديه أشكالاً من أثرٍ قديم، بينما تظلّ فكرة الرحيل حاضرة في حياته. بين ورشةٍ تشبهه، ومدينةٍ يعود إليها كلما ابتعد، تتشكل حكاية رجل يحاول أن يفهم علاقته بالمكان، وبما يبقى منه حين يرحل.',
     },
+    // Source table gave "7:31:00" — interpreted as 7 min 31 sec.
+    duree: '00:07:31',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'FTCA Tataouine il reste le mixage',
+    anneeProduction: 2026,
   },
   {
     title: 'حوح/Three days, three months',
     director: 'Saif Eddine Ben Ghozi',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787270521/7ou7.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
     genre: 'documentaire',
     synopsis: { en: '', ar: '"حُاحْ" رحلة في عالم الفلاح بحمّام الغزاز، وفي علاقته العميقة بالأرض التي عاش منها وتعلّق بها عبر أجيال. من خلال شهادات الفلاحين، يكتشف الفيلم مكانة الدرع كجزء من ذاكرة المدينة وثقافتها وعاداتها، قبل أن يكشف التحولات التي أصبحت تهدد هذا الإرث: البناء العشوائي والتوسع العمراني على حساب الأراضي الفلاحية، ملوحة المياه وتدهور البيئة، تراجع النشاط الفلاحي، وغياب رؤية واضحة ومستدامة لمستقبل الفلاحة، إلى جانب الضغوط العقارية التي تدفع بالأرض نحو التغيير. بين ذاكرة جيل عاش الفلاحة كطريقة حياة، وواقع جيل يحاول مواصلة العمل في ظروف أكثر صعوبة، يرصد الفيلم علاقة الإنسان بأرضه حين تصبح هذه الأرض نفسها مهددة بالاختفاء. وفي ختام الرحلة، تنتقل الحكاية من الحقل إلى المائدة، لتكشف كيف ارتبطت الدرع بعادات غذائية متوارثة، وكيف يمكن لاختفاء محصول أن يعني فقدان جزء من ذاكرة المكان وثقافته.' },
+    // Matched to reference row "حاح/Three days, three months" (minor spelling
+    // difference vs "حوح" in this file — same film/director/day, treated as a match).
+    // Source table gave "14:41:00" — interpreted as 14 min 41 sec.
+    duree: '00:14:41',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'FTCA Hammam Laghzez (Il reste le génerique et le mixage)',
+    anneeProduction: 2026,
   },
   {
     title: 'بلدية 90 /  Municipality 90 ',
     director: 'Saîda Nasri et Anas Elech',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787270230/municipality90.png',
     genre: 'documentaire',
     synopsis: {
       en: 'In 1990, the small coastal town of Chebba witnessed an exceptional political experience. Left-wing independents, together with members of the Chebba cell of the Tunisian Communist Party, ran in the municipal elections on an opposition list called “The Independent List.” The list received broad popular support and won 15 seats, compared with only 3 seats for the Constitutional Democratic Rally (RCD), making it an exceptional case during Ben Ali’s rule. More than three decades later, the film returns to this experience through the testimonies of those who lived it: former activists, members of “The Independent List,” and witnesses of that period, including Saïda Nasri, one of the film’s co-directors, who took part in the elections as a volunteer polling-station observer. Through these testimonies, the film revisits the memory of a collective experience of political activism in Chebba, between nostalgia and a critical reading of the past. It questions the stakes, limitations, and significance of this experience, and what it can mean today as one of the rare examples of opposition political action under an authoritarian regime.',
       ar: '',
     },
+    // Source table gave "24:43:00" — interpreted as 24 min 43 sec.
+    duree: '00:24:43',
+    Prod: 'Prod - FTCA',
+    sousCategorie: 'FTCA Chebba',
+    anneeProduction: 2026,
   },
   {
     title: 'يجري/Running',
     director: 'Mohamed Karim Dahmouni & Mohamed Ali Maatoug',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Running.jpg',
     genre: 'fiction',
     synopsis: {
       en: 'Massoud has spent all of his life running, trying to make something of himself. However, nothing seems to work out. No matter how hard he runs, life gives him nothing in return. After chasing things that lead nowhere, he finally finds what he is meant to do.',
       ar: 'بعد أن أمضى مسعود حياته كلها باحثا عن شيء يحقق به ذاته، اكتشف ألا شيء كان يستحق كل هذا العناء. فكل باب طرقه أُغلق في وجهه، وكل طريق سلكه لم يوصله إلى مبتغاه. وحينما أنهكه الركض، وتعب من ملاحقة أشياء لا جدوى منها، وجد أخيرا ما يمكنه التميز فيه.',
     },
+    // Source table gave "1:53:00" — interpreted as 1 min 53 sec.
+    duree: '00:01:53',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
   {
     title: 'MONAD',
     director: 'Mohamed Elyes Kefi',
     country: 'Tunisie',
     category: 'national',
-    day: 29,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Monad.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
     genre: 'experimental',
     synopsis: { en: 'À compléter par la FTCA', ar: '' },
+    duree: '00:11:31',
+    Prod: 'École',
+    sousCategorie: 'ISAMM',
+    anneeProduction: 2025,
   },
     
 //---------------------------- International films ----------------------------//
-
-
+ 
+ 
   {
     title: 'The Dead Of Three Villages',
     director: 'Muhammed Kaya',
     country: 'Türkiye',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787261309/The_Dead_Of_Three_Villages.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Fiction').
+    genre: 'fiction',
     synopsis: { en: 'In the early 1900s, a 38-year-old man rode through the villages of Diyarbakır on horseback. He fell off his horse and died at a crossroads between three villages. Children who witnessed this immediately informed their elders. Scholars from three religions (a Muslim Kurdish mullah, an Armenian Christian priest, and a Yazidi Kurdish sheikh) began discussing the deceased s religion in the village square, placing the deceased before them. The mullah, the sheikh, and the priest attempted to interpret the deceased s death from their own perspective. The mulla attributed the dirty and worn knees to prayer, Sheikh Halit attributed the injury to the sun, and the priest attributed it to his morning prayers to God. The mullah suggested that the man had been circumcised. Taybet Ana, an elderly villager, requested that the deceased be taken to her home to have his circumcision performed there. The deceased was taken to the old woman s house. The deceased, who was circumcised, was not Christian. The scholars of the three religions left the funeral to perform their religious duties. The mullah goes to perform ablution, but his arm hair is combed back. Noticing this, the mullah tells the religious scholars that the hair is combed back when performing ablution. Based on the mullah s suggestion, the man is examined. This claim is deemed insufficient. Three religious scholars, having determined that the man was Muslim due to the stone mark on his forehead, send him to wash the body. While washing the body, Gassal turns it over and notices the hammer and sickle tattoo on its back, summoning the religious scholars again. The three religious scholars stare at the tattoo.', ar: '' },
+    duree: '00:16:28',
+    Prod: 'École',
+    sousCategorie: 'Dokuz Eylul Univesty',
+    anneeProduction: 2025,
   },
    {
     title: 'Like an Orchid',
     director: 'Jana Bashir, Cheryl Chan, Julia Blaszczyk',
     country: 'Royaume-Uni',
     category: 'international',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787261539/Like_an_Orchid.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Animation').
+    genre: 'animation',
     synopsis: { en: 'Like an Orchid follows the story of an exhausted woman who steps into a crowded subway train, where she faces the horrors that are not talked about enough…', ar: '' },
+    duree: '00:02:28',
+    Prod: 'École',
+    sousCategorie: 'Manchester Metropolitan University',
+    anneeProduction: 2026,
   },
    
  {
@@ -407,143 +505,181 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Polina Piddubna',
     country: 'Allemagne Ukraine',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787262046/My_Grandmother_is_a_Skydiver.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Animation').
+    genre: 'animation',
     synopsis: { en: 'Alfyia, a joyful young woman in 1960s Central Asia, is actively parachuting and studying to become a midwife, when she receives an extraordinary phone call from her granddaughter in 2022. She is worried about her grandmother s safety amid the invasion of Ukraine. In this intergenerational conversation across time and space, the granddaughter tries to restore and rethink family memory and her own ethnic identity, break the endless cycle of collective trauma and reflect on the meaning of human life.', ar: '' },
+    // Source table gave "13" (no unit) — interpreted as 13 minutes.
+    duree: '00:13:00',
+    Prod: 'École',
+    sousCategorie: 'Fillmuniversitaet Babelsberg KONRAD WOLF',
+    anneeProduction: 2025,
   },
   {
     title: 'Prayer',
     director: 'Sofia Geweiler',
     country: 'Portugale',
     category: 'international',
-    day: 29,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787263428/prayer.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Fiction').
+    genre: 'fiction',
     synopsis: { en: 'In a techno club in Lisbon, immigrant worker Abdul is on a video call with his wife, Aliyah, who is going into labor and begs him to be present, at least over the phone. At the same time, his colleague Maria desperately needs his help. Caught between work s demands and his son s birth, Abdul grapples with the fear of losing his job and the challenge of becoming a father from afar. On top of all that, he fights with his strict father-in-law for his right to perform the sacred tradition of reciting the Adhan for his newborn son. The film "Prayer", which explores the intersection of tradition, fatherhood, and the struggles of undocumented immigrant labor, is based on the autobiographical story of its screenwriter, Deo Mahameru. The project was created as a student film within the KinoEyes Joint European Film Masters at Lusofona University in Lisbon.', ar: '' },
+    // Source table gave "14.0" — interpreted as 14 minutes.
+    duree: '00:14:00',
+    Prod: 'École',
+    sousCategorie: 'Universidade Lusófona',
+    anneeProduction: 2025,
   },
    {
     title: 'Profitable place',
     director: 'Alex Maximov',
     country: 'biélorussie',
     category: 'international',
-    day: 29,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787264668/Profitable_place.png',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Animation').
+    genre: 'animation',
     synopsis: { en: 'Some places in the world are better for business than others. And with the right skills, you don’t just meet demand — you create it.', ar: '' },
+    // Source table gave "05:11:00" — interpreted as 5 min 11 sec.
+    duree: '00:05:11',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },
     {
     title: 'Echo',
     director: 'Mohamed Masli',
     country: 'Libye',
     category: 'international',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265253/ECHO.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
     synopsis: { en: '', ar: '' },
+    // Source table gave "09:49:00" — interpreted as 9 min 49 sec.
+    // Aucune année de production fournie pour ce film dans la table de référence.
+    duree: '00:09:49',
+    Prod: 'Prod - Indépendant',
   },
    {
     title: 'Qulpynai',
     director: 'Amir Salimzhan',
     country: 'Kazakhstan',
     category: 'international',
-    day: 29,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265651/Qulpynai.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Fiction').
+    genre: 'fiction',
     synopsis: { en: 'A 7-year-old girl named Sulu and her 4-year-old sister Karlygash live in a village with their grandfather. They deeply miss their father, a pilot who was sent to the front lines. One day, they receive a letter supposedly from him, but since they don t know how to read, they have no idea what it says. Desperate to see him, the girls sneak into their grandfather s garage to build a wooden airplane and fly to their father.', ar: '' },
+    duree: '00:07:28',
+    Prod: 'École',
+    sousCategorie: 'Turan Film Academy',
+    anneeProduction: 2026,
   },
    {
     title: 'The Badaro Complex',
     director: 'Adam Mabrouk',
     country: 'liban egypte',
     category: 'international',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265786/The_Badaro_Complex.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Fiction').
+    genre: 'fiction',
     synopsis: { en: 'You, a clueless aspiring filmmaker, create your debut short film, while desperately seeking the approval of your idols', ar: '' },
+    // Source table gave "10.0" — interpreted as 10 minutes.
+    duree: '00:10:00',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
     {
     title: 'The Cause Of Water',
     director: 'Steven Chabre',
     country: 'Etats-Unis',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265988/The_Cause_Of_Water.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Animation').
+    genre: 'animation',
     synopsis: { en: 'the Cause of Water Synopsis The Cause of Water is a film about movement, connection and meditation. A man and woman connect, separate, and connect as they traverse environments and states.  An old couch is their vehicle.  Meditation and musing are the screen on which it all unfolds.', ar: '' },
+    duree: '00:06:48',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
   {
     title: 'Silk Spun',
     director: 'Marguerite Ranger',
     country: 'Canada Vietnam',
     category: 'international',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787267189/Silk_Spun.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'experimental',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
     synopsis: { en: 'Blending memories, fiction, and confessions, Silk Spun tells the history of three generations of women from a Vietnamese family since their arrival in Quebec in 1975. In the intimacy and vulnerability of her intergenerational relationships, the director exposes the contextual disparities transforming the relationship to individual identity among the women of her family.', ar: '' },
+    // Source table gave "19:06:00" — interpreted as 19 min 06 sec.
+    duree: '00:19:06',
+    Prod: 'École',
+    sousCategorie: "L'Université du Québec à Montréal",
+    anneeProduction: 2025,
   },
   {
     title: 'Allegory of the Cave',
     director: 'Wang Yajing',
     country: 'Chine',
     category: 'international',
-    day: 29,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265049/Allegory_of_the_Cave.png',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('Doc Expérimentale').
     genre: 'doc-experimental',
     synopsis: { en: 'This world is very chaotic, with many injustices and exploitation, gender conflicts and violent injuries, the law of the jungle and war killings, ideal struggles and shattered dreams;We should call for fairness and justice, love and peace, freedom and hope,encourage people to gain hope and happiness. ', ar: '' },
+    // Source table gave "8.0" — interpreted as 8 minutes.
+    duree: '00:08:00',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },  {
     title: 'Image Burning',
     director: 'Ahmed Fayez',
     country: 'Egypte',
     category: 'international',
-    day: 29,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268060/IMAGE_BURNING.png',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
     synopsis: { en: 'A retired teacher, isolated on New Year’s Eve, lures a young woman into his quiet home. Their encounter forces him to confront a truth far more unsettling than his loneliness and one that reshapes both their lives.', ar: '' },
+    // Source table gave "14:12:00" — interpreted as 14 min 12 sec.
+    duree: '00:14:12',
+    Prod: 'École',
+    sousCategorie: 'Jesuit film school',
+    anneeProduction: 2025,
   },  {
     title: 'At last',
     director: 'Shazdeh Hachem',
     country: 'Liban',
     category: 'international',
-    day: 29,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268291/at_last.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('fiction').
     genre: 'fiction',
     synopsis: { en: 'Alain is 8 years old. At school, the students bully him and the blindness of the adults worsen his situation because they punish him for standing up for himself.', ar: '' },
+    duree: '00:26:24',
+    Prod: 'École',
+    sousCategorie: 'Lebanese University Faculty Of Fine Arts',
+    anneeProduction: 2025,
   },
-
+ 
   {
     title: 'Malverde',
     director: 'Claudia Gordillo',
     country: 'Colombie',
     category: 'international',
-    day: 29,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268291/malverde.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'fiction',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
     synopsis: { en: 'Malverde narrates the rhythms of a land planted with sugarcane. An imposed plant that has recoded native nature and the ways in which human and non-human bodies move to survive. The story takes place in southern Valle del Cauca and northern Cauca, Colombia, and delves into a kind of journey and evocation, in what this extractivist landscape has become today.', ar: '' },
+    duree: '00:17:06',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },
     {
     title: 'Pruning',
@@ -552,34 +688,42 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 29,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268632/pruning.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
     synopsis: { en: 'At an age when most boys have long left the ritual behind, Ilya sets out on a journey to be circumcised. A passage expected to usher him into manhood. But as he travels, he discovers that being a man means something far different from what he has always believed.', ar: '' },
+    duree: '00:12:59',
+    Prod: 'École',
+    sousCategorie: 'Maajara film school',
+    anneeProduction: 2026,
   },
     {
     title: 'Warden',
     director: 'SABAH MOHAMMADI',
     country: 'IRAN',
     category: 'international',
-    day: 29,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268700/warning.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
     synopsis: { en: 'Zivar, a middle-aged woman, is the supervisor of a student dormitory. She reacts harshly when a student returns late to the dorm. In her solitude, she feels guilty and tries to improve the situation', ar: '' },
+    duree: '00:14:57',
+    Prod: 'École',
+    sousCategorie: 'Maajara film school',
+    anneeProduction: 2026,
   },
     {
     title: 'Al-Mamadani: The 501st Survivor',
     director: 'Anwar Mohammed Abulkhair, Deema Abd Alhady',
     country: 'Palestine',
     category: 'international',
-    day: 29,
+    day: 24,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268815/Al-Mamadani_The_501st_Survivor.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'fiction',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
     synopsis: { en: '.', ar: '' },
+    duree: '00:09:10',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
     {
     title: 'Le Monde,',
@@ -590,6 +734,8 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787269074/le_monde_-_ouverture.jpg',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
+    // Pas de correspondance trouvée dans les deux tables de référence fournies
+    // pour ce titre -> duree/Prod/sousCategorie/anneeProduction restent vides.
     genre: 'fiction',
     synopsis: { en: 'Inside Le Monde, a café-restaurant, people of different ages and backgrounds are immersed in their private moments as a birthday celebration unfolds. In the background, a television quietly broadcasts images of the war in Gaza, largely ignored by those present. Only a seventy-year-old man sitting in a corner with his daughter seems to register what is happening. At the height of the celebration, he rises, accepts a cane from his daughter, and we realize that he is blind. He leaves the café in silence, prompting a quiet reflection on what it truly means to see.', ar: 'داخل مقهى-مطعم «لو موند»، ينغمس أشخاص من أعمار وخلفيات مختلفة في لحظاتهم الخاصة بينما تتواصل أجواء احتفال بعيد ميلاد. في الخلفية، يبثّ التلفاز بهدوء صورًا عن الحرب في غزة، فيتجاهلها معظم الحاضرين. وحده رجل في السبعين من عمره يجلس في زاوية برفقة ابنته يبدو أنه يلتقط ما يحدث. في ذروة الاحتفال، ينهض، تتناول ابنته عصًا وتضعها في يده، فنكتشف أنه كفيف. يغادر المقهى بصمت، فيفتح ذلك بابًا لتأمّل هادئ في معنى أن نرى حقًا.' },
   },
@@ -599,36 +745,46 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Felipe Brum',
     country: 'Brésil',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316473/Empty_Spaces.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
     synopsis: { en: 'Elisa returns to her hometown, accompanying her mother, who shows signs of memory loss, as a last attempt to make her reconnect with the past. The trip becomes a bittersweet reflection about identity, loss and the search for connection, questioning what remains when memories and places, cease to exist.', ar: ''},
+    // Source table gave "15" (no unit) — interpreted as 15 minutes.
+    duree: '00:15:00',
+    Prod: 'École',
+    sousCategorie: 'Universidade Federal de Juiz de Fora',
+    anneeProduction: 2026,
   },
   {
     title: 'Alone in Tehran',
     director: 'Amen sahraei',
     country: 'Iran',
     category: 'international',
-    day: 29,
+    day: 27,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316615/Alone_in_Tehran.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
-    genre: 'fiction',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
     synopsis: { en: 'During the Israeli attacks on Iran and the evacuation of Tehran, she had no choice but to stay behind. In a silenced, nearly abandoned city, with nothing but her phone, she began to record the final days that felt like the end of everything. This is a war diary, raw, fragmented, intimate, and real. It captures the dread and beauty of surviving through isolation, violence, and the haunting quietness of a vanishing world. Shot in the streets and indoors during the active conflict, this film is not only a testimony to survival, but to the act of documenting when all else collapses', ar: '' },
+    duree: '00:14:50',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
   },
 {
     title: 'Right, grandma?',
     director: 'Orsolya Szitka',
     country: 'Estonia, Hungary',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317322/Right_grandma.jpg',
-    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
-    // uniquement pour respecter le type, à valider/corriger.
+    // Genre confirmé par la table de référence internationale ('fiction').
     genre: 'fiction',
     synopsis: { en: 'After months of avoiding the inevitable, Anna returns to her grandmother, paralyzed and voiceless after a stroke, able to communicate only through her eyes. In the silence between them, guilt and love slowly unravel, opening a fragile path toward reconnection.', ar: '' },
+    // Source table gave "10:32:00" — interpreted as 10 min 32 sec.
+    duree: '00:10:32',
+    Prod: 'École',
+    sousCategorie: 'Film 48H',
+    anneeProduction: 2025,
   },
   {
     title: 'Right, grandma?',
@@ -639,8 +795,12 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317322/Right_grandma.jpg',
     genre: 'fiction',
     synopsis: { en: 'After months of avoiding the inevitable, Anna returns to her grandmother, paralyzed and voiceless after a stroke, able to communicate only through her eyes. In the silence between them, guilt and love slowly unravel, opening a fragile path toward reconnection.', ar: '' },
+    duree: '00:10:32',
+    Prod: 'École',
+    sousCategorie: 'Film 48H',
+    anneeProduction: 2025,
   },
-
+ 
    {
     title: 'Before you gone',
     director: 'Xie ChIa-Ping',
@@ -648,8 +808,13 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 29,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317609/Before_you_gone.jpg',
-    genre: 'fiction',
+    // Genre confirmé par la table de référence internationale ('Animation').
+    genre: 'animation',
     synopsis: { en: 'Today, It’s a year after you gone, I sit in front of you and telling you about the past of our family , as well as my deepest longing and regrets for you. Emotions weave between memory and reality, leaving behind what was never spoken. 〈Before you gone〉 adopts a personal narrative approach, interweaving real imagery with hand-drawn animation to capture emotions that are difficult to document within memory.', ar: '' },
+    duree: '00:08:16',
+    Prod: 'École',
+    sousCategorie: 'Tainan National University of the Arts',
+    anneeProduction: 2026,
   },
    {
     title: 'A Single Applause',
@@ -658,11 +823,17 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     category: 'international',
     day: 29,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317815/A_Single_Applause.jpg',
+    // Genre confirmé par la table de référence internationale ('fiction').
     genre: 'fiction',
     synopsis: { en: 'A father, worn down by the routine of everyday life, comes to a children’s play with his daughter and unexpectedly becomes part of the performance himself. He has no idea how profoundly this moment will change his life.', ar: '' },
+    duree: '00:04:15',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2026,
   },
-
+ 
   ];
+ 
+
 
 /* ============================================================
    JURY
