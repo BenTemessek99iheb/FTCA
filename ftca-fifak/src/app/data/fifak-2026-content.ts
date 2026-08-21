@@ -35,9 +35,9 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
    PROGRAMME
    ============================================================ */
 
-export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage';
+export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage' ;
 
-export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation';
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation' | 'doc-animation';
 
 export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   fiction: 'Fiction',
@@ -46,6 +46,10 @@ export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   experimental: 'Expérimental',
   'doc-experimental': 'Doc/Expérimental',
   animation: 'Animation',
+  'doc-animation': 'Doc/Animation'
+
+  
+  
 };
 
 export interface ProgrammeFilmSynopsis {
@@ -202,7 +206,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     // avec le sujet d'Amel (cancer) — erreur de copier-coller à corriger avec la
     // vraie synopsis arabe d'Amel. Texte original laissé intact tel quel.
     synopsis: {
-      en: 'In late summer 2022, the life of "Amel," a sixty-five-year-old woman, is turned upside down when her family discovers that she has advanced-stage cancer. Amid health challenges and emotional turmoil, the hidden layers of a complex family bond come to light, as love, responsibility, and the fear of loss collide في اليوم الذي تتعالى فيه الأهازيج احتفالًا بزفافها من ابن عمّها، الرجل الذي كسرها، تبحث نور عن منفذٍ خلف ستائر الصمت. تبدأ رحلة هروبٍ هشة، مشبعة بالغضب والإصرار، بين الغابة والبحر.',
+      en: 'In late summer 2022, the life of "Amel," a sixty-five-year-old woman, is turned upside down when her family discovers that she has advanced-stage cancer. Amid health challenges and emotional turmoil, the hidden layers of a complex family bond come to light, as love, responsibility, and the fear of loss collide ',
       ar: 'في أواخر صيف2022، تنقلب حياة "آمال"، امرأة في الخامسة والستين من عمرها، رأسًا على عقب عندما تكتشف عائلتها إصابتها بمرض السرطان في مرحلة متقدمة. وسط التحديات الصحية واالضطرابات العاطفية، تنكشف خبايا عالقة عائلية متشابكة، حيث تتصارع األدوار بين الحب، المسؤولية، والخوف من الفقدان',
     },
     duree: '00:22:50',
@@ -830,7 +834,109 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     Prod: 'Prod - Indépendant',
     anneeProduction: 2026,
   },
- 
+  
+    {
+    title: 'Heavenbound-العود',
+    director: 'Houssemdine souaf',
+    country: 'Tunisie',
+    category: 'international',
+    day: 24,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787342269/Heavenbound-%D8%A7%D9%84%D8%B9%D9%88%D8%AF.png',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'animation',
+    synopsis: { en: 'A boy searches for his way back to heaven, through the single door left to him.', ar: '' },
+    duree: '00:03:30',
+    Prod: 'Prod - Indépendant',
+    anneeProduction: 2025,
+  },
+   {
+    title: 'Family Booklet / كرني العائلة',
+    director: 'Youssef Ghariani',
+    country: 'Tunisie',
+    category: 'international',
+    day: 24,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787341480/karni_l_3ayla.jpg',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'fiction',
+    synopsis: { en: 'A poor family of five (a father, a mother, a teenage girl, a young boy, and the grandfather) participates in a reality TV show to win a massive cash prize and change their harsh reality. The show is set to be filmed right inside their home. However, just before the competition begins, the grandfather suddenly passes away. To avoid being disqualified, the family is forced to hide his body inside the house. Will they manage to win the prize and transform their social status?', ar: '' },
+    duree: '00:24:22',
+    Prod: 'Prod - ESAC',
+    anneeProduction: 2026,
+  },
+   
+     {
+    title: 'ف س خ /Erasure',
+    director: 'Nesrine Douzi',
+    country: 'Tunisie',
+    category: 'international',
+    day: 26,
+    posterUrl: '',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'doc-animation',
+    synopsis: { en: '.', ar: '' },
+    duree: '00:22:00',
+    Prod: 'Prod - Association ',
+    sousCategorie: 'Association Lina Ben Mhenni – École féministe Lina Ben Mhenni',
+    anneeProduction: 2025,
+  },
+  
+   {
+    title: 'مرايا/Mirror ',
+    director: 'CHARFI Firas',
+    country: 'Tunisie',
+    category: 'international',
+    day: 28,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787342405/Mirror.jpg',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'fiction',
+    synopsis: { en: 'Ayoub, a fifty-year-old man, wakes up without memory and resumes his life as if nothing happened. As subtle disturbances appear, reality slowly empties itself, and he drifts through familiar places like a ghost, searching for his lost identity.', ar: '' },
+    duree: '00:14:08',
+    Prod: 'Prod - independant',
+    anneeProduction: 2025,
+  },
+    {
+    title: 'الشدة/Intense ',
+    director: 'Malek Abbes',
+    country: 'Tunisie',
+    category: 'international',
+    day: 27,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787341757/Intense.jpg',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'fiction',
+    synopsis: { en: 'Un adolescent de 19 ans se retrouve confronté à une situation qui l’amène à rencontrer une étrange créature, le plongeant dans une expérience intense jusqu’à ce qu’il trouve un moyen d’en sortir.', ar: '' },
+    duree: '00:14:41',
+    Prod: 'Prod - FTCA ',
+    sousCategorie: 'FTCA Beb Laasal',
+    anneeProduction: 2026,
+  },
+ {
+    title: 'A Mother’s Love ',
+    director: 'Sian Ivainesu Mwamuka, Tanaka Maxwell Chembezi',
+    country: 'Zimbabwe',
+    category: 'international',
+    day: 28,
+    posterUrl: '',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'documentaire',
+    synopsis: { en: '.', ar: '' },
+    duree: '00:05:39',
+    Prod: 'Prod - Indépendant ',
+    anneeProduction: 2026,
+  },
+  {
+    title: 'Manus Erectus',
+    director: 'Léo Natta',
+    country: 'France',
+    category: 'international',
+    day: 28,
+    posterUrl: '',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'fiction',
+    synopsis: { en: '.', ar: '' },
+    duree: '00:06:47',
+    Prod: 'Prod - Indépendant ',
+    anneeProduction: 2026,
+  },
   ];
  
 
