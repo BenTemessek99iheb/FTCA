@@ -730,7 +730,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     anneeProduction: 2026,
   },
     {
-    title: 'Le Monde,',
+    title: 'Le Monde /الدُّنْيَا',
     director: 'Mohammad Bakri',
     country: 'Palestine',
     category: 'ouverture',
@@ -741,6 +741,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     // Pas de correspondance trouvée dans les deux tables de référence fournies
     // pour ce titre -> duree/Prod/sousCategorie/anneeProduction restent vides.
     genre: 'fiction',
+    duree: '00:06:00',
     synopsis: { en: 'Inside Le Monde, a café-restaurant, people of different ages and backgrounds are immersed in their private moments as a birthday celebration unfolds. In the background, a television quietly broadcasts images of the war in Gaza, largely ignored by those present. Only a seventy-year-old man sitting in a corner with his daughter seems to register what is happening. At the height of the celebration, he rises, accepts a cane from his daughter, and we realize that he is blind. He leaves the café in silence, prompting a quiet reflection on what it truly means to see.', ar: 'داخل مقهى-مطعم «لو موند»، ينغمس أشخاص من أعمار وخلفيات مختلفة في لحظاتهم الخاصة بينما تتواصل أجواء احتفال بعيد ميلاد. في الخلفية، يبثّ التلفاز بهدوء صورًا عن الحرب في غزة، فيتجاهلها معظم الحاضرين. وحده رجل في السبعين من عمره يجلس في زاوية برفقة ابنته يبدو أنه يلتقط ما يحدث. في ذروة الاحتفال، ينهض، تتناول ابنته عصًا وتضعها في يده، فنكتشف أنه كفيف. يغادر المقهى بصمت، فيفتح ذلك بابًا لتأمّل هادئ في معنى أن نرى حقًا.' },
   },
    
@@ -943,12 +944,12 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Maha Haj',
     country: 'Palestine',
     category: 'ouverture',
-    day: 26,
+    day: 23,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787347800/upshot.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'drama',
     synopsis: { en: 'Retiré du monde, la vie imaginaire soigneusement construite d un couple est mise en péril par un invité non invité qui dévoile une révélation dévastatrice sur leur passé, remettant en question leur délicate réalité', ar: '' },
-    duree: '00:22:00',
+    duree: '00:34:00',
     Prod: 'Prod - Hannah Atallah, Ronza kamel  ',
     anneeProduction: 2025,
   },
