@@ -187,7 +187,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     },
   },
   {
-    title: 'the buried / L Enfoui',
+    title: 'the buried / المردومة',
     director: 'yassmine naceur',
     country: 'Tunisie',
     category: 'national',
@@ -235,7 +235,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     // Aucun synopsis fourni pour l'instant -> genre non déductible, 'fiction'
     // posé par défaut uniquement pour respecter le type, à valider/corriger.
     genre: 'fiction',
-    synopsis: { en: 'À compléter par la FTCA', ar: '' },
+    synopsis: { en: '', ar: '.... عم المنجي يلتقط القوارير البلاستيكية من مكان إلى مكان فجأة ' },
   },
   {
     title: 'قد لا ينام البعض/Sleepless Are Some',
