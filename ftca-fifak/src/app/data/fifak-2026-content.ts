@@ -47,6 +47,14 @@ export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   'doc-experimental': 'Doc/Expérimental',
 };
 
+// Type de production (ex: Indépendant, École, FTCA...) — liste volontairement
+// vide pour l'instant, à définir par la FTCA. `never` reflète fidèlement
+// "aucune valeur valide pour l'instant" ; remplacer par une vraie union de
+// litéraux (ex: 'independant' | 'ecole' | 'ftca') dès que la liste est fixée.
+export type FilmSubCategory = never;
+
+export const FILM_SUBCATEGORY_LABELS: Record<FilmSubCategory, string> = {};
+
 export interface ProgrammeFilmSynopsis {
   en: string;
   ar: string;
@@ -585,7 +593,76 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     genre: 'fiction',
     synopsis: { en: 'Inside Le Monde, a café-restaurant, people of different ages and backgrounds are immersed in their private moments as a birthday celebration unfolds. In the background, a television quietly broadcasts images of the war in Gaza, largely ignored by those present. Only a seventy-year-old man sitting in a corner with his daughter seems to register what is happening. At the height of the celebration, he rises, accepts a cane from his daughter, and we realize that he is blind. He leaves the café in silence, prompting a quiet reflection on what it truly means to see.', ar: 'داخل مقهى-مطعم «لو موند»، ينغمس أشخاص من أعمار وخلفيات مختلفة في لحظاتهم الخاصة بينما تتواصل أجواء احتفال بعيد ميلاد. في الخلفية، يبثّ التلفاز بهدوء صورًا عن الحرب في غزة، فيتجاهلها معظم الحاضرين. وحده رجل في السبعين من عمره يجلس في زاوية برفقة ابنته يبدو أنه يلتقط ما يحدث. في ذروة الاحتفال، ينهض، تتناول ابنته عصًا وتضعها في يده، فنكتشف أنه كفيف. يغادر المقهى بصمت، فيفتح ذلك بابًا لتأمّل هادئ في معنى أن نرى حقًا.' },
   },
-];
+   
+  {
+    title: 'Empty Spaces,',
+    director: 'Felipe Brum',
+    country: 'Brésil',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316473/Empty_Spaces.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'Elisa returns to her hometown, accompanying her mother, who shows signs of memory loss, as a last attempt to make her reconnect with the past. The trip becomes a bittersweet reflection about identity, loss and the search for connection, questioning what remains when memories and places, cease to exist.', ar: ''},
+  },
+  {
+    title: 'Alone in Tehran',
+    director: 'Amen sahraei',
+    country: 'Iran',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316615/Alone_in_Tehran.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'During the Israeli attacks on Iran and the evacuation of Tehran, she had no choice but to stay behind. In a silenced, nearly abandoned city, with nothing but her phone, she began to record the final days that felt like the end of everything. This is a war diary, raw, fragmented, intimate, and real. It captures the dread and beauty of surviving through isolation, violence, and the haunting quietness of a vanishing world. Shot in the streets and indoors during the active conflict, this film is not only a testimony to survival, but to the act of documenting when all else collapses', ar: '' },
+  },
+{
+    title: 'Right, grandma?',
+    director: 'Orsolya Szitka',
+    country: 'Estonia, Hungary',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317322/Right_grandma.jpg',
+    // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
+    // uniquement pour respecter le type, à valider/corriger.
+    genre: 'fiction',
+    synopsis: { en: 'After months of avoiding the inevitable, Anna returns to her grandmother, paralyzed and voiceless after a stroke, able to communicate only through her eyes. In the silence between them, guilt and love slowly unravel, opening a fragile path toward reconnection.', ar: '' },
+  },
+  {
+    title: 'Right, grandma?',
+    director: 'Orsolya Szitka',
+    country: 'Estonia, Hungary',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317322/Right_grandma.jpg',
+    genre: 'fiction',
+    synopsis: { en: 'After months of avoiding the inevitable, Anna returns to her grandmother, paralyzed and voiceless after a stroke, able to communicate only through her eyes. In the silence between them, guilt and love slowly unravel, opening a fragile path toward reconnection.', ar: '' },
+  },
+
+   {
+    title: 'Before you gone',
+    director: 'Xie ChIa-Ping',
+    country: 'Taïwan',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317609/Before_you_gone.jpg',
+    genre: 'fiction',
+    synopsis: { en: 'Today, It’s a year after you gone, I sit in front of you and telling you about the past of our family , as well as my deepest longing and regrets for you. Emotions weave between memory and reality, leaving behind what was never spoken. 〈Before you gone〉 adopts a personal narrative approach, interweaving real imagery with hand-drawn animation to capture emotions that are difficult to document within memory.', ar: '' },
+  },
+   {
+    title: 'A Single Applause',
+    director: 'Maria Lapshina - Мария Лапшина',
+    country: 'Russie',
+    category: 'international',
+    day: 29,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317815/A_Single_Applause.jpg',
+    genre: 'fiction',
+    synopsis: { en: 'A father, worn down by the routine of everyday life, comes to a children’s play with his daughter and unexpectedly becomes part of the performance himself. He has no idea how profoundly this moment will change his life.', ar: '' },
+  },
+
+  ];
 
 /* ============================================================
    JURY
