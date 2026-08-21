@@ -37,7 +37,7 @@ export const FIFAK_2026_HERO_CONTENT: HeroContent = {
 
 export type ProgrammeCategory = 'ouverture' | 'national' | 'international' | 'hommage' ;
 
-export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation' | 'doc-animation';
+export type FilmGenre = 'fiction' | 'documentaire' | 'doc-fiction' | 'experimental' | 'doc-experimental' | 'animation' | 'doc-animation' | 'drama';
 
 export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   fiction: 'Fiction',
@@ -46,10 +46,9 @@ export const FILM_GENRE_LABELS: Record<FilmGenre, string> = {
   experimental: 'Expérimental',
   'doc-experimental': 'Doc/Expérimental',
   animation: 'Animation',
-  'doc-animation': 'Doc/Animation'
+  'doc-animation': 'Doc/Animation',
+  drama: 'Drame'
 
-  
-  
 };
 
 export interface ProgrammeFilmSynopsis {
@@ -936,6 +935,20 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     duree: '00:22:00',
     Prod: 'Prod - Association ',
     sousCategorie: 'Association Lina Ben Mhenni – École féministe Lina Ben Mhenni',
+    anneeProduction: 2025,
+  },
+   {
+    title: 'upshot',
+    director: 'Maha Haj',
+    country: 'Palestine',
+    category: 'ouverture',
+    day: 26,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787347800/upshot.jpg',
+    // Genre corrigé depuis la table de référence internationale ('Doc').
+    genre: 'drama',
+    synopsis: { en: 'Retiré du monde, la vie imaginaire soigneusement construite d un couple est mise en péril par un invité non invité qui dévoile une révélation dévastatrice sur leur passé, remettant en question leur délicate réalité', ar:''Z},
+    duree: '00:22:00',
+    Prod: 'Prod - Hannah Atallah, Ronza kamel  ',
     anneeProduction: 2025,
   },
   ];
