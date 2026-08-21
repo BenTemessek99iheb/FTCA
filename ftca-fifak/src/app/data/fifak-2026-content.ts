@@ -928,7 +928,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'international',
     day: 26,
-    posterUrl: '',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787353896/film_fas5.png',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'doc-animation',
     synopsis: { en: 'An artist s studio disappears. Artworks vanish. A single thread remains. F.S.K. (Erasure) begins with a simple question: Who was Tunisia s first female visual artist? Through a poetic investigation combining archival materials, 2D animation, live-action footage, and mixed-media textures, the film explores the erasure of women s names from the history of Tunisian visual art. Moving between memory and absence, it reflects on the mechanisms of forgetting while reclaiming fragments of a hidden artistic heritage.', ar: 'يختفي مرسم، وتختفي معه أعمال فنية، لكن يبقى خيط يقود رحلة بحث في الذاكرة. ينطلق فيلم "ف.س.خ" من سؤال: من هي أول فنانة تشكيلية تونسية؟ عبر رحلة تمزج بين الأرشيف، والرسوم المتحركة، والصورة الحية، والمواد المختلفة، يكشف الفيلم آليات محو الأسماء النسائية من تاريخ الفن التشكيلي التونسي، ويتأمل في الذاكرة بوصفها مساحة مقاومة للنسيان واستعادة للأثر.' },
