@@ -730,7 +730,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Mohammad Bakri',
     country: 'Palestine',
     category: 'ouverture',
-    day: 29,
+    day: 23,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787269074/le_monde_-_ouverture.jpg',
     // Aucun synopsis fourni -> genre non déductible, 'fiction' posé par défaut
     // uniquement pour respecter le type, à valider/corriger.
