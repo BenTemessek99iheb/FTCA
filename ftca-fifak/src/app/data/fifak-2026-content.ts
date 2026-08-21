@@ -946,7 +946,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787347800/upshot.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'drama',
-    synopsis: { en: 'Retiré du monde, la vie imaginaire soigneusement construite d un couple est mise en péril par un invité non invité qui dévoile une révélation dévastatrice sur leur passé, remettant en question leur délicate réalité', ar:''Z},
+    synopsis: { en: 'Retiré du monde, la vie imaginaire soigneusement construite d un couple est mise en péril par un invité non invité qui dévoile une révélation dévastatrice sur leur passé, remettant en question leur délicate réalité', ar: '' },
     duree: '00:22:00',
     Prod: 'Prod - Hannah Atallah, Ronza kamel  ',
     anneeProduction: 2025,
