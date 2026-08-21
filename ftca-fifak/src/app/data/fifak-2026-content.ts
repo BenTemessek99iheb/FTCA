@@ -78,7 +78,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     title: "El Comita/ the committee",
     director: 'Mouhamed Trabelsi',
     country: 'Tunisie',
-    category: 'ouverture',
+    category: 'national',
     day: 23,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243863/el_commita.jpg',
     genre: 'fiction',
@@ -269,7 +269,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Tunisie',
     category: 'national',
     day: 28,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243820/Sacrifi%C3%A9s_pour_nourrir_le_monde.jpg',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787271863/sacrificed_to_feed_the_world.jpg',
     genre: 'documentaire',
     synopsis: {
       en: 'Sacrificed to Feed the World tells the story of Gabès, a city in southern Tunisia that has endured decades of industrial pollution caused by the chemical complex. Through intimate testimonies and powerful imagery, the film reveals how pollution has reshaped everyday life, devastating the sea, contaminating agricultural land, and forcing local communities to pay the price with their health and livelihoods for an industry that produces fertilizers for the world.The documentary follows fishermen who have lost their sea, farmers whose land has been damaged, and families living with the growing burden of pollution-related illnesses and environmental degradation. Their stories paint a deeply human portrait of a community struggling to survive under the weight of environmental injustice. At the same time, the film highlights the unconventional forms of resistance led by Gabès youth. Turning culture into a tool of protest, they use rap music, graffiti art, and the chants of football ultras to challenge silence, reclaim public space, and amplify their fight for environmental justice. More than a film about pollution, Sacrificed to Feed the World is a story of resilience, creativity, and the determination of a community refusing to be sacrificed. It asks a fundamental question: who pays the price for feeding the world?',
