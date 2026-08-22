@@ -560,7 +560,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265253/ECHO.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'documentaire',
-    synopsis: { en: '', ar: '' },
+    synopsis: { en: 'A contemplative cinematic experience exploring silence, memory, and what remains of a dream.', ar: '' },
     // Source table gave "09:49:00" — interpreted as 9 min 49 sec.
     // Aucune année de production fournie pour ce film dans la table de référence.
     duree: '00:09:49',
@@ -605,7 +605,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787265988/The_Cause_Of_Water.jpg',
     // Genre corrigé depuis la table de référence internationale ('Animation').
     genre: 'animation',
-    synopsis: { en: 'the Cause of Water Synopsis The Cause of Water is a film about movement, connection and meditation. A man and woman connect, separate, and connect as they traverse environments and states.  An old couch is their vehicle.  Meditation and musing are the screen on which it all unfolds.', ar: '' },
+    synopsis: { en: 'The Cause of Water is a film about movement, connection and meditation. A man and woman connect, separate, and connect as they traverse environments and states.  An old couch is their vehicle.  Meditation and musing are the screen on which it all unfolds.', ar: '' },
     duree: '00:06:48',
     Prod: 'Prod - Indépendant',
     anneeProduction: 2026,
@@ -686,7 +686,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     anneeProduction: 2025,
   },
     {
-    title: 'Pruning',
+    title: 'Pruning / هوس',
     director: 'MOHAMMAD hemati',
     country: 'Iran',
     category: 'international',
@@ -721,10 +721,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Palestine',
     category: 'international',
     day: 24,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268815/Al-Mamadani_The_501st_Survivor.jpg',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787406985/al-hamdani.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'documentaire',
-    synopsis: { en: '.', ar: '' },
+    synopsis: { en: '"Al-Mamadani: The 501st Survivor" is a short documentary about Al-Ahli Baptist Hospital, a place of refuge that became a witness to profound tragedy. Through the story of Mohammad Qreqe, who used art and humor to bring moments of joy to children, the film explores a deeper meaning of survival. Here, survival is not merely staying alive, but finding moments of rest, peace, and emotional relief amid bombing, hunger, and displacement. Ultimately, the film is a reflection on human resilience and the power of hope and connection in the midst of devastation', ar: '' },
     duree: '00:09:10',
     Prod: 'Prod - Indépendant',
     anneeProduction: 2026,
@@ -761,20 +761,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     sousCategorie: 'Universidade Federal de Juiz de Fora',
     anneeProduction: 2026,
   },
-  {
-    title: 'Alone in Tehran',
-    director: 'Amen sahraei',
-    country: 'Iran',
-    category: 'international',
-    day: 27,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316615/Alone_in_Tehran.jpg',
-    // Genre corrigé depuis la table de référence internationale ('Doc').
-    genre: 'documentaire',
-    synopsis: { en: 'During the Israeli attacks on Iran and the evacuation of Tehran, she had no choice but to stay behind. In a silenced, nearly abandoned city, with nothing but her phone, she began to record the final days that felt like the end of everything. This is a war diary, raw, fragmented, intimate, and real. It captures the dread and beauty of surviving through isolation, violence, and the haunting quietness of a vanishing world. Shot in the streets and indoors during the active conflict, this film is not only a testimony to survival, but to the act of documenting when all else collapses', ar: '' },
-    duree: '00:14:50',
-    Prod: 'Prod - Indépendant',
-    anneeProduction: 2025,
-  },
+ 
 {
     title: 'Right, grandma?',
     director: 'Orsolya Szitka',
@@ -791,20 +778,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     sousCategorie: 'Film 48H',
     anneeProduction: 2025,
   },
-  {
-    title: 'Right, grandma?',
-    director: 'Orsolya Szitka',
-    country: 'Estonia, Hungary',
-    category: 'international',
-    day: 29,
-    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317322/Right_grandma.jpg',
-    genre: 'fiction',
-    synopsis: { en: 'After months of avoiding the inevitable, Anna returns to her grandmother, paralyzed and voiceless after a stroke, able to communicate only through her eyes. In the silence between them, guilt and love slowly unravel, opening a fragile path toward reconnection.', ar: '' },
-    duree: '00:10:32',
-    Prod: 'École',
-    sousCategorie: 'Film 48H',
-    anneeProduction: 2025,
-  },
+  
  
    {
     title: 'Before you gone',
@@ -815,7 +789,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317609/Before_you_gone.jpg',
     // Genre confirmé par la table de référence internationale ('Animation').
     genre: 'animation',
-    synopsis: { en: 'Today, It’s a year after you gone, I sit in front of you and telling you about the past of our family , as well as my deepest longing and regrets for you. Emotions weave between memory and reality, leaving behind what was never spoken. 〈Before you gone〉 adopts a personal narrative approach, interweaving real imagery with hand-drawn animation to capture emotions that are difficult to document within memory.', ar: '' },
+    synopsis: { en: 'Today, It s a year after you gone, I sit in front of you and telling you about the past of our family , as well as my deepest longing and regrets for you. Emotions weave between memory and reality, leaving behind what was never spoken. Before you gone adopts a personal narrative approach, interweaving real imagery with hand-drawn animation to capture emotions that are difficult to document within memory.', ar: '' },
     duree: '00:08:16',
     Prod: 'École',
     sousCategorie: 'Tainan National University of the Arts',
@@ -890,14 +864,14 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787341757/Intense.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'fiction',
-    synopsis: { en: 'Un adolescent de 19 ans se retrouve confronté à une situation qui l’amène à rencontrer une étrange créature, le plongeant dans une expérience intense jusqu’à ce qu’il trouve un moyen d’en sortir.', ar: '' },
+    synopsis: { en: 'A 19-year-old teenager is confronted with a situation that leads him to encounter a strange creature, plunging him into an intense experience until he finds a way out.', ar: '' },
     duree: '00:14:41',
     Prod: 'Prod - FTCA ',
     sousCategorie: 'FTCA Beb Laasal',
     anneeProduction: 2026,
   },
  {
-    title: 'A Mother’s Love ',
+    title: 'A Mother s Love ',
     director: 'Sian Ivainesu Mwamuka, Tanaka Maxwell Chembezi',
     country: 'Zimbabwe',
     category: 'international',
