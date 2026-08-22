@@ -147,7 +147,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Bassem Belgacem jebahi',
     country: 'Tunisie',
     category: 'national',
-    day: 28,
+    day: 25,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243847/%D9%A2%D9%A0_%D9%8A%D9%88%D9%85%D9%8B%D8%A7_%D8%A8%D8%AA%D9%88%D9%82%D9%8A%D8%AA_%D8%A8%D9%88%D8%B2%D9%88%D9%8A%D8%AF%D8%A920_days_in_bouzouida_time.png',
     genre: 'documentaire',
     synopsis: {
@@ -463,7 +463,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787243819/Monad.jpg',
     genre: 'experimental',
-    synopsis: { en: 'À compléter par la FTCA', ar: '' },
+    synopsis: { en: 'Fida, immersed in her subconscious after a trauma, she faces an authoritarian figure that represents the memory and the pain, in a world where reality, identity and suffering are intertwined', ar: '' },
     duree: '00:11:31',
     Prod: 'École',
     sousCategorie: 'ISAMM',
@@ -690,7 +690,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'MOHAMMAD hemati',
     country: 'Iran',
     category: 'international',
-    day: 29,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787268632/pruning.jpg',
     // Genre confirmé par la table de référence internationale ('Fiction').
     genre: 'fiction',
@@ -785,7 +785,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Xie ChIa-Ping',
     country: 'Taïwan',
     category: 'international',
-    day: 29,
+    day: 28,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317609/Before_you_gone.jpg',
     // Genre confirmé par la table de référence internationale ('Animation').
     genre: 'animation',
@@ -800,7 +800,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Maria Lapshina - Мария Лапшина',
     country: 'Russie',
     category: 'international',
-    day: 29,
+    day: 26,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787317815/A_Single_Applause.jpg',
     // Genre confirmé par la table de référence internationale ('fiction').
     genre: 'fiction',
@@ -829,7 +829,7 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     director: 'Youssef Ghariani',
     country: 'Tunisie',
     category: 'international',
-    day: 24,
+    day: 25 ,
     posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787341480/karni_l_3ayla.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'fiction',
@@ -925,6 +925,20 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     synopsis: { en: 'Retiré du monde, la vie imaginaire soigneusement construite d un couple est mise en péril par un invité non invité qui dévoile une révélation dévastatrice sur leur passé, remettant en question leur délicate réalité', ar: '' },
     duree: '00:34:00',
     Prod: 'Prod - Hannah Atallah, Ronza kamel  ',
+    anneeProduction: 2025,
+  },
+  
+   {
+    title: 'Alone in Tehran',
+    director: 'Amen Sahraei',
+    country: 'Iran',
+    category: 'ouverture',
+    day: 23,
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787316615/Alone_in_Tehran.jpg',
+    genre: 'doc-experimental',
+    synopsis: { en: 'During the Israeli attacks on Iran and the evacuation of Tehran, she had no choice but to stay behind. In a silenced, nearly abandoned city, with nothing but her phone, she began to record the final days that felt like the end of everything. This is a war diary, raw, fragmented, intimate, and real. It captures the dread and beauty of surviving through isolation, violence, and the haunting quietness of a vanishing world. Shot in the streets and indoors during the active conflict, this film is not only a testimony to survival, but to the act of documenting when all else collapses.', ar: '' },
+    duree: '00:14:55',
+    Prod: 'Prod - independant', 
     anneeProduction: 2025,
   },
   ];
