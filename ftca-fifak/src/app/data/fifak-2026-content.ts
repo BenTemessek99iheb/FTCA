@@ -902,10 +902,10 @@ export const PROGRAMME_FILMS: ProgrammeFilm[] = [
     country: 'Zimbabwe',
     category: 'international',
     day: 28,
-    posterUrl: '',
+    posterUrl: 'https://res.cloudinary.com/ykjb5rh5/image/upload/v1787357297/A_MOTHER_S_LOVE-poster.jpg',
     // Genre corrigé depuis la table de référence internationale ('Doc').
     genre: 'documentaire',
-    synopsis: { en: '.', ar: '' },
+    synopsis: { en: 'A poetic, dual-time observational documentary that juxtaposes a rural Zimbabwean mother s daily routines with her son s memories, honouring the quiet labour that defines motherhood. ', ar: '' },
     duree: '00:05:39',
     Prod: 'Prod - Indépendant ',
     anneeProduction: 2026,
