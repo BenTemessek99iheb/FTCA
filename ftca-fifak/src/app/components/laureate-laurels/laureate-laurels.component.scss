@@ -1,0 +1,47 @@
+/* ============================================================
+   LAUREATE LAURELS — logo FTCA (au-dessus) + couronne assets/laureat.png
+   'lg' (défaut) : carte lauréat standard — 'sm' : bandeau prix du modal film
+   ============================================================ */
+
+.laurels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.laurels__logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.laurels__wreath {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+.laurels--sm {
+  gap: 8px;
+
+  .laurels__logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .laurels__wreath {
+    width: 56px;
+  }
+}
+
+.laurels--xl {
+  .laurels__logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .laurels__wreath {
+    width: 128px;
+  }
+}

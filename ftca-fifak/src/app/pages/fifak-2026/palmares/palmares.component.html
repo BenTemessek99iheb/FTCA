@@ -1,0 +1,30 @@
+<section class="sec-palmares" id="palmares">
+  <div class="wrap">
+    <div class="shead reveal" appRevealOnScroll>
+      <span class="eyebrow">Palmarès</span>
+      <h2>Les lauréats de l'édition 2026</h2>
+      <p>Le jury a délibéré : voici les films récompensés de la 39ᵉ édition, entre compétition internationale, compétition nationale et prix parallèles.</p>
+    </div>
+
+    <div class="palmares-group reveal" appRevealOnScroll>
+      <div class="palmares-group__label"><h3>Compétition Internationale</h3></div>
+      <div class="palmares-grid">
+        <app-laureate-certificate *ngFor="let film of internationalAwards" [film]="film"></app-laureate-certificate>
+      </div>
+    </div>
+
+    <div class="palmares-group reveal" appRevealOnScroll>
+      <div class="palmares-group__label"><h3>Compétition Nationale</h3></div>
+      <div class="palmares-grid">
+        <app-laureate-certificate *ngFor="let film of nationalAwards" [film]="film"></app-laureate-certificate>
+      </div>
+    </div>
+
+    <div class="palmares-group reveal" appRevealOnScroll>
+      <div class="palmares-group__label"><h3>Prix Parallèles</h3></div>
+      <div class="palmares-grid">
+        <app-laureate-certificate *ngFor="let film of sidebarAwards" [film]="film"></app-laureate-certificate>
+      </div>
+    </div>
+  </div>
+</section>

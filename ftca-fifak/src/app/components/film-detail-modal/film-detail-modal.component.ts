@@ -14,6 +14,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProgrammeFilm, PROGRAMME_CATEGORY_LABELS, FILM_GENRE_LABELS } from '../../data/fifak-2026-content';
+import { LaureateLaurelsComponent } from '../laureate-laurels/laureate-laurels.component';
 
 const CLOSE_ANIMATION_MS = 220;
 const FOCUSABLE_SELECTOR =
@@ -27,13 +28,15 @@ const FOCUSABLE_SELECTOR =
 @Component({
   selector: 'app-film-detail-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LaureateLaurelsComponent],
   templateUrl: './film-detail-modal.component.html',
   styleUrls: ['./film-detail-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilmDetailModalComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input({ required: true }) film!: ProgrammeFilm;
+  /** Quand renseigné (ouverture depuis le palmarès), affiche le bandeau lauriers + nom du prix en tête de modal */
+  @Input() prizeLabel?: string;
   @Output() close = new EventEmitter<void>();
 
   @ViewChild('panel') private panelRef?: ElementRef<HTMLElement>;

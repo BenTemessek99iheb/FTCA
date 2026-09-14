@@ -1,0 +1,48 @@
+/* ============================================================
+   PALMARÈS — compétition internationale, nationale, prix parallèles
+   ============================================================ */
+
+.sec-palmares {
+  padding: 0 0 140px;
+}
+
+.palmares-group {
+  margin-bottom: 80px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.palmares-group__label {
+  margin-bottom: 32px;
+
+  h3 {
+    font-size: 22px;
+  }
+}
+
+.palmares-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 24px;
+}
+
+@media (max-width: 1080px) {
+  .palmares-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .palmares-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .palmares-grid {
+    grid-template-columns: 1fr;
+  }
+}

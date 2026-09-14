@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Write-Host \"=== fifak-2026 dirs in src ===\"; Get-ChildItem -Path \"C:\\\\Users\\\\iheb\\\\Documents\\\\GitHub\\\\FTCA\\\\ftca-fifak\\\\src\" -Recurse -Directory -Force | Where-Object { $_.FullName -match \"fifak\" } | Select-Object FullName | Format-Table -AutoSize -Wrap)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\iheb\\\\Documents\\\\GitHub\\\\FTCA\" -Recurse -Filter \"SKILL.md\" -Force -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch 'node_modules' } | Select-Object FullName)",
+      "PowerShell(Get-Command chromium-cli -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command npx -ErrorAction SilentlyContinue)"
+    ]
+  }
+}

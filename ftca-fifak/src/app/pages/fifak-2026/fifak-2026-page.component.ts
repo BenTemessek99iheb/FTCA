@@ -5,6 +5,7 @@ import { HeroComponent } from '../../components/hero/hero.component';
 import { ProgrammeSectionComponent } from './programme-section/programme-section.component';
 import { JurySectionComponent } from './jury-section/jury-section.component';
 import { NashriyaSectionComponent } from './nashriya-section/nashriya-section.component';
+import { PalmaresComponent } from './palmares/palmares.component';
 import { FIFAK_2026_HERO_CONTENT } from '../../data/fifak-2026-content';
 
 @Component({
@@ -16,6 +17,7 @@ import { FIFAK_2026_HERO_CONTENT } from '../../data/fifak-2026-content';
     ProgrammeSectionComponent,
     JurySectionComponent,
     NashriyaSectionComponent,
+    PalmaresComponent,
   ],
   templateUrl: './fifak-2026-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,5 +30,6 @@ export class Fifak2026PageComponent {
     { id: 'programme', label: '02' },
     { id: 'jury', label: '03' },
     { id: 'nashriya', label: '04' },
+    { id: 'palmares', label: '05' },
   ];
 }

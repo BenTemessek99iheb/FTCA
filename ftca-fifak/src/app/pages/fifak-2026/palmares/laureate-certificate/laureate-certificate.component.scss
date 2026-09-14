@@ -1,0 +1,83 @@
+/* ============================================================
+   LAUREATE CERTIFICATE — pas de panneau propre, s'intègre au fond de la
+   section (--noir/--panneau, voir _tokens.scss). Seule la catégorie du prix
+   est cliquable (bouton) ; le reste est informatif.
+   ============================================================ */
+
+.laureate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 8px 12px;
+  transition: transform 0.3s var(--ease);
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.laureate--featured {
+  grid-column: span 2;
+  gap: 16px;
+  padding: 16px 12px;
+
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
+}
+
+.laureate__category {
+  font-family: var(--impact);
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rouge-vif);
+  line-height: 1.25;
+  cursor: pointer;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--blanc);
+    border-bottom-color: var(--rouge-vif);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--rouge-vif);
+    outline-offset: 4px;
+  }
+}
+
+.laureate--featured .laureate__category {
+  font-size: 27px;
+}
+
+.laureate__details {
+  min-width: 0;
+}
+
+.laureate__title {
+  font-family: var(--corps);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blanc);
+}
+
+.laureate--featured .laureate__title {
+  font-size: 18px;
+}
+
+.laureate__director {
+  margin-top: 4px;
+  font-family: var(--corps);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}

@@ -1,0 +1,24 @@
+<article class="laureate" [class.laureate--featured]="isFeatured">
+  <app-laureate-laurels [size]="isFeatured ? 'xl' : 'lg'"></app-laureate-laurels>
+
+  <button
+    type="button"
+    class="laureate__category"
+    (click)="openDetail()"
+    [attr.aria-label]="'Voir les détails — ' + categoryLabel + ' — ' + film.title"
+  >
+    {{ categoryLabel }}
+  </button>
+
+  <div class="laureate__details">
+    <p class="laureate__title">{{ film.title }}</p>
+    <p class="laureate__director">{{ film.director }}</p>
+  </div>
+</article>
+
+<app-film-detail-modal
+  *ngIf="detailOpen()"
+  [film]="film.programmeFilm"
+  [prizeLabel]="categoryLabel"
+  (close)="closeDetail()"
+></app-film-detail-modal>

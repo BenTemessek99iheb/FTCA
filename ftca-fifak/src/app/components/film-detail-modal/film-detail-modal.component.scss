@@ -117,6 +117,20 @@
   min-width: 0;
 }
 
+.fdm-prize {
+  text-align: center;
+  padding-bottom: 4px;
+}
+
+.fdm-prize__label {
+  margin-top: 6px;
+  font-family: var(--impact);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rouge-vif);
+}
+
 .fdm-badges {
   display: flex;
   gap: 8px;
