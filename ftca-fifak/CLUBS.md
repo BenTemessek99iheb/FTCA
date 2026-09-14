@@ -85,13 +85,16 @@ site (`getProgrammeFilms()`, `getPalmaresFilms()`...).
   de cache dédié pour ce cas — le fichier reste raisonnablement petit
   (~450 Ko) et le cache HTTP du navigateur atténue déjà en partie le coût
   d'un second fetch.
-- **Un gouvernorat peut porter plusieurs clubs** (Tunis : Beb Laasal, Tahar
-  Haddad, Tunis Nord) : `club-popup` liste tous les clubs du gouvernorat
+- **Un gouvernorat peut porter plusieurs clubs** (Tunis : Taher Hadded, Bab
+  Laasal, Tunis Nord, Sidi Hassine, Bardo ; Nabeul : Kélibia, Hammam el
+  Ghzez, Korba, Hammamet) : `club-popup` liste tous les clubs du gouvernorat
   cliqué, chacun avec son propre bouton "Join Us".
-- **Djerba n'est pas un gouvernorat dans `tn.svg`** (c'est une délégation de
-  Médenine) : le club Djerba a `city: 'Djerba'` (affiché) mais
-  `region: 'Médenine'` (pour le rattachement carte/clic) — voir le
-  commentaire sur `Club.region` dans `clubs-content.ts`.
+- **Certaines villes ne sont pas leur propre gouvernorat dans `tn.svg`** —
+  ex. Mégrine et Hammam Lif sont administrativement dans le gouvernorat de
+  Ben Arous, pas Tunis : `city`/`location` gardent le libellé usuel (affiché,
+  peut dire "Tunis" par usage courant) mais `region` porte le vrai
+  gouvernorat pour que le marqueur tombe au bon endroit sur la carte — voir
+  le commentaire sur `Club.region` dans `clubs-content.ts`.
 
 ## Partager un club (Facebook, Instagram)
 
@@ -220,15 +223,19 @@ perte de saisie) pour un vrai échec réseau une fois le backend branché.
 
 ## Compléter les infos d'un club
 
-`name`/`city` sont repris quand ils existaient déjà ailleurs dans le projet
-(voir `sousCategorie`/`Prod` dans `data/fifak-2026-content.ts` — ex. "FTCA
-Beb Laasal", "Club FTCA Tahar Haddad"). `description`, `location` et
-`members` sont volontairement génériques/absents pour les clubs sans
-information déjà confirmée dans le projet — **ne pas inventer une adresse ou
-un nombre de membres précis** pour un club réel : compléter
-`clubs-content.ts` avec les vraies informations quand elles seront
-disponibles. `members` est optionnel et n'est affiché dans `club-popup` que
-s'il est renseigné.
+Les 18 clubs de `CLUBS` (`clubs-content.ts`) et leurs `location` viennent de
+la liste fournie par la Fédération, en deux temps — ce ne sont pas des
+villes génériques "un club par gouvernorat" inventées. Sousse/Sfax/Djerba
+restent absentes faute de club réel confirmé à ces localités ; les ajouter
+dès que la Fédération les confirme, avec les mêmes informations que les
+autres (voir "Ajouter une ville/un club" plus bas).
+
+`description` reste une phrase générique dérivée de `location` (pas de texte
+de présentation propre à chaque club) et `members` reste absent partout —
+**ne pas inventer un nombre de membres précis** ni un descriptif détaillé
+pour un club réel : les compléter dans `clubs-content.ts` quand la
+Fédération fournit ces informations. `members` est optionnel et n'est
+affiché dans `club-popup` que s'il est renseigné.
 
 ## Ajouter une ville/un club
 
@@ -240,7 +247,7 @@ s'il est renseigné.
 2. Rien d'autre à toucher : le marqueur se positionne automatiquement sur le
    point d'étiquette du gouvernorat, et la route `/inscription?club=<id>`
    fonctionne pour tout `id` présent dans `CLUBS`.
-3. Ville hors des 24 gouvernorats de `tn.svg` (rare — la plupart des
+3. Ville hors des 24 gouvernorats de `tn.svg` (fréquent — la plupart des
    délégations tunisiennes ne sont pas leurs propres formes dans ce fichier,
-   voir Djerba/Médenine ci-dessus) : rattacher `region` au gouvernorat parent
-   réel, garder `city` pour l'affichage précis.
+   voir Mégrine/Hammam Lif → Ben Arous ci-dessus) : rattacher `region` au
+   gouvernorat parent réel, garder `city`/`location` pour l'affichage précis.
