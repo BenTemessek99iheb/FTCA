@@ -162,6 +162,24 @@
   transform: translateY(0);
 }
 
+.clubs-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--blanc);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+
+  &:hover {
+    background: rgba(232, 21, 60, 0.15);
+    color: var(--rouge-vif);
+  }
+}
+
 .burger {
   display: none;
   width: 44px;

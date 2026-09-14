@@ -1,0 +1,177 @@
+/* ============================================================
+   INSCRIPTION — formulaire de rejoindre un club FTCA
+   ============================================================ */
+
+.inscription-page {
+  padding: calc(var(--nav-safe-top) + 40px) 0 140px;
+  min-height: 70vh;
+}
+
+.inscription-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 40px;
+  transition: color 0.25s var(--ease);
+
+  &:hover {
+    color: var(--blanc);
+  }
+}
+
+.inscription-page .shead {
+  max-width: 620px;
+}
+
+.inscription-form {
+  max-width: 560px;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.inscription-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inscription-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+
+  label,
+  .inscription-form__label-text {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gris);
+  }
+
+  input,
+  textarea {
+    padding: 13px 2px;
+    font-family: var(--corps);
+    font-size: 15px;
+    color: var(--blanc);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ligne);
+    transition: border-color 0.25s var(--ease);
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--rouge-vif);
+    }
+
+    &:disabled {
+      color: var(--gris);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.5;
+  }
+
+  /* Date natif : force le calendrier/texte en blanc, sinon illisible sur fond sombre */
+  input[type='date'] {
+    color-scheme: dark;
+  }
+}
+
+.inscription-form__radios {
+  display: flex;
+  gap: 24px;
+  padding-top: 4px;
+}
+
+.inscription-form__radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--corps);
+  font-size: 14px;
+  color: var(--blanc);
+  cursor: pointer;
+
+  /* Réinitialise le style "champ texte" hérité de .inscription-form__field input
+     (padding, bordure, background) — un radio n'a pas la même forme. */
+  input[type='radio'] {
+    padding: 0;
+    border: none;
+    background: none;
+    accent-color: var(--rouge-vif);
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+}
+
+.inscription-form__hint {
+  font-size: 11.5px;
+  color: var(--gris);
+}
+
+.inscription-form__error {
+  font-size: 12px;
+  color: var(--rouge-vif);
+}
+
+.inscription-form__submit-error {
+  font-size: 13px;
+  color: var(--rouge-vif);
+  padding: 12px 14px;
+  border: 1px solid rgba(232, 21, 60, 0.4);
+  background: rgba(232, 21, 60, 0.08);
+}
+
+.inscription-form__submit {
+  margin-top: 10px;
+  align-self: flex-start;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.inscription-success {
+  max-width: 480px;
+  margin-top: 48px;
+
+  i {
+    font-size: 34px;
+    color: var(--rouge-vif);
+  }
+
+  h2 {
+    margin-top: 18px;
+    font-size: 26px;
+  }
+
+  p {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gris);
+  }
+
+  .btn {
+    margin-top: 26px;
+  }
+}

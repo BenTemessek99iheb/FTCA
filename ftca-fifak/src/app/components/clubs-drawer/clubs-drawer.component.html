@@ -1,0 +1,30 @@
+<div class="clubs-drawer" [class.is-open]="isOpen" [attr.aria-hidden]="!isOpen">
+  <div class="clubs-drawer__backdrop" (click)="requestClose()"></div>
+
+  <aside class="clubs-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="clubs-drawer-title">
+    <button type="button" class="clubs-drawer__close" (click)="requestClose()" aria-label="Fermer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="clubs-drawer__head">
+      <span class="eyebrow">Nos clubs</span>
+      <h3 id="clubs-drawer-title">Trouvez un club FTCA</h3>
+      <p>Cliquez sur un gouvernorat pour découvrir le ou les clubs actifs et rejoindre l'aventure.</p>
+    </div>
+
+    <app-tunisia-map
+      *ngIf="mapLoaded()"
+      [clubs]="clubs"
+      [activeRegion]="selectedRegion()"
+      (regionSelected)="onRegionSelected($event)"
+    ></app-tunisia-map>
+  </aside>
+</div>
+
+<app-club-popup
+  *ngIf="selectedRegion() as region"
+  [region]="region"
+  [clubs]="clubsForSelectedRegion"
+  (close)="closePopup()"
+  (join)="requestClose()"
+></app-club-popup>

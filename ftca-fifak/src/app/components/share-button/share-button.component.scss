@@ -1,0 +1,95 @@
+/* ============================================================
+   SHARE BUTTON — petit bouton partager réutilisable (club-popup, etc.)
+   ============================================================ */
+
+.share-button {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.share-button__trigger {
+  width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ligne);
+  color: var(--blanc);
+  font-size: 15px;
+  border-radius: 2px;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--rouge-vif);
+    background: rgba(232, 21, 60, 0.1);
+    color: var(--rouge-vif);
+  }
+}
+
+.share-button__menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  min-width: 190px;
+  padding: 6px;
+  background: rgba(19, 17, 16, 0.98);
+  border: 1px solid var(--ligne);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  animation: share-menu-in 0.2s var(--ease);
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blanc);
+    text-align: left;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+
+    i {
+      width: 16px;
+      text-align: center;
+      color: var(--rouge-vif);
+    }
+
+    &:hover {
+      background: rgba(232, 21, 60, 0.1);
+    }
+  }
+}
+
+@keyframes share-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.share-button__feedback {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blanc);
+  background: var(--rouge-vif);
+  z-index: 10;
+  animation: share-menu-in 0.2s var(--ease);
+
+  @media (max-width: 400px) {
+    white-space: normal;
+    max-width: 220px;
+  }
+}

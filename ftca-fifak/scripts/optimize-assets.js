@@ -41,6 +41,9 @@ const TARGETS = {
   'fifak.jpg': { maxWidth: 1200, quality: 68 },
   'kelibia-port.jpg': { maxWidth: 1600, quality: 78 },
   'ftca_logo.JPG': { maxWidth: 1200, quality: 80 },
+  // Couronne de lauriers (laureate-laurels) : affichée à 30-128px CSS max,
+  // 400px couvre le rétina @3x confortablement.
+  'laureat.png': { maxWidth: 400, quality: 90 },
 };
 
 function fmtKb(bytes) {

@@ -4,6 +4,28 @@
   <meta charset="utf-8">
   <title>FTCA — Fédération Tunisienne des Cinéastes Amateurs</title>
   <meta name="description" content="FTCA — Fédération Tunisienne des Cinéastes Amateurs. Organisatrice du FIFAK, Festival International des Films Amateurs de Kélibia.">
+
+  <!-- Open Graph / Twitter Card — statiques et communs à tout le site : pas
+       de SSR/prerendering ici (build 100% statique, voir DEPLOYMENT.md), donc
+       pas d'aperçu dynamique par page (ex: nom du club sur un lien
+       /inscription?club=...) sans changement d'architecture plus lourd que
+       "ajouter un bouton partager". og:url volontairement omis : une valeur
+       figée sur la page d'accueil aurait pu faire pointer un lien partagé
+       (ex: /inscription?club=...) vers autre chose que sa vraie destination
+       une fois "dépliée" par Facebook/WhatsApp. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FTCA — Fédération Tunisienne des Cinéastes Amateurs">
+  <meta property="og:title" content="FTCA — Fédération Tunisienne des Cinéastes Amateurs">
+  <meta property="og:description" content="Organisatrice du FIFAK, Festival International des Films Amateurs de Kélibia. Rejoignez un club de cinéastes amateurs près de chez vous.">
+  <meta property="og:image" content="https://res.cloudinary.com/ykjb5rh5/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill,g_auto/assets/wallp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FTCA — Fédération Tunisienne des Cinéastes Amateurs">
+  <meta name="twitter:description" content="Organisatrice du FIFAK, Festival International des Films Amateurs de Kélibia. Rejoignez un club de cinéastes amateurs près de chez vous.">
+  <meta name="twitter:image" content="https://res.cloudinary.com/ykjb5rh5/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill,g_auto/assets/wallp">
+
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">

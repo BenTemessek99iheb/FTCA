@@ -1,0 +1,153 @@
+/* ============================================================
+   CLUB POPUP — un ou plusieurs clubs d'une ville, ouverte au clic sur un
+   marqueur de app-tunisia-map. Même patron d'animation que film-detail-modal.
+   ============================================================ */
+
+.cp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 9, 8, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: cp-backdrop-in 0.25s var(--ease);
+
+  &.is-closing {
+    animation: cp-backdrop-out 0.2s var(--ease) forwards;
+  }
+}
+
+@keyframes cp-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cp-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.cp-panel {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--panneau);
+  border: 1px solid var(--ligne);
+  padding: 32px 28px;
+  outline: none;
+  animation: cp-panel-in 0.3s var(--ease);
+
+  &.is-closing {
+    animation: cp-panel-out 0.2s var(--ease) forwards;
+  }
+}
+
+@keyframes cp-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cp-panel-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+
+.cp-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 8, 0.4);
+  color: var(--blanc);
+  font-size: 14px;
+  border-radius: 50%;
+  transition: background 0.25s var(--ease);
+
+  &:hover {
+    background: var(--rouge-vif);
+  }
+}
+
+.cp-city {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cp-club {
+  padding-top: 18px;
+  border-top: 1px solid var(--ligne);
+
+  &:first-of-type {
+    padding-top: 0;
+    border-top: none;
+  }
+
+  h4 {
+    font-family: var(--corps);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blanc);
+  }
+}
+
+.cp-club__desc {
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--gris);
+}
+
+.cp-club__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--gris);
+
+  i {
+    color: var(--rouge-vif);
+    margin-right: 4px;
+  }
+}
+
+.cp-club__actions {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cp-club__join {
+  flex: 1;
+  justify-content: center;
+}

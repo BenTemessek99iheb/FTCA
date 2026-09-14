@@ -1,0 +1,91 @@
+/* ============================================================
+   TUNISIA MAP — assets/tn.svg (24 gouvernorats réels) injecté en DOM.
+   ViewEncapsulation.None sur le composant (voir tunisia-map.component.ts) :
+   ce fichier est du CSS global, tout est namespacé sous .tunisia-map.
+   ============================================================ */
+
+/* Pas de max-width ici : le composant remplit son conteneur, chaque
+   consommateur (clubs-drawer vs clubs-page) fixe sa propre taille via un
+   wrapper — c'est ce qui permet de le réutiliser "plus grand" ailleurs sans
+   toucher à tunisia-map lui-même. */
+.tunisia-map {
+  width: 100%;
+  margin: 0 auto;
+  perspective: 900px;
+}
+
+.tunisia-map__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  transition: transform 0.35s var(--ease);
+  transform-style: preserve-3d;
+}
+
+.tunisia-map__svg-host {
+  width: 100%;
+  height: 100%;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Chaque gouvernorat : survolable + nommé (<title>) — voir wireUpRegions() */
+.tunisia-map__region {
+  fill: var(--panneau-2);
+  stroke: rgba(244, 239, 230, 0.25);
+  stroke-width: 1.2;
+  transition: fill 0.25s var(--ease), stroke 0.25s var(--ease);
+}
+
+.tunisia-map__region:hover {
+  fill: var(--panneau);
+}
+
+/* Gouvernorats portant au moins un club — cliquables (role="button") */
+.tunisia-map__region--active {
+  cursor: pointer;
+  fill: rgba(232, 21, 60, 0.14);
+
+  &:hover,
+  &:focus-visible {
+    fill: rgba(232, 21, 60, 0.28);
+    stroke: rgba(232, 21, 60, 0.5);
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.tunisia-map__region--selected {
+  fill: rgba(232, 21, 60, 0.4) !important;
+  stroke: var(--rouge-vif) !important;
+}
+
+.tunisia-map__marker {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rouge-vif);
+  box-shadow: 0 0 0 3px rgba(232, 21, 60, 0.22);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.tunisia-map__marker.is-active {
+  transform: translate(-50%, -50%) scale(1.7);
+  background: var(--blanc);
+  box-shadow: 0 0 0 6px rgba(244, 239, 230, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tunisia-map__stage {
+    transition: none;
+  }
+}

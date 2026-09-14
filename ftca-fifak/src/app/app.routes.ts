@@ -18,4 +18,15 @@ export const routes: Routes = [
       import('./pages/fifak-2026/programme-page/programme-page.component').then((m) => m.ProgrammePageComponent),
     title: 'Programme complet — FIFAK 2026 | FTCA',
   },
+  {
+    path: 'clubs',
+    loadComponent: () => import('./pages/clubs/clubs-page.component').then((m) => m.ClubsPageComponent),
+    title: 'Nos clubs — FTCA',
+  },
+  {
+    path: 'inscription',
+    loadComponent: () =>
+      import('./pages/inscription/inscription-page.component').then((m) => m.InscriptionPageComponent),
+    title: 'Rejoindre un club — FTCA',
+  },
 ];

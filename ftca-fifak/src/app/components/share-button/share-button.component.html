@@ -1,0 +1,26 @@
+<div class="share-button">
+  <button
+    type="button"
+    class="share-button__trigger"
+    (click)="onTriggerClick()"
+    [attr.aria-expanded]="canShareNatively ? null : menuOpen()"
+    aria-label="Partager"
+    title="Partager"
+  >
+    <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+  </button>
+
+  <div class="share-button__menu" *ngIf="menuOpen()" role="menu">
+    <button type="button" role="menuitem" (click)="shareFacebook()">
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
+    </button>
+    <button type="button" role="menuitem" (click)="shareInstagram()">
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+    </button>
+    <button type="button" role="menuitem" (click)="copyLink()">
+      <i class="fa-solid fa-link" aria-hidden="true"></i> Copier le lien
+    </button>
+  </div>
+
+  <div class="share-button__feedback" *ngIf="feedback() as msg" role="status">{{ msg }}</div>
+</div>

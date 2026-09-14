@@ -1,0 +1,25 @@
+<section class="clubs-page">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Nos clubs</span>
+      <h1>Trouvez un club FTCA</h1>
+      <p>Cliquez sur un gouvernorat pour découvrir le ou les clubs actifs et rejoindre l'aventure.</p>
+    </div>
+
+    <div class="clubs-page__map">
+      <app-tunisia-map
+        [clubs]="clubs"
+        [activeRegion]="selectedRegion()"
+        (regionSelected)="onRegionSelected($event)"
+      ></app-tunisia-map>
+    </div>
+  </div>
+</section>
+
+<app-club-popup
+  *ngIf="selectedRegion() as region"
+  [region]="region"
+  [clubs]="clubsForSelectedRegion"
+  (close)="closePopup()"
+  (join)="closePopup()"
+></app-club-popup>

@@ -1,0 +1,40 @@
+<div class="cp-backdrop" [class.is-closing]="closing()" (click)="onBackdropClick()">
+  <div
+    #panel
+    class="cp-panel"
+    [class.is-closing]="closing()"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cp-title"
+    tabindex="-1"
+    (click)="$event.stopPropagation()"
+  >
+    <button type="button" class="cp-close" (click)="requestClose()" aria-label="Fermer">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <h3 id="cp-title" class="cp-city">{{ region }}</h3>
+
+    <div class="cp-club" *ngFor="let club of clubs">
+      <h4>{{ club.name }}</h4>
+      <p class="cp-club__desc">{{ club.description }}</p>
+
+      <div class="cp-club__meta">
+        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{ club.location }}</span>
+        <span *ngIf="club.members as m"><i class="fa-solid fa-user-group" aria-hidden="true"></i> {{ m }} membres</span>
+      </div>
+
+      <div class="cp-club__actions">
+        <a
+          class="btn btn--solid cp-club__join"
+          [routerLink]="['/inscription']"
+          [queryParams]="{ club: club.id }"
+          (click)="join.emit()"
+        >
+          Join Us <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <app-share-button [url]="shareUrl(club)" [title]="club.name" [text]="shareText(club)"></app-share-button>
+      </div>
+    </div>
+  </div>
+</div>

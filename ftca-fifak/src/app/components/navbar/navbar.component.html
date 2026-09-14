@@ -32,6 +32,9 @@
         </div>
       </div>
       <div class="nav__item">
+        <a routerLink="/clubs" class="nav__link">Clubs</a>
+      </div>
+      <div class="nav__item">
         <a routerLink="/" fragment="articles" class="nav__link">Articles</a>
       </div>
       <div class="nav__item">
@@ -41,6 +44,15 @@
 
     <div class="nav__actions">
       <a routerLink="/fifak-2026" class="btn btn--ghost-light">FIFAK 2026</a>
+      <button
+        type="button"
+        class="clubs-trigger"
+        (click)="openClubsDrawer()"
+        aria-label="Trouver un club FTCA"
+        [attr.aria-expanded]="isClubsDrawerOpen"
+      >
+        <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+      </button>
       <button
         class="burger"
         [class.is-open]="isMobileMenuOpen"
@@ -55,3 +67,4 @@
 </header>
 
 <app-mobile-menu [isOpen]="isMobileMenuOpen" (close)="closeMobileMenu()"></app-mobile-menu>
+<app-clubs-drawer [isOpen]="isClubsDrawerOpen" (close)="closeClubsDrawer()"></app-clubs-drawer>

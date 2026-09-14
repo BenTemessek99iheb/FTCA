@@ -1,0 +1,14 @@
+<div class="tunisia-map" #outer (mousemove)="onMouseMove($event, outer)" (mouseleave)="resetTilt()">
+  <div class="tunisia-map__stage" [style.transform]="tiltTransform">
+    <div #mapHost class="tunisia-map__svg-host" [innerHTML]="svgHtml"></div>
+
+    <span
+      class="tunisia-map__marker"
+      *ngFor="let marker of markers"
+      [style.left.%]="marker.x / 10"
+      [style.top.%]="marker.y / 10"
+      [class.is-active]="marker.region === activeRegion"
+      aria-hidden="true"
+    ></span>
+  </div>
+</div>

@@ -19,6 +19,8 @@ import { ProgrammeFilm, JuryMember, NashriyaEntry } from '../data/fifak-2026-con
 import { PROGRAMME_FILMS, JURY_MEMBERS, NASHRIYA_ENTRIES } from '../data/fifak-2026-content';
 import { PalmaresFilm } from '../pages/fifak-2026/palmares/palmares.model';
 import { PALMARES_FILMS } from '../pages/fifak-2026/palmares/palmares.data';
+import { Club } from '../data/clubs-content';
+import { CLUBS } from '../data/clubs-content';
 
 /**
  * Content service — provides typed content data
@@ -66,5 +68,9 @@ export class ContentService {
 
   getPalmaresFilms(): PalmaresFilm[] {
     return PALMARES_FILMS;
+  }
+
+  getClubs(): Club[] {
+    return CLUBS;
   }
 }
