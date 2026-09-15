@@ -19,7 +19,7 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     year: '1960',
     description:
-      'Naissance du mouvement amateur à Kélibia, porté par des passionnés de cinéma réunis autour d\'un projecteur 8mm.',
+      "Naissance du mouvement amateur à Kélibia, porté par des passionnés de cinéma réunis autour d'un projecteur 8mm.",
   },
   {
     year: '1964',
@@ -32,7 +32,7 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
       'Structuration de la FTCA en fédération nationale, rassemblant les clubs de cinéastes amateurs de tout le pays.',
   },
   {
-    year: 'Aujourd\'hui',
+    year: "Aujourd'hui",
     description:
       'Une nouvelle génération de cinéastes amateurs, un festival vivant, et une fédération qui continue de transmettre.',
   },
@@ -52,7 +52,8 @@ export const MISSION_ITEMS: MissionItem[] = [
   {
     icon: 'fa-solid fa-film',
     title: 'Développement du cinéma amateur',
-    description: 'Soutenir la création indépendante à travers tout le territoire tunisien.',
+    description:
+      'Soutenir la création indépendante à travers tout le territoire tunisien.',
   },
   {
     icon: 'fa-solid fa-graduation-cap',
@@ -64,12 +65,13 @@ export const MISSION_ITEMS: MissionItem[] = [
     icon: 'fa-solid fa-clapperboard',
     title: 'Diffusion',
     description:
-      'Faire circuler les films amateurs tunisiens en Tunisie comme à l\'international.',
+      "Faire circuler les films amateurs tunisiens en Tunisie comme à l'international.",
   },
   {
     icon: 'fa-solid fa-globe',
     title: 'Échanges culturels',
-    description: 'Connecter les cinéastes tunisiens aux réseaux amateurs internationaux.',
+    description:
+      'Connecter les cinéastes tunisiens aux réseaux amateurs internationaux.',
   },
 ];
 
@@ -99,13 +101,14 @@ export const FIFAK_CARDS: FifakCard[] = [
   {
     num: '03',
     title: 'Jury',
-    description: 'Des professionnels du cinéma et de la culture évaluent chaque édition.',
+    description:
+      'Des professionnels du cinéma et de la culture évaluent chaque édition.',
   },
   {
     num: '04',
     title: 'Palmarès',
     description:
-      'Les films primés rejoignent l\'histoire du festival et sa mémoire collective.',
+      "Les films primés rejoignent l'histoire du festival et sa mémoire collective.",
   },
 ];
 
@@ -139,7 +142,7 @@ export interface Fifak2026Row {
 export const FIFAK_2026_ROWS: Fifak2026Row[] = [
   { label: 'Dates', value: 'août 2026' },
   { label: 'Programme', value: 'Bientôt disponible' },
-  { label: 'Compétition', value: 'Appel à films ouvert' },
+  { label: 'Compétition', value: 'Appel à films fermé' },
   { label: 'Jury', value: 'Annonce à venir' },
   { label: 'Palmarès', value: 'Éditions précédentes' },
 ];
@@ -178,7 +181,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
   {
     category: 'FIFAK 2026',
     date: '30 Août 2026',
-    title: 'الإخبارية التونسية - "واردن" يحصد الصقر الذهبي والسينما التونسية تتوّج',
+    title:
+      'الإخبارية التونسية - "واردن" يحصد الصقر الذهبي والسينما التونسية تتوّج',
     excerpt:
       'فاز الفيلم الإيراني "واردن" بجائزة الصقر الذهبي، بينما توّج الفيلم التونسي "العود" بالجائزة الكبرى في المسابقة الوطنية.',
     image: assetUrl('article-alikhbaria-warden'),
@@ -202,7 +206,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
   {
     category: 'FIFAK 2026',
     date: '30 Août 2026',
-    title: 'Radio Monastir - اختتام فعاليات الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية',
+    title:
+      'Radio Monastir - اختتام فعاليات الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية',
     excerpt:
       'أسدل الستار في ساعة متأخرة من ليلة السبت-الأحد على فعاليات الدورة 39، مع الإعلان عن نتائج المسابقتين الدولية والوطنية.',
     image: assetUrl('article-radiomonastir-cloture'),
@@ -214,7 +219,8 @@ export const ARTICLE_CARDS: ArticleCard[] = [
   {
     category: 'FIFAK 2026',
     date: '30 Août 2026',
-    title: 'Radio Nationale - الفيلم الإيراني "واردن" يحصل على جائزة الصقر الذهبي',
+    title:
+      'Radio Nationale - الفيلم الإيراني "واردن" يحصل على جائزة الصقر الذهبي',
     excerpt:
       'اختتمت الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية بفوز الفيلم الإيراني "واردن" بجائزة الصقر الذهبي، من بين 28 فيلمًا من مختلف الأصناف والبلدان.',
     image: assetUrl('article-radiotunisienne-warden'),
@@ -240,7 +246,7 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     date: '12 Août 2026',
     title: 'La Presse - FIFAK 2026 : Une édition charnière',
     excerpt:
-      'La 39éme Edition du FIFAK 2026 promet d\'être particulièrement marquante.',
+      "La 39éme Edition du FIFAK 2026 promet d'être particulièrement marquante.",
     image: assetUrl('image-presse'),
     webpImage: assetUrl('image-presse'),
     lqip: 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAABQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JaQAD5gHb6/wch+1v7UUctvYAAP7SZJleNNH+rMJNFnUKhg5cz56Yqo+6t77X4Ms+tm2xfMykIn7XDMvKlf9KCwJ+G27jENgcatblQTeyyo6EUp3ZNMI/5waX/Su8N1oM4EPVPJ1n7O3k2smLjudL7ZhYCDzZ1Pkop+pTT1k/RwRXKCXVT25L6j/Vx3DxqvZAOIAA',
@@ -251,7 +257,7 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     date: '23 Août 2026',
     title: 'Retour sur 60 ans de cinéma amateur à Kélibia',
     excerpt:
-      'Un regard sur l\'histoire de la FTCA et l\'évolution du mouvement amateur en Tunisie.',
+      "Un regard sur l'histoire de la FTCA et l'évolution du mouvement amateur en Tunisie.",
     image: assetUrl('ftca-logo-mark'),
     webpImage: assetUrl('ftca-logo-mark'),
     lqip: 'data:image/webp;base64,UklGRoYCAABXRUJQVlA4WAoAAAAQAAAAFwAAFwAAQUxQSHMBAAABkGvb1rE965z3V2zbL2LbTmXbNjqnNKrU6n70sXMDtm3nxQk+XUJETEAH10vrN18wtH7gpW7voaQWvG29EQDBd5E0CHmH56ApPBfNZMb8TrmZPAoFcbJwGL2j3ZjRveqCZDNy1Zjhw8evX9fbySzDWhtGgO+SJ2lEHcdRpfFqaOshKAgZOszrT/sWTfsigAAq/ynT1jdevOXTj9vL0DlVUEcUEBqXbti9ptR+W9KX2TPI43AnFKG6V0TbYgt/2XQKdtaputlOoPwv+KUW2pde9elw6IL9tLE4ICq4/727bvu2JUkU2xlFAKFNqUWWMrLwbNtmhaAqaZI4icL4wSyE1IJbZj9+x2aJHalIXnOvBnnN2lQDr8yev/xm9nFph35UufRxLfWvvVuc4tnzr4ldXnpwAFXv2RYaPbIN4JfYh08/Qvt4c3sVys1Y3Y3Ks1Z1gqDMIrPE9hQqmQr+rmsnT5+6dLR1s8Bz3SDwXTcIPLdNFwBWUDgg7AAAALAGAJ0BKhgAGAA+7WKnTqmlIyIwGAwBMB2JZADADQE/+l0qCT1fT1X9gCkKVfhFaB5uuTV8wAjIYf8wqPgAAP7t4CUK5JPUFu9XkFZsFshhHNxmKuGw5yzKUziBkQS+/3Hkj2fWsd/yAKVLWwvyjmUNsJFtcd7pNwggJPludeRuyE578LQFH4Zx3uv5DpLK5zWn0cT7ICByFqfecYxdTQPWq6FXalZPPIS6Ctu4ESDTH2KznrqcR2vzTjtGM5qj4zrpbvkGgkcx5cf/rNBdJ7fY+3P0MYsp7ROTmjeYmT0aAqX9s7d/3iEQQAAA',
@@ -261,8 +267,7 @@ export const ARTICLE_CARDS: ArticleCard[] = [
     category: 'Formation',
     date: '23 Août 2026',
     title: 'Nouveaux ateliers de réalisation ouverts aux jeunes cinéastes',
-    excerpt:
-      'La FTCA lance un cycle de formations gratuites.',
+    excerpt: 'La FTCA lance un cycle de formations gratuites.',
     image: assetUrl('fifak-wallp'),
     webpImage: assetUrl('fifak-wallp'),
     lqip: 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACwBACdASoYAAwAPu1iqU2ppaOiMAgBMB2JZACdMoAlvBWsyfvSPxm9T4LNoTgAAP7p/zSWr1XyJ6OjvSgPNgjs5qcPxeWlNjHjkbCrC2nvHAlK8v7HUyNQexDZ5oSS+JFHEyYco5Sd9SSK4gWepw+5Ws1lSTJOxT4+zkw/KanoyYYWuv7q9JmF93lcj8PK+A7JYmfRnA25wpdTlD7yYZQqy6XlmYae93hFwAAA',
@@ -280,7 +285,7 @@ export interface EditorialStat {
 }
 
 export const EDITORIAL_STATS: EditorialStat[] = [
-  { value: '60+', label: 'Années d\'existence et de transmission' },
+  { value: '60+', label: "Années d'existence et de transmission" },
   { value: '39', label: 'Éditions du FIFAK organisées à Kélibia' },
   { value: '+40', label: 'Pays représentés au festival au fil des années' },
 ];
@@ -324,10 +329,19 @@ export const HERO_CONTENT: HeroContent = {
   titleAccent: 'Cinéastes',
   titleSuffix: ' Amateurs',
   subtitle:
-    'La FTCA fait vivre le cinéma amateur tunisien depuis des décennies : formation, création, transmission — et l\'organisation du plus ancien festival de films amateurs au monde.',
+    "La FTCA fait vivre le cinéma amateur tunisien depuis des décennies : formation, création, transmission — et l'organisation du plus ancien festival de films amateurs au monde.",
   actions: [
-    { label: 'Découvrir FIFAK 2026', variant: 'solid', routerLink: '/fifak-2026' },
-    { label: 'Notre histoire', variant: 'ghost', routerLink: '/', fragment: 'ftca' },
+    {
+      label: 'Découvrir FIFAK 2026',
+      variant: 'solid',
+      routerLink: '/fifak-2026',
+    },
+    {
+      label: 'Notre histoire',
+      variant: 'ghost',
+      routerLink: '/',
+      fragment: 'ftca',
+    },
   ],
   badgeNumber: 'N°39',
   badgeLines: ['Édition', 'FIFAK 2026'],
