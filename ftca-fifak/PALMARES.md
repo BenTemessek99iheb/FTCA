@@ -104,15 +104,19 @@ essayait de le recolorer. Refait via `sharp` (extraction alpha par luminance
 + étirement de contraste) avant d'être passé dans `optimize-assets.js`
 (entrée `laureat.png` ajoutée aux `TARGETS`).
 
-**`assets/laureat` n'est pas encore résolu par `assetUrl()` au moment de ce
-commit** — `assetUrl()` pointe vers un miroir Cloudinary
-(`res.cloudinary.com/ykjb5rh5/.../assets/<nom>`, voir `environment.ts`) qui
-ne sert que les fichiers déjà déployés en production ; un fichier tout juste
-ajouté localement (comme `laureat.png` ici) y répond 404 jusqu'au prochain
-déploiement (le même cycle que tout nouvel asset de ce projet — `ftca_logo`
-et `ftca-logo-mark`, déjà utilisés ailleurs, répondent bien 200). Attendu à
-se résoudre après le prochain `git push` sur `main`, pas un bug à corriger
-ici.
+**`assetUrl()` pointe vers un miroir Cloudinary**
+(`res.cloudinary.com/ykjb5rh5/.../assets/<nom>`, voir `environment.ts`), pas
+vers `dist/.../assets/` local. Un fichier tout juste ajouté dans
+`src/assets/` (comme `laureat.png` ici) y répond 404 tant qu'il n'a pas été
+poussé sur Cloudinary — **ce n'est pas automatique au déploiement du site** :
+aucun step CI ne le fait (vérifié dans `.github/workflows/`), il faut lancer
+`npm run upload-assets` (`scripts/upload-to-cloudinary.js`) depuis un poste
+disposant d'un `.env` à la racine du repo (au-dessus de `ftca-fifak/`, voir
+`.env.example`... pas encore de gabarit pour les identifiants Cloudinary,
+seulement FTP) avec `CLOUDINARY_CLOUD_NAME`/`CLOUDINARY_API_KEY`/
+`CLOUDINARY_API_SECRET`. `npm run verify-cloudinary` (lecture seule) liste
+ce qui manque encore. `laureat.png` a été poussé ainsi le 2026-09-15, il
+répond bien 200 désormais.
 
 Pas de poster dans la carte elle-même (il n'apparaît qu'au clic, dans le
 modal) : à cette taille de carte, un poster nuisait à la lisibilité du prix

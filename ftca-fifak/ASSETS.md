@@ -21,13 +21,37 @@ convention par défaut d'Angular CLI — ne pas le déplacer.
 
 ## Comment une image est servie
 
-`angular.json` → `architect.build.options.assets` contient `"src/assets"` :
-tout le dossier est copié tel quel dans `dist/ftca-fifak/browser/assets/`
-à chaque build, avec la même arborescence. `index.html` déclare
-`<base href="/">`, donc toute référence `assets/xxx.jpg` dans le code
-(HTML ou TS, sans slash initial) se résout en `/assets/xxx.jpg` — cette
-convention (chemin relatif sans slash initial) est celle utilisée partout
-dans ce projet, à conserver pour toute nouvelle image.
+**Deux mécanismes différents selon comment le chemin est construit** —
+distinction importante, source de confusion sinon (vécu le 2026-09-15,
+images d'articles ajoutées au code mais invisibles sur le site) :
+
+- **Via `assetUrl('nom')`** (`src/app/shared/asset-url.ts`) — le cas de la
+  quasi-totalité des images de contenu éditorial (`data/*.ts`). Résout vers
+  un miroir Cloudinary (`res.cloudinary.com/ykjb5rh5/.../assets/<nom>`,
+  `f_auto,q_auto` pour le format/la qualité à la volée), **pas** vers
+  `dist/.../assets/` local — voir `environment.ts` pour le detail et le
+  pourquoi. **Le fichier local ne suffit pas** : il doit en plus être
+  poussé sur Cloudinary, ce qui n'arrive **pas automatiquement** au
+  déploiement du site (aucun step CI ne le fait). Deux scripts dédiés :
+  - `npm run verify-cloudinary` (lecture seule) — liste les fichiers de
+    `src/assets/` absents de Cloudinary.
+  - `npm run upload-assets` — les y pousse. Nécessite un `.env` **à la
+    racine du repo** (au-dessus de `ftca-fifak/`, donc `FTCA/.env` — pas
+    `ftca-fifak/.env`, qui sert au FTP, voir `.env.example`) avec
+    `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
+    (Cloudinary → Settings → API Keys). Sans ce `.env`, `npm run
+    verify-cloudinary`/`upload-assets` échouent immédiatement avec un
+    message explicite plutôt qu'une erreur obscure.
+- **Chemin local direct** (`assets/xxx.svg` en dur, sans passer par
+  `assetUrl()`) — cas rare, actuellement seulement `assets/tn.svg`
+  (`tunisia-map.component.ts`, récupéré via `HttpClient.get(...)` en texte
+  brut pour être injecté dans le DOM — un usage qui ne se prête pas à
+  Cloudinary). Pour ce cas : `angular.json` →
+  `architect.build.options.assets` contient `"src/assets"`, tout le dossier
+  est copié tel quel dans `dist/ftca-fifak/browser/assets/` à chaque build,
+  et `index.html` déclare `<base href="/">` donc `assets/xxx` (sans slash
+  initial) se résout en `/assets/xxx` sur le domaine du site lui-même — ce
+  mécanisme suffit, pas besoin de Cloudinary pour ce genre de fichier.
 
 ## Chemins actuels par section
 
@@ -66,6 +90,12 @@ toutes les pages, pas de variation de contenu à typer) — toute image liée
    comme `HeroContent.bgImageWebp`.
 7. `npm run build:prod` puis vérifier `find dist/ftca-fifak/browser/assets/`
    — le nouveau fichier (+ son `.webp`) doit y apparaître.
+8. **`npm run upload-assets`** (voir §"Comment une image est servie"
+   ci-dessus) — étape à ne pas oublier si le champ de données utilise
+   `assetUrl()` (le cas normal) : sans elle, l'image reste invisible en
+   ligne (et en dev local) même une fois le site déployé, puisque
+   `assetUrl()` ne lit jamais `dist/.../assets/` local. `npm run
+   verify-cloudinary` pour confirmer avant de considérer la tâche terminée.
 
 ## Images externes (picsum.photos)
 
