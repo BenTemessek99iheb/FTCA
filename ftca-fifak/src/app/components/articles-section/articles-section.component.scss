@@ -84,6 +84,25 @@
   flex: 1;
 }
 
+/* Articles sourcés en arabe (voir ArticleCard.lang) — même traitement que
+   la bascule .is-arabic de film-card (police --arabe, RTL, line-height plus
+   large pour la lisibilité du script arabe). */
+.article-card.is-arabic {
+  h3 {
+    font-family: var(--arabe);
+    font-weight: 600;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  p {
+    font-family: var(--arabe);
+    text-align: right;
+    font-size: 14.5px;
+    line-height: 1.9;
+  }
+}
+
 .article-card__link {
   margin-top: 18px;
   display: inline-flex;

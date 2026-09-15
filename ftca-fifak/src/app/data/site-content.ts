@@ -159,9 +159,82 @@ export interface ArticleCard {
   /** Placeholder flou base64 affiché pendant le chargement lazy de `image` */
   lqip?: string;
   link: string;
+  /** Langue de `title`/`excerpt` — 'ar' bascule le rendu en RTL + police --arabe (voir articles-section). Absent = 'fr' (comportement existant, inchangé). */
+  lang?: 'fr' | 'ar';
 }
 
 export const ARTICLE_CARDS: ArticleCard[] = [
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'La Presse - FIFAK 2026 : Identités croisées et Ghazawiyet',
+    excerpt:
+      'Troisième journée de la 39e édition du Fifak, marquée par une soirée spéciale « Ghazawiyet » dédiée à la Palestine et aux femmes de Gaza.',
+    image: assetUrl('article-lapresse-ghazawiyet'),
+    webpImage: assetUrl('article-lapresse-ghazawiyet'),
+    lqip: 'data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABwBACdASoYAA8APu1iqU2ppaOiMAgBMB2JbACdAYq+5cEW5tbAHiq1blRwKAD+9DLYzmcTikJWYdiTIQ2JrYtktHUK2HGqKDji0ksIYLDmm1iQFbiH496Qzr/JZo3RkH+Bk/tp7E32PuDHctTe+eb7A5G8j1q76e3lH/jxd0f4u7bfjt38F8xLj6AAAA==',
+    link: 'https://www.lapresse.tn/2026/08/28/fifak-2026-identites-croisees-et-ghazawiyet/?fbclid=IwY2xjawUWI-BwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4fQW2jOQxeFFdKOLCyhp7qz33wGKSrQdtc_wH4hS9mVgIydjO0iGJ4OINfEw_aem_SENCptiCOHRsbIvo-FrRLg',
+  },
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'الإخبارية التونسية - "واردن" يحصد الصقر الذهبي والسينما التونسية تتوّج',
+    excerpt:
+      'فاز الفيلم الإيراني "واردن" بجائزة الصقر الذهبي، بينما توّج الفيلم التونسي "العود" بالجائزة الكبرى في المسابقة الوطنية.',
+    image: assetUrl('article-alikhbaria-warden'),
+    webpImage: assetUrl('article-alikhbaria-warden'),
+    lqip: 'data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JaAAAVGNl/BXTsxiKgAD+jTefXv5ykhyMntNvkNuU46mpMx09UaG3TGTAhflbnCywCcv/Q//A/0+bhhhIpJcmVk8f+DSfoKY7Ln22VnTWjHwfNDKSTDMWVSopLdu998LFerAA',
+    link: 'https://www.alikhbariaattounsia.com/2026/08/30/%d8%a7%d8%ae%d8%aa%d8%aa%d8%a7%d9%85-%d9%85%d9%87%d8%b1%d8%ac%d8%a7%d9%86-%d9%82%d9%84%d9%8a%d8%a8%d9%8a%d8%a9-%d9%84%d9%81%d9%8a%d9%84%d9%85-%d8%a7%d9%84%d9%87%d9%88%d8%a7%d8%a9-%d9%88%d8%a7/?fbclid=IwY2xjawUWI7VwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR6ChxzN8D605U-T2JrjrT-ExvzTYJ-4vz2sKKOqqnUMKyNU0MnQNTiWkG9ghw_aem_ZEbed-uAeF1vSSS6a1rbcA',
+    lang: 'ar',
+  },
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'Assabah News - نتائج المسابقتين الدولية والوطنية للدورة 39',
+    excerpt:
+      'توزيع الجوائز على الأفلام الفائزة في المسابقتين الدولية والوطنية، وسط عروض فنية وتكريمات لشخصيات سينمائية راحلة.',
+    image: assetUrl('article-assabahnews-cloture'),
+    webpImage: assetUrl('article-assabahnews-cloture'),
+    lqip: 'data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwBACdASoYAAwAPu1iqk2ppaQiMAgBMB2JZACdL1yByzs50peIjDNtNgYMAAD+rxEmqGtaRMOf8AtZz8TRIaa/jHvnB93wp/DsqWIOzijAnUe9M4i9atzdJtaIWiKEEEKdpmiK0xBM/js2hCWeYR1fm9la3FGd+6EfVFFEwQmP0ohAEAhX9Ulwyw96ZAAA',
+    link: 'https://www.assabahnews.tn/ar/%D8%AB%D9%82%D8%A7%D9%81%D8%A9/%D9%81%D9%86%D9%88%D9%86/153128-%D8%A7%D8%AE%D8%AA%D8%AA%D8%A7%D9%85-%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9-39-%D9%84%D9%84%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A9-%D8%A8%D9%82%D9%84%D9%8A%D8%A8%D9%8A%D8%A9-%D9%86%D8%AA%D8%A7%D8%A6%D8%AC-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D8%AA%D9%8A%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A%D8%A9',
+    lang: 'ar',
+  },
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'Radio Monastir - اختتام فعاليات الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية',
+    excerpt:
+      'أسدل الستار في ساعة متأخرة من ليلة السبت-الأحد على فعاليات الدورة 39، مع الإعلان عن نتائج المسابقتين الدولية والوطنية.',
+    image: assetUrl('article-radiomonastir-cloture'),
+    webpImage: assetUrl('article-radiomonastir-cloture'),
+    lqip: 'data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwBACdASoYAAwAPu1iqk2ppaQiMAgBMB2JZACdL1yByzs50peIjDNtNgYMAAD+rxEmqGtaRMOf8AtZz8TRIaa/jHvnB93wp/DsqWIOzijAnUe9M4i9atzdJtaIWiKEEEKdpmiK0xBM/js2hCWeYR1fm9la3FGd+6EfVFFEwQmP0ohAEAhX9Ulwyw96ZAAA',
+    link: 'https://www.radiomonastir.tn/article/6a93faaa07af205440528b22/%D8%A7%D8%AE%D8%AA%D8%AA%D8%A7%D9%85-%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D8%A9-39-%D9%84%D9%84%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A9-%D8%A8%D9%82%D9%84%D9%8A%D8%A8%D9%8A%D8%A9?fbclid=IwY2xjawUWI6RwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4IP4ZMyXFbuW-YWwARHWm82Z_Wgbb4_0GFCmoQrwakXej5eBQ7il1xBLX9xw_aem_5I7r9NaSteITx76K1LRrDw',
+    lang: 'ar',
+  },
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'Radio Nationale - الفيلم الإيراني "واردن" يحصل على جائزة الصقر الذهبي',
+    excerpt:
+      'اختتمت الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية بفوز الفيلم الإيراني "واردن" بجائزة الصقر الذهبي، من بين 28 فيلمًا من مختلف الأصناف والبلدان.',
+    image: assetUrl('article-radiotunisienne-warden'),
+    webpImage: assetUrl('article-radiotunisienne-warden'),
+    lqip: 'data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACwAwCdASoYAA4APu1kq04ppaQiMAgBMB2JaAAAQqHdcsupHA5mAAD+jTe7G5qLvohSswf5hifECQYtvsvCdR7PM+7v/H17nYP23BFdr6C3ZeSn7vP6pwegKvISHOpRD3xGP/t9mQPZxWmCT7PbX5qpbAzeR3r8AAA=',
+    link: 'https://www.radionationale.tn/article/6a93fb0c07af20544052cfcc/%D8%A7%D9%84%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%81%D9%84%D9%85-%D8%A7%D9%84%D9%87%D9%88%D8%A7%D8%A9-%D8%A8%D9%82%D9%84%D9%8A%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D9%81%D9%8A%D9%84%D9%85-%D8%A7%D9%84%D8%A5%D9%8A%D8%B1%D8%A7%D9%86%D9%8A-%D9%88%D8%A7%D8%B1%D8%AF%D9%86-%D9%8A%D8%AD%D8%B5%D9%84-%D8%B9%D9%84%D9%89-%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%D8%A7%D9%84%D8%B5%D9%82%D8%B1-%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A?fbclid=IwY2xjawUWI5NwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR42EfXCXqyikK3xJ0oQcoRsm-FIcj5KAuqKnsOylIflhowyqRDdMn3DttkIIA_aem_-2c7KYugHRv2DabNjAVkmQ',
+    lang: 'ar',
+  },
+  {
+    category: 'FIFAK 2026',
+    date: '30 Août 2026',
+    title: 'Safa News - اختتام الدورة 39 للمهرجان الدولي لفيلم الهواة بقليبية',
+    excerpt:
+      'أسدل الستار يوم السبت 29 أوت 2026 على فعاليات الدورة التاسعة والثلاثين من المهرجان الدولي لفيلم الهواة بقليبية.',
+    image: assetUrl('article-safanews-cloture'),
+    webpImage: assetUrl('article-safanews-cloture'),
+    lqip: 'data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQAwCdASoYAA4APu1iqU2ppaOiMAgBMB2JQBYdg9E8dlomm1rPq8AA/uc7xKen31tE97+Bmu3vVfdrlsM1DyFlUc7JfZDdarkk4GFgxCV8XCcuRN2HR1DqRCSpuEZQEPsrxTZX6dUgDf44FtNH12nT41v6+c2RGmwUAAAA',
+    link: 'https://www.safanews.net/%D8%A7%D8%AE%D8%AA%D8%AA%D8%A7%D9%85-%D8%A7%D9%84%D9%81%D9%8A%D9%81%D8%A7%D9%83%D8%A7%D9%84%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D9%84%D9%81%D9%8A%D9%84%D9%85/?fbclid=IwY2xjawUWI4hwZG9mBWV4dG4DYWVtAjExAHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4IlBkcQKmVS1AwC1qEiHx70KwI-asRGEHxJ-Wrgiz4lahuyN5yWSOAMz5Evg_aem_XHjfGzoDUmIHRv_o0IvRGw',
+    lang: 'ar',
+  },
   {
     category: 'FIFAK 2026',
     date: '12 Août 2026',

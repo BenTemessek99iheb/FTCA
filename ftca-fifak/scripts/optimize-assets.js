@@ -44,6 +44,14 @@ const TARGETS = {
   // Couronne de lauriers (laureate-laurels) : affichée à 30-128px CSS max,
   // 400px couvre le rétina @3x confortablement.
   'laureat.png': { maxWidth: 400, quality: 90 },
+  // Vignettes articles (articles-section, ratio 4/3, ~380px CSS en grille 3
+  // colonnes) — même gabarit que image-presse.png/fifak-wallp.png (900px).
+  'article-safanews-cloture.jpg': { maxWidth: 900, quality: 78 },
+  'article-radiotunisienne-warden.jpg': { maxWidth: 900, quality: 78 },
+  'article-radiomonastir-cloture.jpg': { maxWidth: 900, quality: 78 },
+  'article-alikhbaria-warden.jpg': { maxWidth: 900, quality: 78 },
+  'article-assabahnews-cloture.jpg': { maxWidth: 900, quality: 78 },
+  'article-lapresse-ghazawiyet.jpg': { maxWidth: 900, quality: 78 },
 };
 
 function fmtKb(bytes) {
