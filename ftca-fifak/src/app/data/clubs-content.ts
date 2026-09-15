@@ -1,10 +1,11 @@
 /**
  * CLUBS FTCA — data
  * Clubs régionaux affichés sur la carte de Tunisie (app-clubs-drawer,
- * app-clubs-page). Liste fournie directement par la Fédération, en deux
- * temps (18 clubs au total) — Sousse/Sfax/Djerba restent absents faute de
- * club FTCA réel confirmé à ces localités ; les ajouter dès que la
- * Fédération les confirme, en suivant le même patron que les autres entrées.
+ * app-clubs-page — carte ET annuaire, voir clubs-page.component.ts).
+ * Liste fournie directement par la Fédération, en plusieurs temps
+ * (20 clubs au total) — Sousse/Sfax/Djerba restent absents faute de club
+ * FTCA réel confirmé à ces localités ; les ajouter dès que la Fédération
+ * les confirme, en suivant le même patron que les autres entrées.
  */
 
 export interface Club {
@@ -193,5 +194,23 @@ export const CLUBS: Club[] = [
     location: 'Tataouine',
     description: 'Club de cinéastes amateurs de la Fédération, à Tataouine.',
     formEndpoint: '/api/inscription/tataouine',
+  },
+  {
+    id: 'el-kef',
+    name: 'Club FTCA El Kef',
+    city: 'El Kef',
+    region: 'Le Kef',
+    location: 'El Kef',
+    description: 'Club de cinéastes amateurs de la Fédération, à El Kef.',
+    formEndpoint: '/api/inscription/el-kef',
+  },
+  {
+    id: 'medenine',
+    name: 'Club FTCA Médenine',
+    city: 'Médenine',
+    region: 'Médenine',
+    location: 'Médenine',
+    description: 'Club de cinéastes amateurs de la Fédération, à Médenine.',
+    formEndpoint: '/api/inscription/medenine',
   },
 ];

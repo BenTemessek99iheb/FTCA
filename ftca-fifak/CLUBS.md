@@ -16,7 +16,7 @@ src/app/components/
   clubs-drawer/          Tiroir latéral (carte + popup), ouvert depuis navbar
   share-button/          Bouton "Partager" réutilisable (club-popup → lien /inscription du club)
 src/app/pages/clubs/
-  clubs-page.component.ts/html/scss         Page dédiée (route /clubs), même carte en plus grand
+  clubs-page.component.ts/html/scss         Page dédiée (route /clubs) : carte en grand + annuaire
 src/app/pages/inscription/
   inscription-page.component.ts/html/scss   Formulaire d'inscription (route /inscription)
 src/app/services/
@@ -78,6 +78,23 @@ site (`getProgrammeFilms()`, `getPalmaresFilms()`...).
   est dupliquée entre `ClubsDrawerComponent` et `ClubsPageComponent` (~15
   lignes chacun) plutôt que factorisée — trop peu de code pour justifier une
   abstraction partagée.
+- **L'annuaire sous la carte (`/clubs` uniquement, pas le tiroir)** groupe
+  `CLUBS` par `region` (triées alphabétiquement, `ClubsPageComponent.buildRegionGroups()`,
+  calculé une fois — pas un `computed()` signal, `CLUBS` ne change jamais au
+  runtime). Cliquer une carte club appelle **le même** `onRegionSelected()`
+  que cliquer le gouvernorat sur la carte, ouvrant le même
+  `app-club-popup` (tous les clubs du gouvernorat, pas juste celui cliqué) —
+  aucune variante "un seul club" à maintenir en plus, comme demandé. Chaque
+  carte est un `<button>` natif (focus/clavier Entrée-Espace gratuits, pas de
+  gestion manuelle) ; l'anneau de focus vient de la règle globale
+  `:focus-visible` de `_tokens.scss`, rien à ajouter. Survoler une carte
+  (`onCardHoverStart`/`onCardHoverEnd`) alimente un signal `hoveredRegion`
+  combiné à `selectedRegion` dans le binding `[activeRegion]` passé à
+  `app-tunisia-map` (`hoveredRegion() ?? selectedRegion()`) — **aucune**
+  modification de `tunisia-map.component.ts` : la mise en évidence
+  (`tunisia-map__region--selected`) existait déjà pour l'état "popup
+  ouverte", elle réagit simplement à une valeur différente selon d'où elle
+  vient.
 - **`tn.svg` est retéléchargé si le tiroir a déjà été ouvert puis qu'on
   navigue vers `/clubs`** (ou l'inverse) : chaque instance de
   `app-tunisia-map` fait son propre fetch dans son propre `ngOnInit`, aucun
@@ -223,7 +240,7 @@ perte de saisie) pour un vrai échec réseau une fois le backend branché.
 
 ## Compléter les infos d'un club
 
-Les 18 clubs de `CLUBS` (`clubs-content.ts`) et leurs `location` viennent de
+Les 20 clubs de `CLUBS` (`clubs-content.ts`) et leurs `location` viennent de
 la liste fournie par la Fédération, en deux temps — ce ne sont pas des
 villes génériques "un club par gouvernorat" inventées. Sousse/Sfax/Djerba
 restent absentes faute de club réel confirmé à ces localités ; les ajouter

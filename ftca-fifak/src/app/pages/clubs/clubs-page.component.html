@@ -9,9 +9,49 @@
     <div class="clubs-page__map">
       <app-tunisia-map
         [clubs]="clubs"
-        [activeRegion]="selectedRegion()"
+        [activeRegion]="hoveredRegion() ?? selectedRegion()"
         (regionSelected)="onRegionSelected($event)"
       ></app-tunisia-map>
+    </div>
+
+    <div class="clubs-directory">
+      <div class="clubs-directory__intro">
+        <span class="eyebrow">Annuaire</span>
+        <h2>Tous les clubs</h2>
+        <p>{{ totalClubs }} clubs répartis sur {{ totalRegions }} régions en Tunisie.</p>
+
+        <div class="clubs-directory__stats">
+          <div class="clubs-directory__stat">
+            <b>{{ totalClubs }}</b>
+            <span>Clubs</span>
+          </div>
+          <div class="clubs-directory__stat">
+            <b>{{ totalRegions }}</b>
+            <span>Régions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="clubs-directory__region" *ngFor="let group of regionGroups">
+        <div class="clubs-directory__region-head">
+          <h3>{{ group.region }}</h3>
+          <span>{{ group.clubs.length }} club{{ group.clubs.length > 1 ? 's' : '' }}</span>
+        </div>
+
+        <div class="clubs-directory__grid">
+          <button
+            type="button"
+            class="clubs-directory__card"
+            *ngFor="let club of group.clubs"
+            (mouseenter)="onCardHoverStart(club.region)"
+            (mouseleave)="onCardHoverEnd()"
+            (click)="onRegionSelected(club.region)"
+          >
+            <h4>{{ club.name }}</h4>
+            <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i>{{ club.location }}</p>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
